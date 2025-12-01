@@ -1,0 +1,32 @@
+[
+    {
+        "year": "2025 - 2026",
+        "title": "Concepteur Développeur d’Applications",
+        "description": "Formation en cours (Sept 2025 - Juil 2026).",
+        "type": "education"
+    },
+    {
+        "year": "2024 - 2025",
+        "title": "Autoformation Intensive",
+        "description": "Python, IA, Web, Data, Automatisation.",
+        "type": "education"
+    },
+    {
+        "year": "2004 - 2023",
+        "title": "BUT - Commerce Spécialisé",
+        "description": "Responsable de rayon, coordinateur, attaché de direction, responsable SAV. Vente, management, planification, relation client/fournisseur, outils low-code.",
+        "type": "experience"
+    },
+    {
+        "year": "2000 - 2002",
+        "title": "Stages Ingénieur",
+        "description": "THALES LASER, LORD Ingénierie, Bonnet Électronique, IDEACOD. Développement embarqué, traitement du signal, conception optique et électronique.",
+        "type": "experience"
+    },
+    {
+        "year": "Avant 2000",
+        "title": "Formation Initiale",
+        "description": "Ingénieur en Sciences de l’Industrie (Optronique – Université Paris-Sud), BTS Génie Optique Photonique, Bac STL Physique de Laboratoire.",
+        "type": "education"
+    }
+]

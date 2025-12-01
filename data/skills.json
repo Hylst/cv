@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Développement & Automatisation",
+    "icon": "code",
+    "items": ["Python", "HTML5/CSS3", "JavaScript", "Django", "Flask", "React (bases)", "PHP", "Make", "n8n", "Git", "API REST", "Docker"]
+  },
+  {
+    "category": "Data & IA",
+    "icon": "chart-bar",
+    "items": ["Pandas", "NumPy", "Matplotlib", "Scikit-learn", "IA générative", "NLP", "Data cleaning"]
+  },
+  {
+    "category": "Pédagogie & Création",
+    "icon": "lightbulb",
+    "items": ["Plateformes éducatives", "Gamification", "UX/UI", "Vulgarisation scientifique", "Accessibilité numérique"]
+  },
+  {
+    "category": "Connaissances Transversales",
+    "icon": "cogs",
+    "items": ["Optique", "Électronique", "Systèmes embarqués", "Management", "Communication"]
+  }
+]
