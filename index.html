@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CV interactif de Geoffroy Streit, Ingénieur pluridisciplinaire en reconversion IT. Développeur Python & Web, Data Science & IA.">
+    <meta name="description"
+        content="CV interactif de Geoffroy Streit, Ingénieur pluridisciplinaire en reconversion IT. Développeur Python & Web, Data Science & IA.">
     <meta name="author" content="Geoffroy Streit">
     <title>Geoffroy Streit - Ingénieur & Développeur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="assets/icons/favicon.ico">
 </head>
+
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
@@ -20,24 +27,76 @@
         <header class="sidebar">
             <div class="profile-section">
                 <div class="photo-container">
-                    <img src="assets/photo.jpg" alt="Photo de Geoffroy Streit" class="profile-photo" onerror="this.src='https://via.placeholder.com/150'">
+                    <img src="assets/photo.jpg" alt="Photo de Geoffroy Streit" class="profile-photo"
+                        onerror="this.src='https://via.placeholder.com/150'">
                 </div>
                 <h1>Geoffroy Streit</h1>
                 <p class="role">Ingénieur pluridisciplinaire en reconversion IT</p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+33677137538">06.77.13.75.38</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/8xxYngCriyJfUcsn8" target="_blank">21 rue des remparts, 67170
+                            BRUMATH</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-car"></i>
+                        <span>Véhicule personnel</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Bas-Rhin</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-wheelchair"></i>
+                        <a href="#accessibility">Travailleur handicapé (RQTH)</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Langues</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">Anglais (TOEIC 835)</span>
+                        <span class="tag">Allemand (Notions)</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Atouts</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">Pluridisciplinarité</span>
+                        <span class="tag">Adaptabilité</span>
+                        <span class="tag">Autonomie</span>
+                        <span class="tag">Créativité</span>
+                    </div>
+                </div>
+
                 <div class="social-links">
-                    <a href="mailto:geoffroy.streit@gmail.com" aria-label="Envoyer un email">Email</a>
-                    <a href="https://linkedin.com/in/geoffroy-streit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+                    <a href="https://linkedin.com/in/geoffroy-streit" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                            class="fab fa-github fa-lg"></i></a>
                 </div>
                 <a href="pdf/Geoffroy_Streit_CV_2025.pdf" class="btn btn-primary" download>Télécharger CV</a>
             </div>
-            
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#timeline">Parcours</a></li>
                     <li><a href="#skills">Compétences</a></li>
                     <li><a href="#projects">Projets</a></li>
+                    <li><a href="#interests">Intérêts</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#diplomas">Diplômes</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -55,10 +114,77 @@
                     <h2>À propos</h2>
                     <h3>Développeur Python & Web | Automatisation, Data Science & IA</h3>
                     <p class="pitch">
-                        Ingénieur de formation (optronique, électronique, informatique industrielle) — 20 ans d’expérience terrain en management et relation client — aujourd’hui reconverti vers le numérique pour créer des solutions utiles, inclusives et intelligentes.
+                        Ingénieur de formation (optronique, électronique, informatique industrielle) — 20 ans
+                        d’expérience terrain en management et relation client — aujourd’hui reconverti vers le numérique
+                        pour créer des solutions utiles, inclusives et intelligentes.
                     </p>
                     <div class="objective">
-                        <strong>Objectif :</strong> Concevoir, développer ou piloter des solutions numériques pédagogiques et inclusives, intégrant automatisation et IA, au service de l’humain, de la productivité et de l’apprentissage.
+                        <strong>Objectif :</strong> Concevoir, développer ou piloter des solutions numériques
+                        pédagogiques et inclusives, intégrant automatisation et IA, au service de l’humain, de la
+                        productivité et de l’apprentissage.
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <details class="collapsible-card">
+                            <summary>
+                                <h3>En bref</h3>
+                            </summary>
+                            <div class="collapsible-content">
+                                <p>Ancien Ingénieur Industrie Optronique / Embarqué avec 20 ans d'expérience en
+                                    commerce, gestion et management. Passionné de sciences, j'ai étudié à l'origine
+                                    optique, électronique et informatique industrielle.</p>
+                                <p>Mon expérience commerciale ces dernières années m'a permis d'améliorer mon
+                                    relationnel insuffisant en sortant d'école. Handicapé aujourd'hui, je me forme au
+                                    dev WEB/App, Data Science/ML, IT.</p>
+                            </div>
+                        </details>
+
+                        <details class="collapsible-card">
+                            <summary>
+                                <h3>Ma Story</h3>
+                            </summary>
+                            <div class="collapsible-content">
+                                <p><strong>Du photon au neurone artificiel : Ingénieur de formation, Gestionnaire &
+                                        Commercial par expérience, Développeur par passion.</strong></p>
+                                <p>Après 20 ans d'expérience variée dans le vente, la gestion et le management, j'opère
+                                    un "retour vers le futur" professionnel. Ingénieur en sciences de l'industrie
+                                    (Optronique) à l'origine, j'ai toujours eu la technologie dans mon ADN.</p>
+                                <p>Aujourd'hui, je transforme un défi de vie (neuro-atypie & handicap dorsal / RQTH) en
+                                    opportunité de carrière. Je suis en reconversion active vers le Développement
+                                    d'Applications, l'IA et la Data Science.</p>
+                                <br>
+                                <p>💡 <strong>Ce que j'apporte aujourd'hui :</strong> Ma double culture "Technique &
+                                    Humaine" est mon atout majeur. Je ne code pas seulement des fonctionnalités ; je
+                                    comprends les besoins métier, les contraintes utilisateurs et l'importance de la
+                                    communication dans une équipe agile.</p>
+                                <br>
+                                <p>🛠 <strong>Mon expertise technique actuelle en cours d'acquisition (Autoformation
+                                        continue + Formation CDA M2i) :</strong></p>
+                                <ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
+                                    <li><strong>Développement :</strong> HTML5/CSS3, PHP, Python (Django, Flask),
+                                        JavaScript (bases React & Node.js), Data Science (en cours d'acquisition).</li>
+                                    <li><strong>Automatisation & No-Code :</strong> Création de workflows complexes
+                                        (n8n, Make), intégration d'API, Agents IA.</li>
+                                    <li><strong>Data & IA :</strong> Pandas, Numpy, Scikit-learn, Prompt Engineering
+                                        avancé, RAG.</li>
+                                    <li><strong>Back-end & BDD :</strong> SQL, NoSQL, PostgreSQL, Docker.</li>
+                                </ul>
+                                <p>🧠 <strong>Mes projets du moment :</strong> Je développe des outils éducatifs et
+                                    inclusifs (sites web, apps ludiques assistées par IA) avec une sensibilité
+                                    particulière pour la neurodiversité, l'accessibilité, les sciences et les arts
+                                    numériques.</p>
+                                <br>
+                                <p>📍 <strong>Ma situation :</strong> En formation Concepteur Développeur d'Applications
+                                    (CDA) jusqu'en juillet 2026, je suis à la recherche de collaborations ou
+                                    d'alternances où la curiosité technique et la maturité professionnelle sont
+                                    valorisées. Mon poste de travail sera aménagé pour compenser mon handicap ou alterné
+                                    avec du télétravail.</p>
+                                <br>
+                                <p>Envie d'échanger sur la Tech, l'IA ou l'inclusion ? Contactez-moi ! 📩 <a
+                                        href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a> 🌐 <a
+                                        href="https://portfolio.hylst.fr" target="_blank">portfolio.hylst.fr</a></p>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </section>
@@ -67,6 +193,10 @@
             <section id="timeline" class="section">
                 <div class="container">
                     <h2>Parcours</h2>
+                    <div class="timeline-controls">
+                        <button id="view-chronological" class="btn btn-sm active">Chronologique</button>
+                        <button id="view-categorical" class="btn btn-sm">Par Catégorie</button>
+                    </div>
                     <div class="timeline-container" id="timeline-list">
                         <!-- Timeline items will be injected here -->
                     </div>
@@ -93,6 +223,66 @@
                 </div>
             </section>
 
+            <!-- Interests -->
+            <section id="interests" class="section">
+                <div class="container">
+                    <h2>Centres d'intérêts</h2>
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <i class="fas fa-palette interest-icon"></i>
+                            <h3>Création Graphique</h3>
+                            <p class="interest-list">Dessin, Digital Painting, Pixel Art</p>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-music interest-icon"></i>
+                            <h3>Création Musicale</h3>
+                            <p class="interest-list">DAW, Soundtrack, Chiptune</p>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-laptop-code interest-icon"></i>
+                            <h3>Informatique</h3>
+                            <p class="interest-list">Apps & Jeux, Romans interactifs, Retro Demoscene, Robotique</p>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-pen-nib interest-icon"></i>
+                            <h3>Écriture</h3>
+                            <p class="interest-list">Vulgarisation scientifique, Nouvelles, Articles, Prose, HF/SF</p>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-hiking interest-icon"></i>
+                            <h3>Sport</h3>
+                            <p class="interest-list">Renforcement, Randonnée</p>
+                        </div>
+                        <div class="interest-card">
+                            <i class="fas fa-brain interest-icon"></i>
+                            <h3>Intérêts</h3>
+                            <p class="interest-list">Technologie, Science, Arts Numériques, Neurodiversité,
+                                Apprentissage, Handicap, IA</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section id="certifications" class="section">
+                <div class="container">
+                    <h2>Certifications</h2>
+                    <div id="certifications-list">
+                        <!-- Certifications items will be injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diplomas -->
+            <section id="diplomas" class="section">
+                <div class="container">
+                    <h2>Diplômes</h2>
+                    <div id="diplomas-list">
+                        <!-- Diplomas items will be injected here -->
+                    </div>
+                </div>
+            </section>
+
             <!-- Accessibility & Work Conditions -->
             <section id="accessibility" class="section">
                 <div class="container">
@@ -100,7 +290,8 @@
                     <div class="accessibility-content">
                         <p><strong>RQTH – Prothèse discale (L5/S1) :</strong> station assise limitée à 2–3h/jour.</p>
                         <p>Travail optimisé avec tapis de marche, bureau surélevé, fauteuil inclinable (>130°).</p>
-                        <p>Ces aménagements m’ont permis d’atteindre un excellent équilibre entre performance, confort et créativité.</p>
+                        <p>Ces aménagements m’ont permis d’atteindre un excellent équilibre entre performance, confort
+                            et créativité.</p>
                     </div>
                 </div>
             </section>
@@ -112,7 +303,8 @@
                     <p>N'hésitez pas à me contacter pour discuter de projets ou d'opportunités.</p>
                     <div class="contact-actions">
                         <a href="mailto:geoffroy.streit@gmail.com" class="btn btn-primary">Me contacter</a>
-                        <a href="https://linkedin.com/in/geoffroy-streit" target="_blank" class="btn btn-secondary">Voir LinkedIn</a>
+                        <a href="https://linkedin.com/in/geoffroy-streit" target="_blank" class="btn btn-secondary">Voir
+                            LinkedIn</a>
                     </div>
                 </div>
             </section>
@@ -136,4 +328,5 @@
 
     <script src="scripts/main.js"></script>
 </body>
+
 </html>

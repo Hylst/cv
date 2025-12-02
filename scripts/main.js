@@ -54,58 +54,162 @@ const GLOSSARY = {
 
 const SKILLS_DATA = [
     {
-        "category": "Développement & Automatisation",
+        "category": "Développement Web & App",
         "icon": "code",
-        "items": [
-            { name: "Python", status: "acquired" },
-            { name: "HTML5/CSS3", status: "acquired" },
-            { name: "JavaScript", status: "acquired" },
-            { name: "Django", status: "acquired" },
-            { name: "Flask", status: "acquired" },
-            { name: "React (bases)", status: "learning" },
-            { name: "PHP", status: "acquired" },
-            { name: "Make", status: "acquired" },
-            { name: "n8n", status: "acquired" },
-            { name: "Git", status: "acquired" },
-            { name: "API REST", status: "acquired" },
-            { name: "Docker", status: "acquired" },
-            { name: "Architecture MVC", status: "learning" },
-            { name: "UML", status: "learning" }
+        "sections": [
+            {
+                "title": "Front-End",
+                "items": [
+                    { name: "HTML5 / CSS3 / SASS", status: "acquired", desc: "Structure, style et préprocesseurs pour le web moderne." },
+                    { name: "JavaScript (ES6+)", status: "acquired", desc: "Langage de script côté client, standards modernes." },
+                    { name: "React* / Next.js**", status: "acquired", desc: "Bibliothèque UI et framework React pour le rendu serveur (SSR)." },
+                    { name: "Vue.js** / Angular**", status: "learning", desc: "Frameworks JS progressifs et complets." },
+                    { name: "Tailwind** / Bootstrap**", status: "acquired", desc: "Frameworks CSS utilitaires et composants." },
+                    { name: "Three.js* / jQuery", status: "acquired", desc: "3D dans le navigateur et manipulation DOM historique." }
+                ]
+            },
+            {
+                "title": "Back-End",
+                "items": [
+                    { name: "Node.js* / Express**", status: "acquired", desc: "JavaScript côté serveur et framework web minimaliste." },
+                    { name: "PHP / Symfony** / Laravel**", status: "acquired", desc: "Langage serveur historique et ses frameworks robustes." },
+                    { name: "Python (Django* / Flask)", status: "acquired", desc: "Frameworks Python : complet (Django) ou micro (Flask)." },
+                    { name: "Java EE** / Spring**", status: "learning", desc: "Développement d'applications d'entreprise en Java." },
+                    { name: "C#* / .NET**", status: "acquired", desc: "Écosystème Microsoft pour le développement applicatif." }
+                ]
+            },
+            {
+                "title": "CMS & NoCode",
+                "items": [
+                    { name: "WordPress / WooCommerce", status: "acquired", desc: "CMS le plus utilisé au monde et sa solution e-commerce." },
+                    { name: "Joomla / Prestashop", status: "acquired", desc: "Alternatives CMS et E-commerce robustes." },
+                    { name: "Headless CMS (Strapi*)", status: "acquired", desc: "CMS sans tête pour servir du contenu via API." },
+                    { name: "Webflow / Bubble**", status: "learning", desc: "Outils de développement visuel No-Code." }
+                ]
+            },
+            {
+                "title": "Architecture & Qualité",
+                "items": [
+                    { name: "UI/UX* / Design Thinking*", status: "acquired", desc: "Conception centrée utilisateur et ergonomie." },
+                    { name: "SEO / WCAG* / RGPD", status: "acquired", desc: "Référencement, Accessibilité et Protection des données." },
+                    { name: "API REST / GraphQL**", status: "acquired", desc: "Architectures d'échange de données standardisées." },
+                    { name: "PWA* / Mobile First", status: "acquired", desc: "Applications Web Progressives et conception mobile." }
+                ]
+            }
         ]
     },
     {
-        "category": "Data & IA",
+        "category": "Data, IA & Automatisation",
         "icon": "chart-bar",
-        "items": [
-            { name: "Pandas", status: "acquired" },
-            { name: "NumPy", status: "acquired" },
-            { name: "Matplotlib", status: "acquired" },
-            { name: "Scikit-learn", status: "acquired" },
-            { name: "IA générative", status: "acquired" },
-            { name: "NLP", status: "acquired" },
-            { name: "Data cleaning", status: "acquired" }
+        "sections": [
+            {
+                "title": "Data Science",
+                "items": [
+                    { name: "Python", status: "acquired", desc: "Langage de référence pour la Data Science." },
+                    { name: "Pandas / NumPy / Matplotlib", status: "acquired", desc: "Manipulation, calcul et visualisation de données." },
+                    { name: "SQL* / NoSQL* / MongoDB*", status: "acquired", desc: "Bases de données relationnelles et orientées documents." },
+                    { name: "Scikit-learn / TensorFlow*", status: "acquired", desc: "Machine Learning classique et Deep Learning." },
+                    { name: "PyTorch* / Keras**", status: "acquired", desc: "Frameworks de Deep Learning flexibles." }
+                ]
+            },
+            {
+                "title": "IA Générative & LLMs",
+                "items": [
+                    { name: "LLMs / RAG / Agents", status: "acquired", desc: "Grands modèles de langage, génération augmentée et agents autonomes." },
+                    { name: "LangChain** / LlamaIndex**", status: "acquired", desc: "Frameworks pour orchestrer les applications LLM." },
+                    { name: "Prompt Engineering", status: "acquired", desc: "Optimisation des instructions aux modèles d'IA." },
+                    { name: "Hugging Face / OpenAI SDK", status: "acquired", desc: "Hubs de modèles et APIs d'IA." },
+                    { name: "Computer Vision (OpenCV**)", status: "learning", desc: "Traitement d'images et vision par ordinateur." }
+                ]
+            },
+            {
+                "title": "Automatisation",
+                "items": [
+                    { name: "n8n / Make / Zapier", status: "acquired", desc: "Outils d'automatisation de workflows Low-Code." },
+                    { name: "Selenium** / PyAutoGUI", status: "acquired", desc: "Automatisation de navigateur et d'interface graphique." },
+                    { name: "Web Scraping (Scrapy*)", status: "acquired", desc: "Extraction de données web à grande échelle." },
+                    { name: "Scripting (Bash / Python)", status: "acquired", desc: "Scripts d'automatisation système." }
+                ]
+            }
         ]
     },
     {
-        "category": "Pédagogie & Création",
-        "icon": "lightbulb",
-        "items": [
-            { name: "Plateformes éducatives", status: "acquired" },
-            { name: "Gamification", status: "acquired" },
-            { name: "UX/UI", status: "acquired" },
-            { name: "Vulgarisation scientifique", status: "acquired" },
-            { name: "Accessibilité numérique", status: "acquired" }
+        "category": "DevOps, Outils & Systèmes",
+        "icon": "server",
+        "sections": [
+            {
+                "title": "DevOps & Cloud",
+                "items": [
+                    { name: "Git / GitHub / GitLab", status: "acquired", desc: "Gestion de version et collaboration." },
+                    { name: "Docker* / Kubernetes**", status: "acquired", desc: "Conteneurisation et orchestration." },
+                    { name: "CI/CD (GitHub Actions)", status: "acquired", desc: "Intégration et déploiement continus." },
+                    { name: "AWS** / Cloud Native*", status: "learning", desc: "Services Cloud Amazon et architectures cloud." }
+                ]
+            },
+            {
+                "title": "Environnement & Outils",
+                "items": [
+                    { name: "Linux* / Bash*", status: "acquired", desc: "Système d'exploitation et ligne de commande." },
+                    { name: "VSCode / PyCharm / Cursor", status: "acquired", desc: "IDE et éditeurs de code avancés (et IA)." },
+                    { name: "Virtualenv / Pipenv", status: "acquired", desc: "Gestion d'environnements virtuels Python." }
+                ]
+            },
+            {
+                "title": "Réseaux & Sécurité",
+                "items": [
+                    { name: "Protocoles Web (HTTP/WS)", status: "acquired", desc: "Fonctionnement du web et websockets." },
+                    { name: "Cybersécurité*", status: "acquired", desc: "Bonnes pratiques de sécurité informatique." },
+                    { name: "Réseaux locaux / Distants", status: "acquired", desc: "Architecture réseau et communication." }
+                ]
+            }
         ]
     },
     {
-        "category": "Connaissances Transversales",
-        "icon": "cogs",
-        "items": [
-            { name: "Optique", status: "acquired" },
-            { name: "Électronique", status: "acquired" },
-            { name: "Systèmes embarqués", status: "acquired" },
-            { name: "Management", status: "acquired" },
-            { name: "Communication", status: "acquired" }
+        "category": "Optronique & Sciences de l'Ingénieur",
+        "icon": "atom",
+        "sections": [
+            {
+                "title": "Optique & Photonique",
+                "items": [
+                    { name: "Optique Géom. / Ondulatoire", status: "acquired", desc: "Physique de la lumière et propagation." },
+                    { name: "Lasers / Fibres Optiques", status: "acquired", desc: "Sources cohérentes et transmission de signal." },
+                    { name: "Spectroscopie / Photométrie", status: "acquired", desc: "Analyse spectrale et mesure de la lumière." },
+                    { name: "Holographie / Vision", status: "acquired", desc: "Imagerie 3D et systèmes de vision." }
+                ]
+            },
+            {
+                "title": "Électronique & Systèmes",
+                "items": [
+                    { name: "Électronique Analog/Num", status: "acquired", desc: "Circuits, composants et logique numérique." },
+                    { name: "Systèmes Embarqués (C/ASM)", status: "acquired", desc: "Programmation bas niveau sur microcontrôleurs." },
+                    { name: "Traitement du Signal", status: "acquired", desc: "Analyse et modification de signaux." },
+                    { name: "Capteurs / Métrologie", status: "acquired", desc: "Instrumentation et mesure physique." }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Soft Skills & Business",
+        "icon": "users",
+        "sections": [
+            {
+                "title": "Management & Gestion",
+                "items": [
+                    { name: "Gestion Projet (Agile/Scrum)", status: "acquired", desc: "Méthodologies de gestion de projet itératives." },
+                    { name: "Management d'équipe", status: "acquired", desc: "Animation, motivation et suivi d'équipes." },
+                    { name: "Coordination Commerciale", status: "acquired", desc: "Pilotage de l'activité commerciale." },
+                    { name: "Stratégie / Marketing", status: "acquired", desc: "Vision stratégique et actions marketing." }
+                ]
+            },
+            {
+                "title": "Communication",
+                "items": [
+                    { name: "Pédagogie / Formation", status: "acquired", desc: "Transmission de savoirs et animation de formations." },
+                    { name: "Relation Client / Fournisseur", status: "acquired", desc: "Négociation et suivi relationnel." },
+                    { name: "Anglais Technique", status: "acquired", desc: "Lecture et rédaction de documentation technique." },
+                    { name: "Communication Interpersonnelle", status: "acquired", desc: "Écoute active et communication efficace." }
+                ]
+            }
         ]
     }
 ];
@@ -114,7 +218,7 @@ const TIMELINE_DATA = [
     {
         "year": "2025 - 2026",
         "title": "Concepteur Développeur d'Applications (CDA)",
-        "description": "<strong>M2i Formation (17 Sept 2025 - 23 Juil 2026) - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : HTML/CSS, JavaScript, jQuery, React, Vue**, Angular**<br>• Back-end : PHP (procédural & OO), Node.js<br>• CMS : WordPress/WooCommerce, Joomla, Headless CMS (Strapi)<br>• Java EE : servlets, JSP, frameworks entreprise<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL, MongoDB, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps, CI/CD<br>• Cloud Native AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
+        "description": "<strong>M2i Formation (17 Sept 2025 - 23 Juil 2026) - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : HTML/CSS, JavaScript, jQuery, React*, Vue**, Angular**<br>• Back-end : PHP (procédural & OO), Node.js*<br>• CMS : WordPress/WooCommerce, Joomla, Headless CMS (Strapi*)<br>• Java EE : servlets, JSP, frameworks entreprise**<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps*, CI/CD*<br>• Cloud Native AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
         "type": "education",
         "url": "https://macarriere.m2iformation.fr/offres/concepteur-rice-developpeur-se-d-applications/89/",
         "logo": "https://logo.clearbit.com/m2iformation.fr"
@@ -122,7 +226,7 @@ const TIMELINE_DATA = [
     {
         "year": "2024 - 2025",
         "title": "Autoformation Intensive IT - Web Dev - IA - Automatisation",
-        "description": "<strong>Apprentissage autodirigé - Domaine IA & Développement Web</strong><br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web & Front-End :</em> HTML/CSS, JS/React, PHP, Node.js*, Next.js**, Express**, Vite**, Tailwind, Web Components**, PWA*, SEO.<br><br><em>Architecture & Rendering :</em> SSR/SSG, Headless CMS (Strapi*), Three.js (bases).<br><br><em>DevOps & Infrastructure :</em> Docker*, Git*, GitHub, Apache/Nginx, CI/CD, Sécurité*.<br><br><em>Automatisation & Intégrations :</em> n8n/Make, Zapier, Apps Script, Python/Bash, GitHub Actions**, Webhooks.<br><br><em>IA Générative & LLMs :</em> Prompt Engineering, RAG, Fine-tuning, agents IA, Vector DBs, Hugging Face, LlamaIndex**, LangChain**, GPT/LLMs (texte/image/vidéo/musique).<br><br><em>No/Low-Code :</em> Cursor, Lovable, Bolt, intégrations API/Webhooks, Google AI / Firebase Studio.<br><br><em>Projets :</em><br><strong>Conception d'apps et sites web assistés par IA sur :</strong><br>• Neuro-diversité, IA, Green IT<br>• Apprentissage (Optique, Électronique, Dev info, Data Science)<br>• Culturels, Ludiques, Sites démo...<br><br><strong>Apps d'aide à l'apprentissage & assistance cognitive (profils neuro-atypiques) :</strong><br>• Dys (Dyslexie, Dyspraxie, Dysorthographie, Dyscalculie, Dysphasie, Dysgraphie)<br>• TDA/H, TSA, Hypersensibilité<br>• Troubles (Mémoire, Concentration, Apprentissages)<br><br>Portfolio : <em>portfolio.hylst.fr (à venir)</em>",
+        "description": "<strong>Apprentissage autodirigé - Domaine IA & Développement Web</strong><br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web & Front-End :</em> HTML/CSS, JS/React*, PHP, Node.js*, Next.js**, Express**, Vite**, Tailwind, Web Components**, PWA*, SEO.<br><br><em>Architecture & Rendering :</em> SSR/SSG, Headless CMS (Strapi*), Three.js (bases).<br><br><em>DevOps & Infrastructure :</em> Docker*, Git*, GitHub, Apache/Nginx, CI/CD, Sécurité*, DevOps*, Bash*.<br><br><em>Automatisation & Intégrations :</em> n8n/Make, Zapier, Apps Script, Python/Bash*, GitHub Actions**, Webhooks, Scrapy*, Luigi*.<br><br><em>IA Générative & LLMs :</em> Prompt Engineering, RAG, Fine-tuning, agents IA, Vector DBs, Hugging Face, LlamaIndex**, LangChain**, GPT/LLMs (texte/image/vidéo/musique).<br><br><em>No/Low-Code :</em> Cursor, Lovable, Bolt, intégrations API/Webhooks, Google AI / Firebase Studio.<br><br><em>Projets :</em><br><strong>Conception d'apps et sites web assistés par IA sur :</strong><br>• Neuro-diversité, IA, Green IT<br>• Apprentissage (Optique, Électronique, Dev info, Data Science)<br>• Culturels, Ludiques, Sites démo...<br><br><strong>Apps d'aide à l'apprentissage & assistance cognitive (profils neuro-atypiques) :</strong><br>• Dys (Dyslexie, Dyspraxie, Dysorthographie, Dyscalculie, Dysphasie, Dysgraphie)<br>• TDA/H, TSA, Hypersensibilité<br>• Troubles (Mémoire, Concentration, Apprentissages)<br><br>Portfolio : <em>portfolio.hylst.fr (à venir)</em>",
         "type": "education",
         "url": null,
         "logo": null
@@ -193,9 +297,10 @@ const TIMELINE_DATA = [
     {
         "year": "1996 - 1998",
         "title": "BTS Génie Optique Photonique",
-        "description": "<strong>Lycée Jean Mermoz - Saint-Louis (68)</strong><br><em>Options :</em> Gestion, Anglais<br>Projet : Optimisation de supports holographiques.",
+        "description": "<strong>Lycée Jean Mermoz - Saint-Louis (68)</strong><br><em>Options :</em> Gestion, Anglais<br><em>Compétences clés :</em> Conception, réalisation et maintenance de systèmes optiques (lasers, fibre optique, imagerie). Physique des signaux et traitement du signal lumineux.<br><em>Projet :</em> Optimisation de supports holographiques.",
         "type": "education",
-        "url": null
+        "url": "https://jean-mermoz-montpellier.mon-ent-occitanie.fr/formations-post-bac/bts/bts-photonique-technologies-et-sciences-de-la-lumiere-ptsl--4548.htm",
+        "logo": null
     },
     {
         "year": "1994 - 1996",
@@ -208,56 +313,167 @@ const TIMELINE_DATA = [
 
 const PROJECTS_DATA = [
     {
-        "id": "neurodiversite",
-        "title": "Neurodiversité interactive",
-        "description": "Plateforme sur les troubles DYS (quiz, glossaire, blog, forum).",
-        "tech": ["Python", "Django", "JS"],
+        "id": "ia-apps",
+        "category": "recent",
+        "title": "Apps & Sites Assistés par IA",
+        "description": "Conception d'applications et sites web sur des thématiques variées : Neuro-diversité, Green IT, Apprentissage (Optique, Électronique, Dev, Data Science), Culturel & Ludique.",
+        "tech": ["IA Générative", "Web Dev", "Python"],
         "status": "En cours",
         "link": "#",
-        "image": "assets/screenshots/neuro.jpg"
+        "image": "assets/screenshots/ia-apps.jpg"
     },
     {
-        "id": "ia-humanite",
-        "title": "IA & Humanité",
-        "description": "Vulgarisation de l'histoire, techniques et usages de l'IA.",
-        "tech": ["HTML", "CSS", "JS"],
-        "status": "Terminé",
-        "link": "#",
-        "image": "assets/screenshots/ia.jpg"
-    },
-    {
-        "id": "cognitive-help",
-        "title": "Apps d'aide cognitive & émotionnelle",
-        "description": "Gestion des émotions, mémoire et surcharge mentale via IA.",
-        "tech": ["Python", "NLP", "React"],
-        "status": "Prototype",
+        "id": "cognitive-assist",
+        "category": "recent",
+        "title": "Aides & Assistance Cognitive",
+        "description": "Outils pour profils neuro-atypiques (Dys, TDA/H, TSA, HPI) et troubles de l'apprentissage (mémoire, concentration).",
+        "tech": ["Accessibilité", "Cognitive Science", "App"],
+        "status": "En cours",
         "link": "#",
         "image": "assets/screenshots/cognitive.jpg"
     },
     {
-        "id": "edu-platform",
-        "title": "Plateformes éducatives",
-        "description": "Modules complets (cours, quiz, évaluations) sur optique, data, musique.",
-        "tech": ["Moodle", "H5P", "PHP"],
-        "status": "En production",
+        "id": "dev-low-level",
+        "category": "recent",
+        "title": "Développement Bas Niveau & Graphique",
+        "description": "Développement ASM/C/BASIC, jeux, démos graphiques et utilitaires.",
+        "tech": ["C", "ASM", "Graphisme"],
+        "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/edu.jpg"
+        "image": "assets/screenshots/low-level.jpg"
     },
     {
-        "id": "tools-suite",
-        "title": "Suite d'outils numériques (300+)",
-        "description": "Productivité, IA, bureautique, CRM.",
-        "tech": ["n8n", "Python", "API"],
-        "status": "En production",
+        "id": "video-card",
+        "category": "old",
+        "title": "Carte d'Acquisition Vidéo",
+        "description": "Réalisation d’un prototype de carte d’acquisition vidéo : conception matérielle et logicielle.",
+        "tech": ["Électronique", "Hardware", "C"],
+        "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/tools.jpg"
+        "image": "assets/screenshots/hardware.jpg"
+    },
+    {
+        "id": "robotics",
+        "category": "old",
+        "title": "Robotique & Arduino",
+        "description": "Programmation Arduino et participation à un club de robotique.",
+        "tech": ["Arduino", "C++", "Robotique"],
+        "status": "Terminé",
+        "link": "#",
+        "image": "assets/screenshots/robotics.jpg"
+    },
+    {
+        "id": "events",
+        "category": "old",
+        "title": "Organisation Événementielle",
+        "description": "Organisation de conventions ludiques et d'une grande exposition d'arts visuels.",
+        "tech": ["Management", "Event", "Culture"],
+        "status": "Terminé",
+        "link": "#",
+        "image": "assets/screenshots/events.jpg"
+    },
+    {
+        "id": "lasers-study",
+        "category": "old",
+        "title": "Études Technologies Laser & Optique",
+        "description": "Holographie, GPS, capteurs fibre optique, télémètres lasers, réalité virtuelle.",
+        "tech": ["Optique", "Laser", "Recherche"],
+        "status": "Terminé",
+        "link": "#",
+        "image": "assets/screenshots/laser.jpg"
+    },
+    {
+        "id": "bts-project",
+        "category": "old",
+        "title": "Optimisation Holographique (BTS)",
+        "description": "Collaboration avec l’ENSCMU : optimisation de méthodes d’enregistrement sur supports photo-polymérisables.",
+        "tech": ["Holographie", "Chimie", "Optique"],
+        "status": "Terminé",
+        "link": "#",
+        "image": "assets/screenshots/holography.jpg"
+    },
+    {
+        "id": "videogames-study",
+        "category": "old",
+        "title": "Étude Technologies Jeux Vidéo",
+        "description": "Étude bibliographique sur la réalité virtuelle et les IHM dans le jeu vidéo.",
+        "tech": ["VR", "IHM", "Recherche"],
+        "status": "Terminé",
+        "link": "#",
+        "image": "assets/screenshots/vr.jpg"
+    },
+    {
+        "id": "associations",
+        "category": "old",
+        "title": "Engagement Associatif",
+        "description": "Membre actif et bureau de plusieurs associations (ludiques, culturelles, techniques, humanitaires).",
+        "tech": ["Bénévolat", "Gestion", "Social"],
+        "status": "Terminé",
+        "link": "#",
+        "image": "assets/screenshots/asso.jpg"
+    },
+    {
+        "id": "web-legacy",
+        "category": "old",
+        "title": "Conception Web (Historique)",
+        "description": "Conception de plusieurs sites web à des fins personnelles, professionnelles et associatives.",
+        "tech": ["HTML", "CSS", "Webmastering"],
+        "status": "Terminé",
+        "link": "#",
+        "image": "assets/screenshots/web-old.jpg"
     }
+];
+
+const CERTIFICATIONS_DATA = [
+    {
+        "category": "OpenClassrooms",
+        "items": [
+            { name: "Apprenez à apprendre", file: "Certificat OPENCLASSROOMS - Apprenez à apprendre - Geoffroy STREIT.pdf" },
+            { name: "Apprenez à programmer en C", file: "Certificat OPENCLASSROOMS - Apprenez à programmer en C.pdf" },
+            { name: "Comprendre le Web", file: "Certificat OPENCLASSROOMS - Comprendre le Web - Geoffroy STREIT.pdf" },
+            { name: "Concevez votre site web avec PHP et MySQL", file: "Certificat OPENCLASSROOMS - Concevez votre site web avec PHP et MySQL.pdf" },
+            { name: "Créez votre site web avec HTML5 et CSS3", file: "Certificat OPENCLASSROOMS - Créez votre site web avec HTML5 et CSS3 - Geoffroy STREIT.pdf" },
+            { name: "Développer en C pour l'embarqué", file: "Certificat OPENCLASSROOMS - Développer en C pour l'embarqué - Geoffroy STREIT.pdf" },
+            { name: "Gérez du code avec Git et GitHub", file: "Certificat OPENCLASSROOMS - Gérez du code avec Git et GitHub - Geoffroy STREIT.pdf" },
+            { name: "Initiation électronique embarquée", file: "Certificat OPENCLASSROOMS - Initiation électronique embarquée, capteurs, actionneurs  - Geoffroy STREIT.pdf" },
+            { name: "Initiez-vous au Design Thinking", file: "Certificat OPENCLASSROOMS - Initiez-vous au Design Thinking - Geoffroy STREIT.pdf" },
+            { name: "Initiez-vous à Linux", file: "Certificat OPENCLASSROOMS - Initiez-vous à Linux - Geoffroy STREIT.pdf" },
+            { name: "Le fonctionnement des algorithmes v1", file: "Certificat OPENCLASSROOMS - Le fonctionnement des algorithmes v1 - Geoffroy STREIT.pdf" },
+            { name: "Le fonctionnement des algorithmes v2", file: "Certificat OPENCLASSROOMS - Le fonctionnement des algorithmes v2 - Geoffroy STREIT.pdf" }
+        ]
+    },
+    {
+        "category": "Mimo",
+        "items": [
+            { name: "Python", file: "mimo-certificates-Python - STREIT Geoffroy.pdf" },
+            { name: "SQL", file: "mimo-certificates-SQL - STREIT Geoffroy.pdf" },
+            { name: "Web Development", file: "mimo-certificates-Web Development - STREIT Geoffroy.pdf" }
+        ]
+    },
+    {
+        "category": "Autres",
+        "items": [
+            { name: "Sécurité Numérique (ANSSI)", file: "attestation de formation en sécurité numérique anssi 25102024.pdf" },
+            { name: "Manager Sécurité Magasin", file: "attestation de formation manager sécurité magasin.pdf" },
+            { name: "Fondamentaux Marketing Numérique", file: "certificat fondamentaux du marketing numerique.pdf" },
+            { name: "Python Docstrings Bases", file: "attestations python docstrings bases.webp" }
+        ]
+    }
+];
+
+const DIPLOMAS_DATA = [
+    { name: "Diplôme d'ingénieur Optronique", file: "Diplôme d'ingénieur des techniques de l'industrie spécialité optronique - Geoffroy Streit _c.pdf" },
+    { name: "BTS Optique Photonique", file: "BTS Optique photonique - Geoffroy Streit_c.pdf" },
+    { name: "TOEIC Anglais (835)", file: "TOEIC ANGLAIS 835 - Geoffroy Streit_c.pdf" },
+    { name: "Diplômes Complets (Ingé-BTS-BAC-TOEIC)", file: "Diplômes Geoffroy Streit Ingé-BTS-BAC-TOEIC c.pdf" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
     renderSkills(SKILLS_DATA);
     renderProjects(PROJECTS_DATA);
-    renderTimeline(TIMELINE_DATA);
+    renderDocuments(CERTIFICATIONS_DATA, 'certifications-list', 'pdf/certifications/');
+    renderDocuments(DIPLOMAS_DATA, 'diplomas-list', 'pdf/diplômes/');
+    setupTimelineView();
     setupThemeToggle();
     setupModalListeners();
 });
@@ -285,31 +501,62 @@ function renderSkills(skills) {
 
     const legendHtml = `
         <div class="skills-legend">
-            <span class="legend-item"><span class="skill-tag status-acquired"></span> Acquis</span>
-            <span class="legend-item"><span class="skill-tag status-learning"></span> En cours d'acquisition</span>
+            <span style="font-size:0.9em; opacity:0.8"><em>Légende : * Bases | ** Notions</em></span>
         </div>
     `;
 
-    const skillsHtml = skills.map(category => `
-        <div class="skill-category">
-            <h3><i class="icon-${category.icon}"></i> ${category.category}</h3>
-            <div class="skill-tags">
-                ${category.items.map(item => `
-                    <span class="skill-tag status-${item.status}">
-                        ${item.name}
-                        ${item.status === 'learning' ? '<span class="learning-indicator" title="En cours d\'acquisition">*</span>' : ''}
-                    </span>
-                `).join('')}
+    const skillsHtml = skills.map(category => {
+        let content = '';
+        if (category.sections) {
+            content = category.sections.map(section => `
+                <div class="skill-section">
+                    <h4 class="skill-section-title">${section.title}</h4>
+                    <div class="skill-tags">
+                        ${section.items.map(item => `
+                            <span class="skill-tag status-${item.status}" 
+                                  data-tooltip="${item.desc || ''}" 
+                                  tabindex="0">
+                                ${item.name}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        } else {
+            content = `
+                <div class="skill-tags">
+                    ${category.items.map(item => `
+                        <span class="skill-tag status-${item.status}" 
+                              data-tooltip="${item.desc || ''}" 
+                              tabindex="0">
+                            ${item.name}
+                        </span>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        return `
+        <details class="skill-category" open>
+            <summary><h3><i class="icon-${category.icon}"></i> ${category.category}</h3></summary>
+            <div class="skill-content">
+                ${content}
             </div>
-        </div>
-    `).join('');
+        </details>
+        `;
+    }).join('');
 
     container.innerHTML = legendHtml + '<div class="skills-grid">' + skillsHtml + '</div>';
 }
 
 function renderProjects(projects) {
     const container = document.getElementById('projects-list');
-    container.innerHTML = projects.map(project => `
+
+    // Group by category
+    const recent = projects.filter(p => p.category === 'recent');
+    const old = projects.filter(p => p.category === 'old');
+
+    const renderCard = (project) => `
         <article class="project-card" data-id="${project.id}" onclick="openModal('${project.id}')" role="button" tabindex="0" onkeypress="if(event.key === 'Enter') openModal('${project.id}')">
             <div class="project-image">
                 <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/300x180?text=Projet'">
@@ -322,23 +569,89 @@ function renderProjects(projects) {
                 </div>
             </div>
         </article>
-    `).join('');
+    `;
+
+    container.innerHTML = `
+        <h3 style="width:100%; margin: 2rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Récents / En cours</h3>
+        <div class="projects-grid-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%;">
+            ${recent.map(renderCard).join('')}
+        </div>
+
+        <h3 style="width:100%; margin: 3rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Plus anciens</h3>
+        <div class="projects-grid-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%;">
+            ${old.map(renderCard).join('')}
+        </div>
+    `;
 
     window.projectsData = projects;
 }
 
-function renderTimeline(timeline) {
-    const container = document.getElementById('timeline-list');
-    container.innerHTML = timeline.map(item => `
-        <div class="timeline-item">
-            <div class="timeline-year">${item.year}</div>
-            <h3 class="timeline-title">
-                ${item.logo ? `<img src="${item.logo}" alt="Logo" class="timeline-logo" onerror="this.style.display='none'">` : ''}
-                ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="timeline-link">${item.title} <span class="external-icon">↗</span></a>` : item.title}
-            </h3>
-            <p>${processText(item.description)}</p>
-        </div>
-    `).join('');
+function renderDocuments(data, containerId, basePath) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    let html = '';
+
+    // Check if data is categorized (array of objects with 'category' and 'items') or flat
+    if (data.length > 0 && data[0].category) {
+        // Categorized
+        html = data.map(cat => `
+            <details class="collapsible-card">
+                <summary><h3>${cat.category}</h3></summary>
+                <div class="collapsible-content">
+                    <ul class="doc-list">
+                        ${cat.items.map(item => `
+                            <li>
+                                <a href="${basePath}${item.file}" target="_blank" class="doc-link">
+                                    <i class="fas fa-file-pdf"></i> ${item.name}
+                                </a>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            </details>
+        `).join('');
+    } else {
+        // Flat list
+        html = `
+            <div class="collapsible-card" style="padding: 1.5rem;">
+                <ul class="doc-list">
+                    ${data.map(item => `
+                        <li>
+                            <a href="${basePath}${item.file}" target="_blank" class="doc-link">
+                                <i class="fas fa-file-pdf"></i> ${item.name}
+                            </a>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>
+        `;
+    }
+
+    container.innerHTML = html;
+}
+
+
+function setupTimelineView() {
+    const btnChrono = document.getElementById('view-chronological');
+    const btnCat = document.getElementById('view-categorical');
+
+    if (!btnChrono || !btnCat) return;
+
+    btnChrono.addEventListener('click', () => {
+        btnChrono.classList.add('active');
+        btnCat.classList.remove('active');
+        renderTimeline(TIMELINE_DATA, 'chronological');
+    });
+
+    btnCat.addEventListener('click', () => {
+        btnCat.classList.add('active');
+        btnChrono.classList.remove('active');
+        renderTimeline(TIMELINE_DATA, 'categorical');
+    });
+
+    // Initial render
+    renderTimeline(TIMELINE_DATA, 'chronological');
 }
 
 function setupThemeToggle() {
@@ -407,3 +720,41 @@ window.openModal = function (projectId) {
     modalContainer.setAttribute('aria-hidden', 'false');
     modalContainer.querySelector('.modal-content').focus();
 };
+
+function renderTimeline(timeline, mode = 'chronological') {
+    const container = document.getElementById('timeline-list');
+
+    if (mode === 'categorical') {
+        const education = timeline.filter(item => item.type === 'education');
+        const experience = timeline.filter(item => item.type === 'experience');
+
+        const renderItem = (item) => `
+            <div class="timeline-item">
+                <div class="timeline-year">${item.year}</div>
+                <h3 class="timeline-title">
+                    ${item.logo ? `<img src="${item.logo}" alt="Logo" class="timeline-logo" onerror="this.style.display='none'">` : ''}
+                    ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="timeline-link">${item.title} <span class="external-icon">↗</span></a>` : item.title}
+                </h3>
+                <p>${processText(item.description)}</p>
+            </div>
+        `;
+
+        container.innerHTML = `
+            <h3 style="margin: 2rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Formations</h3>
+            ${education.map(renderItem).join('')}
+            <h3 style="margin: 2rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Expériences Professionnelles</h3>
+            ${experience.map(renderItem).join('')}
+        `;
+    } else {
+        container.innerHTML = timeline.map(item => `
+            <div class="timeline-item">
+                <div class="timeline-year">${item.year}</div>
+                <h3 class="timeline-title">
+                    ${item.logo ? `<img src="${item.logo}" alt="Logo" class="timeline-logo" onerror="this.style.display='none'">` : ''}
+                    ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="timeline-link">${item.title} <span class="external-icon">↗</span></a>` : item.title}
+                </h3>
+                <p>${processText(item.description)}</p>
+            </div>
+        `).join('');
+    }
+}
