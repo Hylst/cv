@@ -483,6 +483,34 @@ const DIPLOMAS_DATA = [
     { name: "BAC Technologique Physique de laboratoire", file: "BAC Technologique Physique de laboratoire et procédés industriels - Geoffroy Streit_c.pdf" }
 ];
 
+// Improved Scroll Reveal using IntersectionObserver
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, observerOptions);
+
+window.observeElements = (elements) => {
+    elements.forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
+};
+
+function setupScrollReveal() {
+    // Observe initial static elements
+    const staticElements = document.querySelectorAll('.section, .timeline-item, .interest-card');
+    window.observeElements(staticElements);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderSkills(SKILLS_DATA);
     renderProjects(PROJECTS_DATA);
@@ -508,38 +536,18 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => clickCount = 0, 2000);
         });
     }
+
+    // Spotlight Effect
+    document.addEventListener('mousemove', (e) => {
+        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+    });
+
+    // Add spotlight element
+    const spotlight = document.createElement('div');
+    spotlight.classList.add('spotlight');
+    document.body.appendChild(spotlight);
 });
-
-// Improved Scroll Reveal using IntersectionObserver
-function setupScrollReveal() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                // Optional: Stop observing once revealed
-                // observer.unobserve(entry.target); 
-            }
-        });
-    }, observerOptions);
-
-    // Function to observe new elements
-    window.observeElements = (elements) => {
-        elements.forEach(el => {
-            el.classList.add('reveal');
-            observer.observe(el);
-        });
-    };
-
-    // Observe initial static elements
-    const staticElements = document.querySelectorAll('.section, .timeline-item, .interest-card');
-    window.observeElements(staticElements);
-}
 
 function processText(text) {
     let processed = text;
@@ -686,7 +694,7 @@ function renderFilteredProjects(projects, filter) {
     const renderCard = (project) => `
         <article class="project-card reveal" data-id="${project.id}" onclick="openModal('${project.id}')" role="button" tabindex="0" onkeypress="if(event.key === 'Enter') openModal('${project.id}')">
             <div class="project-image">
-                <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/300x180?text=Projet'">
+                <img src="${project.image}" alt="${project.title}" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22300%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22300%22%20height%3D%22180%22%20fill%3D%22%23e1e4e8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2216%22%20fill%3D%22%23666%22%3EImage%20non%20disponible%3C%2Ftext%3E%3C%2Fsvg%3E'">
             </div>
             <div class="project-content">
                 <h3 class="project-title">${project.title}</h3>
@@ -704,12 +712,9 @@ function renderFilteredProjects(projects, filter) {
         </div>
     `;
 
-    // Re-trigger scroll reveal for new elements
-    if (window.setupScrollReveal) {
-        setTimeout(() => {
-            const newCards = container.querySelectorAll('.project-card');
-            newCards.forEach(card => card.classList.add('active'));
-        }, 100);
+    // Observe new project cards
+    if (window.observeElements) {
+        window.observeElements(container.querySelectorAll('.project-card'));
     }
 }
 
@@ -831,7 +836,7 @@ window.openModal = function (projectId) {
 
     modalBody.innerHTML = `
         <h2>${project.title}</h2>
-        <img src="${project.image}" alt="${project.title}" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:1rem; border-radius:8px;" onerror="this.src='https://via.placeholder.com/600x300?text=Projet'">
+        <img src="${project.image}" alt="${project.title}" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:1rem; border-radius:8px;" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22300%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22300%22%20height%3D%22180%22%20fill%3D%22%23e1e4e8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2216%22%20fill%3D%22%23666%22%3EImage%20non%20disponible%3C%2Ftext%3E%3C%2Fsvg%3E'">
         <p><strong>Statut:</strong> ${project.status}</p>
         <p>${processText(project.description)}</p>
         <div style="margin: 1rem 0;">
