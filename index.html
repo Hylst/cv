@@ -102,6 +102,20 @@
                 </ul>
             </nav>
 
+            <div class="sidebar-section">
+                <details>
+                    <summary style="cursor: pointer; color: var(--primary-color); font-weight: bold;">✨ Nouveautés 2.0
+                    </summary>
+                    <div
+                        style="font-size: 0.85rem; margin-top: 0.5rem; padding-left: 0.5rem; border-left: 2px solid var(--accent-color);">
+                        <p><strong>🎨 Glassmorphism :</strong> Activez le mode sombre (🌙) pour voir l'effet !</p>
+                        <p><strong>🔍 Filtres :</strong> Testez les filtres dans la section Projets.</p>
+                        <p><strong>🖨️ Print CSS :</strong> Faites Ctrl+P pour un export PDF propre.</p>
+                        <p><strong>🕹️ Easter Egg :</strong> Cliquez 5 fois sur ma photo pour un mode surprise...</p>
+                    </div>
+                </details>
+            </div>
+
             <div class="theme-toggle">
                 <button id="theme-btn" aria-label="Changer le thème">🌙</button>
             </div>
@@ -111,7 +125,8 @@
         <main id="main-content" class="main-content">
             <!-- Hero / Pitch -->
             <section id="about" class="section hero">
-                <div class="container">
+                <canvas id="hero-canvas"></canvas>
+                <div class="container" style="position: relative; z-index: 2;">
                     <h2>À propos</h2>
                     <h3>Développeur Python & Web | Automatisation, Data Science & IA</h3>
                     <p class="pitch">
@@ -218,6 +233,13 @@
             <section id="projects" class="section">
                 <div class="container">
                     <h2>Projets Phares</h2>
+                    <div class="project-filters">
+                        <button class="filter-btn active" data-filter="all">Tous</button>
+                        <button class="filter-btn" data-filter="python">Python / Data</button>
+                        <button class="filter-btn" data-filter="web">Web Dev</button>
+                        <button class="filter-btn" data-filter="ia">IA / Automatisation</button>
+                        <button class="filter-btn" data-filter="hardware">Hardware / Sciences</button>
+                    </div>
                     <div class="projects-grid" id="projects-list">
                         <!-- Projects items will be injected here -->
                     </div>
@@ -326,19 +348,32 @@
                             <h3><i class="fas fa-star"></i> Forces principales</h3>
                         </summary>
                         <div class="collapsible-content">
-                            <ul style="list-style-type: disc; margin-left: 1.5rem;">
-                                <li>Forte pluridisciplinarité : optique, électronique, informatique, data, commerce</li>
-                                <li>Grande autonomie & capacité d'auto-formation</li>
-                                <li>Créativité graphique, littéraire, musicale et conceptuelle</li>
-                                <li>Neuro-atypie, handicap mais aussi source d'idéation et sensibilité</li>
-                                <li>Adaptabilité, pédagogie</li>
-                                <li>Ma <span class="tooltip"
-                                        data-tooltip="mais aussi les quelques défauts assortis liés à ma neuro-atypie, à découvrir =)"
-                                        tabindex="0">personnalité</span> à 3 facettes : technique, humaine et créative
-                                </li>
-                                <li>Expérience concrète en développement embarqué et web</li>
-                                <li>Sensibilité aux enjeux d'inclusion et de neurodiversité</li>
-                            </ul>
+                            <div class="facets-container">
+                                <div class="facets-diagram">
+                                    <div class="facet facet-tech">
+                                        <span>Technique</span>
+                                    </div>
+                                    <div class="facet facet-human">
+                                        <span>Humain</span>
+                                    </div>
+                                    <div class="facet facet-creative">
+                                        <span>Créatif</span>
+                                    </div>
+                                    <div class="facet-center">
+                                        <span>MOI</span>
+                                    </div>
+                                </div>
+                                <div class="facets-legend">
+                                    <p><strong>Technique :</strong> Optronique, Info Indus, Dev Python/Web, Data</p>
+                                    <p><strong>Humain :</strong> Management, Commerce, Pédagogie, Empathie</p>
+                                    <p><strong>Créatif :</strong> Design, Musique, Écriture, Conception</p>
+                                </div>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; font-style: italic; font-size: 0.9rem;">
+                                <span class="tooltip"
+                                    data-tooltip="mais aussi les quelques défauts assortis liés à ma neuro-atypie, à découvrir =)">Ma
+                                    personnalité</span> à la croisée des chemins.
+                            </p>
                         </div>
                     </details>
 
@@ -407,6 +442,7 @@
         </div>
     </div>
 
+    <script src="scripts/particles.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 

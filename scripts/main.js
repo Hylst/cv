@@ -491,7 +491,55 @@ document.addEventListener('DOMContentLoaded', () => {
     setupTimelineView();
     setupThemeToggle();
     setupModalListeners();
+    setupScrollReveal();
+
+    // Easter Egg: Click on photo 5 times
+    const photo = document.querySelector('.profile-photo');
+    let clickCount = 0;
+    if (photo) {
+        photo.style.cursor = 'pointer';
+        photo.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 5) {
+                activateRetroMode();
+                clickCount = 0;
+            }
+            // Reset count after 2 seconds of inactivity
+            setTimeout(() => clickCount = 0, 2000);
+        });
+    }
 });
+
+// Improved Scroll Reveal using IntersectionObserver
+function setupScrollReveal() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: Stop observing once revealed
+                // observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    // Function to observe new elements
+    window.observeElements = (elements) => {
+        elements.forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+    };
+
+    // Observe initial static elements
+    const staticElements = document.querySelectorAll('.section, .timeline-item, .interest-card');
+    window.observeElements(staticElements);
+}
 
 function processText(text) {
     let processed = text;
@@ -562,17 +610,81 @@ function renderSkills(skills) {
     }).join('');
 
     container.innerHTML = legendHtml + '<div class="skills-grid">' + skillsHtml + '</div>';
+
+    // Observe newly added skill categories
+    if (window.observeElements) {
+        window.observeElements(container.querySelectorAll('.skill-category'));
+    }
 }
 
 function renderProjects(projects) {
     const container = document.getElementById('projects-list');
+    const filterBtns = document.querySelectorAll('.filter-btn');
 
-    // Group by category
-    const recent = projects.filter(p => p.category === 'recent');
-    const old = projects.filter(p => p.category === 'old');
+    // Setup filter listeners
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter projects
+            const filter = btn.getAttribute('data-filter');
+            renderFilteredProjects(projects, filter);
+        });
+    });
+
+    // Initial render (all)
+    renderFilteredProjects(projects, 'all');
+    window.projectsData = projects;
+
+    // Easter Egg: Konami Code (Keep it as secondary option)
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                activateRetroMode();
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+}
+
+function activateRetroMode() {
+    document.body.classList.toggle('retro-mode');
+    const isRetro = document.body.classList.contains('retro-mode');
+
+    if (isRetro) {
+        alert('🕹️ MODE RETRO ACTIVÉ ! 🕹️\nBienvenue dans la matrice...');
+    } else {
+        alert('Mode normal rétabli.');
+    }
+}
+
+function renderFilteredProjects(projects, filter) {
+    const container = document.getElementById('projects-list');
+
+    let filtered = projects;
+    if (filter !== 'all') {
+        filtered = projects.filter(p => {
+            const tags = p.tech.map(t => t.toLowerCase());
+            const title = p.title.toLowerCase();
+
+            if (filter === 'python') return tags.some(t => t.includes('python') || t.includes('data') || t.includes('scikit'));
+            if (filter === 'web') return tags.some(t => t.includes('web') || t.includes('html') || t.includes('react') || t.includes('js'));
+            if (filter === 'ia') return tags.some(t => t.includes('ia') || t.includes('gpt') || t.includes('llm') || t.includes('auto'));
+            if (filter === 'hardware') return tags.some(t => t.includes('hardware') || t.includes('optique') || t.includes('laser') || t.includes('arduino'));
+            return true;
+        });
+    }
 
     const renderCard = (project) => `
-        <article class="project-card" data-id="${project.id}" onclick="openModal('${project.id}')" role="button" tabindex="0" onkeypress="if(event.key === 'Enter') openModal('${project.id}')">
+        <article class="project-card reveal" data-id="${project.id}" onclick="openModal('${project.id}')" role="button" tabindex="0" onkeypress="if(event.key === 'Enter') openModal('${project.id}')">
             <div class="project-image">
                 <img src="${project.image}" alt="${project.title}" onerror="this.src='https://via.placeholder.com/300x180?text=Projet'">
             </div>
@@ -587,18 +699,18 @@ function renderProjects(projects) {
     `;
 
     container.innerHTML = `
-        <h3 style="width:100%; margin: 2rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Récents / En cours</h3>
         <div class="projects-grid-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%;">
-            ${recent.map(renderCard).join('')}
-        </div>
-
-        <h3 style="width:100%; margin: 3rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Plus anciens</h3>
-        <div class="projects-grid-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%;">
-            ${old.map(renderCard).join('')}
+            ${filtered.map(renderCard).join('')}
         </div>
     `;
 
-    window.projectsData = projects;
+    // Re-trigger scroll reveal for new elements
+    if (window.setupScrollReveal) {
+        setTimeout(() => {
+            const newCards = container.querySelectorAll('.project-card');
+            newCards.forEach(card => card.classList.add('active'));
+        }, 100);
+    }
 }
 
 function renderDocuments(data, containerId, basePath) {
