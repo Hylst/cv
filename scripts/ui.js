@@ -256,7 +256,8 @@ export function setupThemeToggle() {
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && prefersDark)) {
+    // Default to dark mode if no preference is saved, or if saved as dark
+    if (!localStorage.getItem('theme') || localStorage.getItem('theme') === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         btn.textContent = '☀️';
     } else {

@@ -350,11 +350,11 @@ export const PROJECTS_DATA = [
     {
         "id": "dev-low-level",
         "category": "recent",
-        "title": "Développement Bas Niveau & Graphique",
-        "description": "Développement ASM/C/BASIC, jeux, démos graphiques et utilitaires.",
-        "tech": ["C", "ASM", "Graphisme"],
-        "status": "Terminé",
-        "link": "#",
+        "title": "Créations demoscene et retro-computing",
+        "description": "Sous le pseudo <strong>Hylst</strong>. Plateforme de cœur : <strong>Atari ST / Falcon</strong> (Code, Soundtrack/Soundchip, Pixel Art).<br>Hommage aux artistes et codeurs talentueux de la scène.<br>Également : essais d'effets PC en C/Pascal il y a 25 ans (rotozoom, tunnels, 3d mappée, bump mapping, fire effect...).<br><a href='https://demozoo.org/sceners/2341/' target='_blank'>Profil Demozoo</a>",
+        "tech": ["C", "ASM", "Graphisme", "Musique"],
+        "status": "Non terminé",
+        "link": "https://demozoo.org/sceners/2341/",
         "image": "assets/screenshots/low-level.jpg"
     },
     {
