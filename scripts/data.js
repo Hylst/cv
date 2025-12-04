@@ -196,6 +196,19 @@ export const SKILLS_DATA = [
                     { name: "Électronique", status: "acquired", desc: "Analogique et numérique, électronique rapide, électrotechnique et micro électronique." },
                     { name: "Instrumentation", status: "acquired", desc: "Détecteurs, spectroscopie, métrologie, automatismes." }
                 ]
+            },
+            {
+                "title": "Informatique Industrielle",
+                "items": [
+                    { name: "Systèmes & Langages", status: "acquired", desc: "Micro-contrôleurs, émulateurs, Automatismes, ASM/C/C++, Delphi/Pascal/Fortran, VHDL, Matlab, Mathematica, ADA, PSPICE, XML." },
+                    { name: "Embarqué & Bus", status: "acquired", desc: "Traitement d’image, IHM, temps réel. Bus (RS485, VME, PCI, USB, CAN, UART, I²C, SPI) et protocoles (Modem, TCP-IP)." }
+                ]
+            },
+            {
+                "title": "Mécanique & Physique",
+                "items": [
+                    { name: "Mécanique", status: "acquired", desc: "Fondamentale, solide, quantique, fluides, optomécanique, dessin industriel, matériaux." }
+                ]
             }
         ]
     },
