@@ -1,0 +1,267 @@
+/* Headings */
+h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.pitch {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.objective {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+/* Collapsible / Skills Sections */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.skill-category,
+.collapsible-card {
+    background: var(--glass-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.skill-category summary,
+.collapsible-card summary {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.skill-category summary:hover,
+.collapsible-card summary:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.skill-category summary::-webkit-details-marker,
+.collapsible-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.skill-category summary h3,
+.collapsible-card summary h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+}
+
+.skill-category summary::after,
+.collapsible-card summary::after {
+    content: '+';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: transform 0.3s;
+}
+
+.skill-category[open] summary::after,
+.collapsible-card[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.skill-content,
+.collapsible-content {
+    padding: 0 1.5rem 1.5rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-section {
+    margin-top: 1rem;
+}
+
+.skill-section-title {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.2rem;
+    font-weight: 600;
+}
+
+/* Project Filters */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* 3 Facettes Diagram */
+.facets-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.facets-diagram {
+    position: relative;
+    width: 200px;
+    height: 180px;
+}
+
+.facet {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: white;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .facet {
+    mix-blend-mode: screen;
+}
+
+.facet:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    opacity: 1;
+}
+
+.facet-tech {
+    background-color: #4A90E2;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.facet-human {
+    background-color: #e74c3c;
+    bottom: 0;
+    left: 0;
+}
+
+.facet-creative {
+    background-color: #f1c40f;
+    bottom: 0;
+    right: 0;
+    color: #333;
+}
+
+.facet-center {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 5;
+    color: var(--text-color);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.facets-legend {
+    font-size: 0.9rem;
+    text-align: left;
+    background: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.facets-legend p {
+    margin-bottom: 0.5rem;
+}
+
+/* Interests Grid */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}

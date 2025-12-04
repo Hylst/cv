@@ -3,7 +3,7 @@
  * Creates a canvas with connecting particles to simulate a neural network
  */
 
-class ParticleNetwork {
+export class ParticleNetwork {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
@@ -156,11 +156,3 @@ class Particle {
         return Math.sqrt(dx * dx + dy * dy);
     }
 }
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    // Only init if element exists
-    if (document.getElementById('hero-canvas')) {
-        new ParticleNetwork('hero-canvas');
-    }
-});
