@@ -16,26 +16,28 @@ export function renderSkills(skills) {
             content = category.sections.map(section => `
                 <div class="skill-section">
                     <h4 class="skill-section-title">${section.title}</h4>
-                    <div class="skill-tags">
+                    <div class="skill-items-list">
                         ${section.items.map(item => `
-                            <span class="skill-tag status-${item.status}" 
-                                  data-tooltip="${item.desc || ''}" 
-                                  tabindex="0">
-                                ${item.name}
-                            </span>
+                            <div class="skill-item">
+                                <span class="skill-tag status-${item.status}" tabindex="0">
+                                    ${item.name}
+                                </span>
+                                ${item.desc ? `<p class="skill-desc">${item.desc}</p>` : ''}
+                            </div>
                         `).join('')}
                     </div>
                 </div>
             `).join('');
         } else {
             content = `
-                <div class="skill-tags">
+                <div class="skill-items-list">
                     ${category.items.map(item => `
-                        <span class="skill-tag status-${item.status}" 
-                              data-tooltip="${item.desc || ''}" 
-                              tabindex="0">
-                            ${item.name}
-                        </span>
+                        <div class="skill-item">
+                            <span class="skill-tag status-${item.status}" tabindex="0">
+                                ${item.name}
+                            </span>
+                            ${item.desc ? `<p class="skill-desc">${item.desc}</p>` : ''}
+                        </div>
                     `).join('')}
                 </div>
             `;
@@ -333,7 +335,7 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            entry.target.classList.add('visible');
         }
     });
 }, observerOptions);

@@ -75,7 +75,7 @@ export const SKILLS_DATA = [
             {
                 "title": "Front-End",
                 "items": [
-                    { name: "HTML5 / CSS3 / SASS", status: "acquired", desc: "Structure, style et préprocesseurs pour le web moderne." },
+                    { name: "HTML5 / CSS3", status: "acquired", desc: "Structure et style pour le web moderne." },
                     { name: "JavaScript (ES6+)", status: "acquired", desc: "Langage de script côté client, standards modernes." },
                     { name: "React* / Next.js**", status: "acquired", desc: "Bibliothèque UI et framework React pour le rendu serveur (SSR)." },
                     { name: "Vue.js** / Angular**", status: "learning", desc: "Frameworks JS progressifs et complets." },
@@ -86,9 +86,9 @@ export const SKILLS_DATA = [
             {
                 "title": "Back-End",
                 "items": [
-                    { name: "Node.js* / Express**", status: "acquired", desc: "JavaScript côté serveur et framework web minimaliste." },
                     { name: "PHP / Symfony** / Laravel**", status: "acquired", desc: "Langage serveur historique et ses frameworks robustes." },
                     { name: "Python (Django* / Flask)", status: "acquired", desc: "Frameworks Python : complet (Django) ou micro (Flask)." },
+                    { name: "Node.js* / Express**", status: "acquired", desc: "JavaScript côté serveur et framework web minimaliste." },
                     { name: "Java EE** / Spring**", status: "learning", desc: "Développement d'applications d'entreprise en Java." },
                     { name: "C#* / .NET**", status: "acquired", desc: "Écosystème Microsoft pour le développement applicatif." }
                 ]
@@ -157,7 +157,7 @@ export const SKILLS_DATA = [
                 "items": [
                     { name: "Git / GitHub / GitLab", status: "acquired", desc: "Gestion de version et collaboration." },
                     { name: "Docker* / Kubernetes**", status: "acquired", desc: "Conteneurisation et orchestration." },
-                    { name: "CI/CD (GitHub Actions)", status: "acquired", desc: "Intégration et déploiement continus." },
+                    { name: "CI/CD/GitHub Actions*", status: "acquired", desc: "Intégration et déploiement continus." },
                     { name: "AWS** / Cloud Native*", status: "learning", desc: "Services Cloud Amazon et architectures cloud." }
                 ]
             },
@@ -184,21 +184,17 @@ export const SKILLS_DATA = [
         "icon": "atom",
         "sections": [
             {
-                "title": "Optique & Photonique",
+                "title": "Optique & Télécoms",
                 "items": [
-                    { name: "Optique Géom. / Ondulatoire", status: "acquired", desc: "Physique de la lumière et propagation." },
-                    { name: "Lasers / Fibres Optiques", status: "acquired", desc: "Sources cohérentes et transmission de signal." },
-                    { name: "Spectroscopie / Photométrie", status: "acquired", desc: "Analyse spectrale et mesure de la lumière." },
-                    { name: "Holographie / Vision", status: "acquired", desc: "Imagerie 3D et systèmes de vision." }
+                    { name: "Optique", status: "acquired", desc: "Géométrique, ondulatoire, non linéaire, holographie, vision, photonique et radio-photométrie." },
+                    { name: "Télécoms", status: "acquired", desc: "Fibre optique, radio-télécoms, traitement du signal, théorie des réseaux, multiplexages." }
                 ]
             },
             {
-                "title": "Électronique & Systèmes",
+                "title": "Électronique & Mesure",
                 "items": [
-                    { name: "Électronique Analog/Num", status: "acquired", desc: "Circuits, composants et logique numérique." },
-                    { name: "Systèmes Embarqués (C/ASM)", status: "acquired", desc: "Programmation bas niveau sur microcontrôleurs." },
-                    { name: "Traitement du Signal", status: "acquired", desc: "Analyse et modification de signaux." },
-                    { name: "Capteurs / Métrologie", status: "acquired", desc: "Instrumentation et mesure physique." }
+                    { name: "Électronique", status: "acquired", desc: "Analogique et numérique, électronique rapide, électrotechnique et micro électronique." },
+                    { name: "Instrumentation", status: "acquired", desc: "Détecteurs, spectroscopie, métrologie, automatismes." }
                 ]
             }
         ]
@@ -233,7 +229,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2025 - 2026",
         "title": "Concepteur Développeur d'Applications (CDA)",
-        "description": "<strong>M2i Formation (17 Sept 2025 - 23 Juil 2026) - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**<br>• Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*<br>• CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce, <i class=\"fab fa-joomla timeline-icon\"></i> Joomla, Headless CMS (Strapi*)<br>• Java EE : servlets, JSP, frameworks entreprise**<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps*, CI/CD*<br>• Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
+        "description": "<strong>M2i Formation (17 Sept 2025 - 23 Juil 2026) - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**<br>• Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*<br>• CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce<br>• Java EE/SE* : servlets, JSP, frameworks entreprise**<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps*, CI/CD*<br>• Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
         "type": "education",
         "url": "https://macarriere.m2iformation.fr/offres/concepteur-rice-developpeur-se-d-applications/89/",
         "logo": "https://logo.clearbit.com/m2iformation.fr"

@@ -83,6 +83,7 @@
     gap: 0.5rem;
 }
 
+/* Skills */
 .skill-tag {
     font-size: 0.85rem;
     padding: 0.3rem 0.6rem;
@@ -90,9 +91,9 @@
     background-color: var(--secondary-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
-    cursor: help;
     transition: all 0.2s;
     position: relative;
+    display: inline-block;
 }
 
 .skill-tag:hover {
@@ -112,6 +113,28 @@
 
 .status-learning {
     border-left: 3px solid #f1c40f;
+}
+
+/* Skill Items Layout (inline descriptions) */
+.skill-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.skill-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+    padding-left: 0.5rem;
+    font-style: italic;
+    line-height: 1.4;
 }
 
 /* Project Cards */
@@ -281,9 +304,7 @@
 }
 
 .tooltip:hover::after,
-.tooltip:focus::after,
-.skill-tag:hover::after,
-.skill-tag:focus::after {
+.tooltip:focus::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 125%;
@@ -317,7 +338,19 @@
     transition: all 0.6s ease-out;
 }
 
-.reveal.active {
+.reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Timeline Logo */
+.timeline-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    background-color: white;
+    padding: 2px;
 }
