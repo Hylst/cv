@@ -242,7 +242,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2025 - 2026",
         "title": "Concepteur Développeur d'Applications (CDA)",
-        "description": "<strong>M2i Formation - Schiltigheim / Bas Rhin (67) (17 Sept 2025 - 23 Juil 2026) - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**<br>• Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*<br>• CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce<br>• Java EE/SE* : servlets, JSP, frameworks entreprise**<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps*, CI/CD*<br>• Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>17 Sept 2025 - 23 Juil 2026</span> - <span class='location-highlight'>Schiltigheim / Bas Rhin (67)</span></strong><strong>M2i Formation - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**<br>• Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*<br>• CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce<br>• Java EE/SE* : servlets, JSP, frameworks entreprise**<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps*, CI/CD*<br>• Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
         "type": "education",
         "url": "https://macarriere.m2iformation.fr/offres/concepteur-rice-developpeur-se-d-applications/89/",
         "logo": "https://logo.clearbit.com/m2iformation.fr"
@@ -266,15 +266,15 @@ export const TIMELINE_DATA = [
     {
         "year": "2004 - 2024",
         "title": "BUT - Coordinateur Commercial",
-        "description": "<strong>Vendenheim (Mars 2004 - Sept 2024 - 20 ans 7 mois)</strong><br><em>Rôles variés :</em> Coordinateur commercial, Vendeur, Responsable SAV, Chef de rayon électroménager, Attaché de direction.<br><br><em>Compétences développées :</em> Vente, coordination, Management d'équipe, Gestion de rayon, Gestion des litiges et SAV, Relation client et fournisseurs, Achat et marketing, Dépannage et installation, Planification, communication, formation.",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>Mars 2004 - Sept 2024 (20 ans 7 mois)</span> - <span class='location-highlight'>Vendenheim (67)</span></strong><em>Rôles variés :</em> Coordinateur commercial, Vendeur, Responsable SAV, Chef de rayon électroménager, Attaché de direction.<br><br><em>Compétences développées :</em> Vente, coordination, Management d'équipe, Gestion de rayon, Gestion des litiges et SAV, Relation client et fournisseurs, Achat et marketing, Dépannage et installation, Planification, communication, formation.",
         "type": "experience",
         "url": "https://www.but.fr",
         "logo": "https://logo.clearbit.com/but.fr"
     },
     {
         "year": "2002",
-        "title": "Thales Laser - Ingénieur Industrialisation Laser",
-        "description": "<strong>Mars - Août 2002 (6 mois) - Essonne (91)</strong><br><em>Mission :</em> Ingénieur co-responsable de l’industrialisation d'un laser.<br><em>Compétences :</em> Méthode, Qualité, Communication, Technique (Optique, Électronique, Mécanique).",
+        "title": "Thales Laser SA - Ingénieur Industrialisation Laser",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>Mars - Août 2002 (6 mois)</span> - <span class='location-highlight'>Essonne (91)</span></strong><span class='company-activity'>Activité de l'entreprise : production de matériels optiques/photographiques — entre autres composants laser / opto-électronique, relevant de la division laser/optique de Thales.</span><em>Mission :</em> Ingénieur co-responsable de l’industrialisation d'un laser.<br><em>Compétences :</em> Méthode, Qualité, Communication, Technique (Optique, Électronique, Mécanique).",
         "type": "experience",
         "url": "https://www.thalesgroup.com",
         "logo": "https://logo.clearbit.com/thalesgroup.com"
@@ -282,23 +282,23 @@ export const TIMELINE_DATA = [
     {
         "year": "2001",
         "title": "LORD Ingénierie - Apprenti Ingénieur Optro/Info Embarquée",
-        "description": "<strong>Fév - Juillet 2001 (6 mois) - Essonne (91)</strong><br><em>Mission :</em> Réalisation de programmes de sauvegarde, restauration, formatage de données pour système embarqué (caméra intelligente linéaire).",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>Fév - Juillet 2001 (6 mois)</span> - <span class='location-highlight'>Corbreuse (91)</span></strong><span class='company-activity'>Activité de l'entreprise : bureau d’études / ingénierie spécialisé dans la « vision industrielle » — conception de caméras, capteurs opto-électroniques et produits de vision industrielle / optique.</span><em>Mission :</em> Réalisation de programmes de sauvegarde, restauration, formatage de données pour système embarqué (caméra intelligente linéaire).",
         "type": "experience",
-        "url": null,
+        "url": "https://indexa.fr/entreprise/lord-ingenierie/industrie-optique-bilan.html?utm_source=chatgpt.com",
         "logo": null
     },
     {
         "year": "2000",
         "title": "Bonnet Électronique - Technicien Sup. Électro/Info Embarquée",
-        "description": "<strong>Juin - Août 2000 (3 mois) - Bas Rhin (67)</strong><br><em>Mission :</em> Conception d'une carte de télégestion de centre de lavage automatique et d'un système automatisé d'orientation de panneau solaire (software essentiellement).",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>Juin - Août 2000 (3 mois)</span> - <span class='location-highlight'>Eichhoffen / Bas Rhin (67)</span></strong><span class='company-activity'>Activité de l'entreprise : fabrication et assemblage de cartes électroniques. Développement de solutions électronique embarquée.</span><em>Mission :</em> Conception d'une carte de télégestion de centre de lavage automatique et d'un système automatisé d'orientation de panneau solaire (software essentiellement).",
         "type": "experience",
-        "url": null,
+        "url": "https://www.pappers.fr/entreprise/bonnet-electronique-412634651?utm_source=chatgpt.com",
         "logo": null
     },
     {
         "year": "1997",
-        "title": "Ideacod Hohner Automation - Technicien Optronique/Photométrie",
-        "description": "<strong>Juillet - Août 1997 (2 mois) - Bas Rhin (67)</strong><br><em>Mission :</em> Optimisation d'un système miniaturisé de transmission optique pour codeur optique de rotation.",
+        "title": "Hohner Automation (Ideacod) - Technicien Optronique/Photométrie",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>Juillet - Août 1997 (2 mois)</span> - <span class='location-highlight'>Bas Rhin (67)</span></strong><span class='company-activity'>Activité de l'entreprise : fabrication de codeurs incrémentaux et absolus, systèmes de mesure et d’encodeurs pour l’industrie — c-à-d des composants de position / rotation destinés à des applications industrielles d’automatisme.</span><em>Mission :</em> Optimisation d'un système miniaturisé de transmission optique pour codeur optique de rotation.",
         "type": "experience",
         "url": "https://www.hohner-elektrotechnik.de",
         "logo": "https://logo.clearbit.com/hohner-elektrotechnik.de"
@@ -314,14 +314,14 @@ export const TIMELINE_DATA = [
     {
         "year": "1998 - 1999",
         "title": "Maths Spé ATS - Génie Électronique et Mécanique",
-        "description": "<strong>Lycée Louis Armand - Mulhouse (68)</strong><br>Classe préparatoire Adaptation Technicien Supérieur pour l'entrée en école d'ingénieur.",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>1998 - 1999</span> - <span class='location-highlight'>Lycée Louis Armand - Mulhouse (68)</span></strong>Classe préparatoire Adaptation Technicien Supérieur pour l'entrée en école d'ingénieur.<br><br><em>Compétences travaillées :</em> Mathémathiques avancées pour l'ingénieurie, Physique, Physique quantique, Thermodynamique, Mécanique, Électronique.",
         "type": "education",
         "url": null
     },
     {
         "year": "1996 - 1998",
         "title": "BTS Génie Optique Photonique",
-        "description": "<strong>Lycée Jean Mermoz - Saint-Louis (68)</strong><br><em>Options :</em> Gestion, Anglais<br><em>Compétences clés :</em> Conception, réalisation et maintenance de systèmes optiques (lasers, fibre optique, imagerie). Physique des signaux et traitement du signal lumineux.<br><em>Projet :</em> Optimisation de supports holographiques.",
+        "description": "<strong class='timeline-meta'><span class='date-highlight'>1996 - 1998</span> - <span class='location-highlight'>Lycée Jean Mermoz - Saint-Louis (68)</span></strong><em>Options :</em> Gestion, Anglais<br><em>Compétences clés :</em> Conception, réalisation et maintenance de systèmes optiques (lasers, fibre optique, imagerie). Physique des signaux et traitement du signal lumineux.<br><em>Projet :</em> Optimisation de supports holographiques.",
         "type": "education",
         "url": "https://jean-mermoz-montpellier.mon-ent-occitanie.fr/formations-post-bac/bts/bts-photonique-technologies-et-sciences-de-la-lumiere-ptsl--4548.htm",
         "logo": null
@@ -329,7 +329,7 @@ export const TIMELINE_DATA = [
     {
         "year": "1994 - 1996",
         "title": "Bac STL Physique de Laboratoire",
-        "description": "<strong>Lycée Jean Rostand - Strasbourg / Bas Rhin (67)</strong><br>Formation axée sur les techniques de laboratoire (instruments de mesure, d'analyse et d'observation) et les procédés industriels. Cours et TP : physique instrumentale, thermodynamique, chimie, électricité, mécanique,...",
+        "description": "<strong class='timeline-meta'><span class='location-highlight'>Lycée Jean Rostand - Strasbourg / Bas Rhin (67)</span></strong>Formation axée sur les techniques de laboratoire (instruments de mesure, d'analyse et d'observation) et les procédés industriels. Cours et TP : physique instrumentale, thermodynamique, chimie, électricité, mécanique,...",
         "type": "education",
         "url": "https://www.lycee-jean-rostand.fr/index.php/formations/lycee-general-technologique/baccalaureat-stl-pcl"
     }
