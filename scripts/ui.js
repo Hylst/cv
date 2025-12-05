@@ -223,38 +223,47 @@ function renderTimeline(timeline, mode = 'chronological') {
     const container = document.getElementById('timeline-list');
     if (!container) return;
 
+    // Helper to render a single timeline card
+    const renderCard = (item) => `
+        <details class="timeline-card">
+            <summary>
+                <div class="timeline-header">
+                    <span class="timeline-year">${item.year}</span>
+                    <div class="timeline-title-group">
+                        ${item.logo ? `<img src="${item.logo}" alt="Logo" class="timeline-logo" onerror="this.style.display='none'">` : ''}
+                        <h3 class="timeline-title-text">${item.title}</h3>
+                        ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="timeline-link-icon" title="Voir Lien"><i class="fas fa-external-link-alt"></i></a>` : ''}
+                    </div>
+                </div>
+            </summary>
+            <div class="timeline-content">
+                <p>${processText(item.description)}</p>
+                ${item.url ? `<div class="timeline-footer"><a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">En savoir plus</a></div>` : ''}
+            </div>
+        </details>
+    `;
+
     if (mode === 'categorical') {
         const education = timeline.filter(item => item.type === 'education');
         const experience = timeline.filter(item => item.type === 'experience');
 
-        const renderItem = (item) => `
-            <div class="timeline-item">
-                <div class="timeline-year">${item.year}</div>
-                <h3 class="timeline-title">
-                    ${item.logo ? `<img src="${item.logo}" alt="Logo" class="timeline-logo" onerror="this.style.display='none'">` : ''}
-                    ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="timeline-link">${item.title} <span class="external-icon">↗</span></a>` : item.title}
-                </h3>
-                <p>${processText(item.description)}</p>
-            </div>
-        `;
-
         container.innerHTML = `
-            <h3 style="margin: 2rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Formations</h3>
-            ${education.map(renderItem).join('')}
-            <h3 style="margin: 2rem 0 1rem; color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem;">Expériences Professionnelles</h3>
-            ${experience.map(renderItem).join('')}
+            <div class="timeline-category-section">
+                <h3 class="category-title">Formations</h3>
+                ${education.map(renderCard).join('')}
+            </div>
+            <div class="timeline-category-section">
+                <h3 class="category-title">Expériences Professionnelles</h3>
+                ${experience.map(renderCard).join('')}
+            </div>
         `;
     } else {
-        container.innerHTML = timeline.map(item => `
-            <div class="timeline-item">
-                <div class="timeline-year">${item.year}</div>
-                <h3 class="timeline-title">
-                    ${item.logo ? `<img src="${item.logo}" alt="Logo" class="timeline-logo" onerror="this.style.display='none'">` : ''}
-                    ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="timeline-link">${item.title} <span class="external-icon">↗</span></a>` : item.title}
-                </h3>
-                <p>${processText(item.description)}</p>
-            </div>
-        `).join('');
+        container.innerHTML = timeline.map(renderCard).join('');
+    }
+
+    // Observe new elements for animation
+    if (window.observeElements) {
+        window.observeElements(container.querySelectorAll('.timeline-card'));
     }
 }
 

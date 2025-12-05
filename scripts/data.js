@@ -242,7 +242,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2025 - 2026",
         "title": "Concepteur Développeur d'Applications (CDA)",
-        "description": "<strong>M2i Formation (17 Sept 2025 - 23 Juil 2026) - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**<br>• Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*<br>• CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce<br>• Java EE/SE* : servlets, JSP, frameworks entreprise**<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps*, CI/CD*<br>• Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
+        "description": "<strong>M2i Formation - Schiltigheim / Bas Rhin (67) (17 Sept 2025 - 23 Juil 2026) - Titre Professionnel Niveau 6 (BAC+3/4)</strong><br><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel<br><span style=\"font-size:0.9em; opacity:0.8\"><em>Légende : * Bases | ** Notions</em></span><br><br><em>Développement Web :</em><br>• Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**<br>• Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*<br>• CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce<br>• Java EE/SE* : servlets, JSP, frameworks entreprise**<br><br><em>Data & Architecture :</em><br>• Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data<br>• Conception : UML, Algorithmie, Architectures applicatives<br>• Méthodes : Scrum, gestion de projet agile<br><br><em>DevOps & Cloud :</em><br>• Fondamentaux DevOps*, CI/CD*<br>• Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)<br><br><em>Sécurité & Qualité :</em><br>• Cybersécurité, RGPD<br>• Testing applicatif (unitaires, intégration)<br><br><em>Soft Skills :</em> Communication, travail équipe, gestion stress, anglais professionnel, TRE<br><br><em>Projet fil rouge :</em> Application complète (conception → déploiement)<br><em>Stage :</em> 3+ mois en entreprise (Avril-Juillet 2026)<br><em>Examen :</em> Titre Professionnel CDA (Juillet 2026)",
         "type": "education",
         "url": "https://macarriere.m2iformation.fr/offres/concepteur-rice-developpeur-se-d-applications/89/",
         "logo": "https://logo.clearbit.com/m2iformation.fr"
@@ -274,7 +274,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2002",
         "title": "Thales Laser - Ingénieur Industrialisation Laser",
-        "description": "<strong>Mars - Août 2002 (6 mois)</strong><br><em>Mission :</em> Ingénieur co-responsable de l’industrialisation d'un laser.<br><em>Compétences :</em> Méthode, Qualité, Communication, Technique (Optique, Électronique, Mécanique).",
+        "description": "<strong>Mars - Août 2002 (6 mois) - Essonne (91)</strong><br><em>Mission :</em> Ingénieur co-responsable de l’industrialisation d'un laser.<br><em>Compétences :</em> Méthode, Qualité, Communication, Technique (Optique, Électronique, Mécanique).",
         "type": "experience",
         "url": "https://www.thalesgroup.com",
         "logo": "https://logo.clearbit.com/thalesgroup.com"
@@ -282,7 +282,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2001",
         "title": "LORD Ingénierie - Apprenti Ingénieur Optro/Info Embarquée",
-        "description": "<strong>Fév - Juillet 2001 (6 mois)</strong><br><em>Mission :</em> Réalisation de programmes de sauvegarde, restauration, formatage de données pour système embarqué (caméra intelligente linéaire).",
+        "description": "<strong>Fév - Juillet 2001 (6 mois) - Essonne (91)</strong><br><em>Mission :</em> Réalisation de programmes de sauvegarde, restauration, formatage de données pour système embarqué (caméra intelligente linéaire).",
         "type": "experience",
         "url": null,
         "logo": null
@@ -290,7 +290,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2000",
         "title": "Bonnet Électronique - Technicien Sup. Électro/Info Embarquée",
-        "description": "<strong>Juin - Août 2000 (3 mois)</strong><br><em>Mission :</em> Conception d'une carte de télégestion de centre de lavage automatique et d'un système automatisé d'orientation de panneau solaire (software essentiellement).",
+        "description": "<strong>Juin - Août 2000 (3 mois) - Bas Rhin (67)</strong><br><em>Mission :</em> Conception d'une carte de télégestion de centre de lavage automatique et d'un système automatisé d'orientation de panneau solaire (software essentiellement).",
         "type": "experience",
         "url": null,
         "logo": null
@@ -298,7 +298,7 @@ export const TIMELINE_DATA = [
     {
         "year": "1997",
         "title": "Ideacod Hohner Automation - Technicien Optronique/Photométrie",
-        "description": "<strong>Juillet - Août 1997 (2 mois)</strong><br><em>Mission :</em> Optimisation d'un système miniaturisé de transmission optique pour codeur optique de rotation.",
+        "description": "<strong>Juillet - Août 1997 (2 mois) - Bas Rhin (67)</strong><br><em>Mission :</em> Optimisation d'un système miniaturisé de transmission optique pour codeur optique de rotation.",
         "type": "experience",
         "url": "https://www.hohner-elektrotechnik.de",
         "logo": "https://logo.clearbit.com/hohner-elektrotechnik.de"
@@ -329,9 +329,9 @@ export const TIMELINE_DATA = [
     {
         "year": "1994 - 1996",
         "title": "Bac STL Physique de Laboratoire",
-        "description": "<strong>Lycée Jean Rostand - Strasbourg (67)</strong>",
+        "description": "<strong>Lycée Jean Rostand - Strasbourg / Bas Rhin (67)</strong><br>Formation axée sur les techniques de laboratoire (instruments de mesure, d'analyse et d'observation) et les procédés industriels. Cours et TP : physique instrumentale, thermodynamique, chimie, électricité, mécanique,...",
         "type": "education",
-        "url": null
+        "url": "https://www.lycee-jean-rostand.fr/index.php/formations/lycee-general-technologique/baccalaureat-stl-pcl"
     }
 ];
 

@@ -265,3 +265,11 @@ h2::after {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
 }
+
+/* Timeline Controls */
+.timeline-controls {
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
