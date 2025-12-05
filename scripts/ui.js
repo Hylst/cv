@@ -162,8 +162,8 @@ export function renderDocuments(data, containerId, basePath) {
                     <ul class="doc-list">
                         ${cat.items.map(item => `
                             <li>
-                                <a href="${basePath}${item.file}" target="_blank" class="doc-link">
-                                    <i class="fas fa-file-pdf"></i> ${item.name}
+                                <a href="${item.link ? item.link : basePath + item.file}" target="_blank" class="doc-link">
+                                    <i class="fas ${item.link ? 'fa-external-link-alt' : 'fa-file-pdf'}"></i> ${item.name}
                                 </a>
                             </li>
                         `).join('')}
@@ -178,8 +178,8 @@ export function renderDocuments(data, containerId, basePath) {
                 <ul class="doc-list">
                     ${data.map(item => `
                         <li>
-                            <a href="${basePath}${item.file}" target="_blank" class="doc-link">
-                                <i class="fas fa-file-pdf"></i> ${item.name}
+                            <a href="${item.link ? item.link : basePath + item.file}" target="_blank" class="doc-link">
+                                <i class="fas ${item.link ? 'fa-external-link-alt' : 'fa-file-pdf'}"></i> ${item.name}
                             </a>
                         </li>
                     `).join('')}

@@ -4,6 +4,24 @@
 @import 'components.css';
 @import 'sections.css';
 
+
+/* Animated Name */
+.animated-name {
+    background: linear-gradient(45deg, var(--text-color) 30%, var(--primary-color) 50%, var(--text-color) 70%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 5s linear infinite;
+    display: inline-block;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
 /* Retro Mode */
 .retro-mode {
     background-color: #000 !important;
