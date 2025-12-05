@@ -162,9 +162,12 @@ export function renderDocuments(data, containerId, basePath) {
                     <ul class="doc-list">
                         ${cat.items.map(item => `
                             <li>
-                                <a href="${item.link ? item.link : basePath + item.file}" target="_blank" class="doc-link">
-                                    <i class="fas ${item.link ? 'fa-external-link-alt' : 'fa-file-pdf'}"></i> ${item.name}
-                                </a>
+                                <div class="doc-links">
+                                    ${item.link ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
+                                    ${item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
+                                    ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
+                                    ${!item.link && item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>` : ''}
+                                </div>
                             </li>
                         `).join('')}
                     </ul>
@@ -178,9 +181,12 @@ export function renderDocuments(data, containerId, basePath) {
                 <ul class="doc-list">
                     ${data.map(item => `
                         <li>
-                            <a href="${item.link ? item.link : basePath + item.file}" target="_blank" class="doc-link">
-                                <i class="fas ${item.link ? 'fa-external-link-alt' : 'fa-file-pdf'}"></i> ${item.name}
-                            </a>
+                            <div class="doc-links">
+                                ${item.link ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
+                                ${item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
+                                ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
+                                ${!item.link && item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>` : ''}
+                            </div>
                         </li>
                     `).join('')}
                 </ul>

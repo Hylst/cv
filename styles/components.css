@@ -354,3 +354,21 @@
     background-color: white;
     padding: 2px;
 }
+
+/* Document Links */
+.doc-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.doc-link-icon {
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.doc-link-icon:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
