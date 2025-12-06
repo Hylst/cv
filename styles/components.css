@@ -495,6 +495,27 @@
     border-left: 4px solid #9b59b6;
 }
 
+/* Formation-specific blocks */
+.timeline-institution-block {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--accent-color);
+}
+
+.timeline-courses-block {
+    background-color: rgba(52, 152, 219, 0.08);
+    border-left: 4px solid #3498db;
+}
+
+.timeline-description-block {
+    background-color: var(--secondary-color);
+    border-left: 4px solid #1abc9c;
+}
+
+.timeline-projects-block {
+    background-color: rgba(230, 126, 34, 0.08);
+    border-left: 4px solid #e67e22;
+}
+
 .timeline-subtitle {
     display: block;
     font-size: 0.85rem;
@@ -548,11 +569,31 @@
     background-color: rgba(155, 89, 182, 0.1);
 }
 
+[data-theme="dark"] .timeline-institution-block {
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+[data-theme="dark"] .timeline-courses-block {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+[data-theme="dark"] .timeline-description-block {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .timeline-projects-block {
+    background-color: rgba(230, 126, 34, 0.1);
+}
+
 /* Retro mode adjustments for blocks */
 .retro-mode .timeline-meta-block,
 .retro-mode .timeline-company-block,
 .retro-mode .timeline-role-block,
-.retro-mode .timeline-skills-block {
+.retro-mode .timeline-skills-block,
+.retro-mode .timeline-institution-block,
+.retro-mode .timeline-courses-block,
+.retro-mode .timeline-description-block,
+.retro-mode .timeline-projects-block {
     background-color: #000 !important;
     border-color: #0f0 !important;
 }
