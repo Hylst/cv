@@ -456,3 +456,103 @@
     opacity: 1;
     color: var(--primary-color);
 }
+
+/* Timeline Sub-blocks Redesign */
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.timeline-meta-block,
+.timeline-company-block,
+.timeline-role-block,
+.timeline-skills-block {
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.timeline-meta-block {
+    background-color: var(--secondary-color);
+    border-left: 4px solid var(--primary-color);
+}
+
+.timeline-company-block {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--accent-color);
+}
+
+.timeline-role-block {
+    background-color: rgba(74, 144, 226, 0.08);
+    border-left: 4px solid #2ecc71;
+}
+
+.timeline-skills-block {
+    background-color: var(--sidebar-bg);
+    border-left: 4px solid #9b59b6;
+}
+
+.timeline-subtitle {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+}
+
+.timeline-company-block p,
+.timeline-role-block p,
+.timeline-skills-block p {
+    margin: 0;
+}
+
+.timeline-skills-block ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+/* Button Alignment */
+.timeline-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+/* Highlights within meta block */
+.timeline-meta-block .date-highlight {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.timeline-meta-block .location-highlight {
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* Dark mode adjustments for blocks */
+[data-theme="dark"] .timeline-meta-block {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .timeline-role-block {
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+[data-theme="dark"] .timeline-skills-block {
+    background-color: rgba(155, 89, 182, 0.1);
+}
+
+/* Retro mode adjustments for blocks */
+.retro-mode .timeline-meta-block,
+.retro-mode .timeline-company-block,
+.retro-mode .timeline-role-block,
+.retro-mode .timeline-skills-block {
+    background-color: #000 !important;
+    border-color: #0f0 !important;
+}
