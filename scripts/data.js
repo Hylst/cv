@@ -305,7 +305,7 @@ export const TIMELINE_DATA = [
     },
     {
         "year": "1999 - 2002",
-        "title": "Diplôme d'Ingénieur - Sciences de l'Industrie, Spécialité Optronique",
+        "title": "École d'Ingénieur - Sciences de l'Industrie, Spécialité Optronique",
         "description": "<div class='timeline-meta-block'><span class='date-highlight'>1999 - 2002</span> <br> <span class='location-highlight'>Orsay / Essonne (91)</span></div><div class='timeline-institution-block'><span class='timeline-subtitle'>Établissement</span><p>NFIO / Université Paris-Sud (devenue Paris-Saclay)</p></div><div class='timeline-courses-block'><span class='timeline-subtitle'>Domaines d'expertise</span><h4>Optique :</h4><ul><li>Géométrique, ondulatoire, non linéaire, holographie, vision, photonique, radio-photométrie</li></ul><h4>Électronique :</h4><ul><li>Analogique, numérique, haute fréquence, électrotechnique, micro-électronique</li></ul><h4>Télécommunications :</h4><ul><li>Fibre optique, radio-télécoms, traitement du signal, réseaux, multiplexage</li></ul><h4>Autres :</h4><ul><li>Détecteurs, spectroscopie, métrologie, automatismes, mécanique quantique, optomécanique</li></ul></div>",
         "type": "education",
         "url": "https://www.universite-paris-saclay.fr",
