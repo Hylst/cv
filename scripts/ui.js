@@ -44,7 +44,7 @@ export function renderSkills(skills) {
         }
 
         return `
-        <details class="skill-category" open>
+        <details class="skill-category">
             <summary><h3><i class="icon-${category.icon}"></i> ${category.category}</h3></summary>
             <div class="skill-content">
                 ${content}
