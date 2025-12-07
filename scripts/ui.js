@@ -163,10 +163,10 @@ export function renderDocuments(data, containerId, basePath) {
                         ${cat.items.map(item => `
                             <li>
                                 <div class="doc-links">
-                                    ${item.link ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
-                                    ${item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
-                                    ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
+                                    ${item.link && item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a><a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
+                                    ${item.link && !item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
                                     ${!item.link && item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>` : ''}
+                                    ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
                                 </div>
                             </li>
                         `).join('')}
@@ -182,10 +182,10 @@ export function renderDocuments(data, containerId, basePath) {
                     ${data.map(item => `
                         <li>
                             <div class="doc-links">
-                                ${item.link ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
-                                ${item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
-                                ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
+                                ${item.link && item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a><a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
+                                ${item.link && !item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
                                 ${!item.link && item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>` : ''}
+                                ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
                             </div>
                         </li>
                     `).join('')}
