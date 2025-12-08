@@ -344,7 +344,7 @@ export const PROJECTS_DATA = [
         "tech": ["IA Générative", "Web Dev", "Python"],
         "status": "En cours",
         "link": "#",
-        "image": "assets/screenshots/ia-apps.jpg"
+        "image": "assets/screenshots/ia-apps.webp"
     },
     {
         "id": "cognitive-assist",
@@ -354,7 +354,7 @@ export const PROJECTS_DATA = [
         "tech": ["Accessibilité", "Cognitive Science", "App"],
         "status": "En cours",
         "link": "#",
-        "image": "assets/screenshots/cognitive.jpg"
+        "image": "assets/screenshots/cognitive.webp"
     },
     {
         "id": "dev-low-level",
@@ -364,7 +364,7 @@ export const PROJECTS_DATA = [
         "tech": ["C", "ASM", "Graphisme", "Musique"],
         "status": "Non terminé",
         "link": "https://demozoo.org/sceners/2341/",
-        "image": "assets/screenshots/low-level.jpg"
+        "image": "assets/screenshots/low-level.webp"
     },
     {
         "id": "video-card",
@@ -374,7 +374,7 @@ export const PROJECTS_DATA = [
         "tech": ["Électronique", "Hardware", "C"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/hardware.jpg"
+        "image": "assets/screenshots/hardware.webp"
     },
     {
         "id": "robotics",
@@ -384,7 +384,7 @@ export const PROJECTS_DATA = [
         "tech": ["Arduino", "C++", "Robotique"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/robotics.jpg"
+        "image": "assets/screenshots/robotics.webp"
     },
     {
         "id": "events",
@@ -394,7 +394,7 @@ export const PROJECTS_DATA = [
         "tech": ["Management", "Event", "Culture"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/events.jpg"
+        "image": "assets/screenshots/events.webp"
     },
     {
         "id": "lasers-study",
@@ -404,7 +404,7 @@ export const PROJECTS_DATA = [
         "tech": ["Optique", "Laser", "Recherche"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/laser.jpg"
+        "image": "assets/screenshots/laser.svg"
     },
     {
         "id": "bts-project",
@@ -414,7 +414,7 @@ export const PROJECTS_DATA = [
         "tech": ["Holographie", "Chimie", "Optique"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/holography.jpg"
+        "image": "assets/screenshots/holography.svg"
     },
     {
         "id": "videogames-study",
@@ -424,7 +424,7 @@ export const PROJECTS_DATA = [
         "tech": ["VR", "IHM", "Recherche"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/vr.jpg"
+        "image": "assets/screenshots/vr.svg"
     },
     {
         "id": "associations",
@@ -434,7 +434,7 @@ export const PROJECTS_DATA = [
         "tech": ["Bénévolat", "Gestion", "Social"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/asso.jpg"
+        "image": "assets/screenshots/asso.svg"
     },
     {
         "id": "web-legacy",
@@ -444,7 +444,7 @@ export const PROJECTS_DATA = [
         "tech": ["HTML", "CSS", "Webmastering"],
         "status": "Terminé",
         "link": "#",
-        "image": "assets/screenshots/web-old.jpg"
+        "image": "assets/screenshots/web-old.svg"
     }
 ];
 
