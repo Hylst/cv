@@ -1,31 +1,78 @@
+/**
+ * =============================================================================
+ * VARIABLES.CSS - Le Codex des Constantes Cosmiques
+ * =============================================================================
+ * 
+ * Ici reposent les CSS Variables, les fondations de notre univers visuel.
+ * Comme les lois de la physique dans un multivers, mais pour les couleurs.
+ * 
+ * Touchez a ces valeurs, et tout l'equilibre sera rompu...
+ * (ou alors ca changera juste les couleurs, mais c'est moins dramatique)
+ * 
+ * =============================================================================
+ */
+
+/* -----------------------------------------------------------------------------
+ * MODE CLAIR - La Realite Lumineuse (aussi connu comme "le monde normal")
+ * ----------------------------------------------------------------------------- */
 :root {
     --primary-color: #2E4A7D;
+    /* Bleu profond - comme les abysses de Subnautica */
     --secondary-color: #F4F6F8;
+    /* Gris clair - pour les fonds discrets */
     --accent-color: #4A90E2;
+    /* Bleu vif - notre couleur signature */
     --text-color: #333;
+    /* Presque noir - lisible comme un bon bouquin */
     --text-light: #666;
+    /* Gris pour le texte secondaire */
     --bg-color: #fff;
+    /* Blanc pur - toile vierge */
     --sidebar-bg: #f0f2f5;
+    /* Fond sidebar legerement teinte */
     --card-bg: #fff;
+    /* Fond des cartes - propre et net */
     --border-color: #e1e4e8;
+    /* Bordures discretes mais presentes */
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Ombre legere comme un murmure */
     --font-main: 'Inter', sans-serif;
+    /* Police principale - clean et moderne */
     --font-heading: 'Roboto', sans-serif;
+    /* Police des titres - avec du caractere */
     --transition: all 0.3s ease;
+    /* La duree d'une transition, universelle */
     --glass-bg: rgba(255, 255, 255, 0.7);
+    /* Effet verre (glassmorphism) */
     --glass-border: rgba(255, 255, 255, 0.5);
+    /* Bordure vitreuse */
 }
 
+/* -----------------------------------------------------------------------------
+ * MODE SOMBRE - Le Royaume des Tenebres (pour les vrais devs)
+ * Comme passer dans l'Upside Down, mais en plus confortable pour les yeux
+ * ----------------------------------------------------------------------------- */
 [data-theme="dark"] {
     --primary-color: #4A90E2;
+    /* Bleu plus clair - il faut briller */
     --secondary-color: #1a1a1a;
+    /* Presque noir - ambiance Matrix */
     --text-color: #e1e4e8;
+    /* Texte clair sur fond sombre */
     --text-light: #a0a0a0;
+    /* Texte secondaire, gris doux */
     --bg-color: #121212;
+    /* Noir profond - le vrai Dark Mode */
     --sidebar-bg: #1e1e1e;
+    /* Sidebar plus sombre */
     --card-bg: #2d2d2d;
+    /* Cartes en gris fonce */
     --border-color: #333;
+    /* Bordures discretes */
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* Ombres plus marquees */
     --glass-bg: rgba(30, 30, 30, 0.6);
+    /* Verre teinte sombre */
     --glass-border: rgba(255, 255, 255, 0.1);
+    /* Bordure subtile */
 }

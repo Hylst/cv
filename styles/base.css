@@ -1,37 +1,74 @@
+/**
+ * =============================================================================
+ * BASE.CSS - Les Fondations du Royaume
+ * =============================================================================
+ * 
+ * Le CSS de base. Reset et styles globaux.
+ * C'est comme le tuto d'un jeu - ennuyeux mais necessaire.
+ * Sans ca, tout part en vrille comme un run de Dark Souls niveau 1.
+ * 
+ * =============================================================================
+ */
+
+/* -----------------------------------------------------------------------------
+ * RESET UNIVERSEL - On remet les compteurs a zero
+ * Comme un New Game+ mais sans les bonus
+ * ----------------------------------------------------------------------------- */
 * {
     box-sizing: border-box;
+    /* Les bordures comptent dans la taille - logique non? */
     margin: 0;
+    /* Pas de marges parasites */
     padding: 0;
+    /* Pas de padding sauvage */
 }
 
+/* Scroll fluide - parce qu'on est des gens civilises */
 html {
     scroll-behavior: smooth;
 }
 
+/* Le body - notre canvas principal */
 body {
     font-family: var(--font-main);
     color: var(--text-color);
+    /* Degrade de fond - classe et subtil comme un bon vin */
     background: linear-gradient(135deg, var(--bg-color) 0%, var(--sidebar-bg) 100%);
     background-attachment: fixed;
+    /* Le fond reste fixe pendant le scroll */
     line-height: 1.6;
+    /* Espacement confortable pour les yeux */
     min-height: 100vh;
+    /* Au moins toute la hauteur de l'ecran */
 }
 
+/* -----------------------------------------------------------------------------
+ * LIENS - Les Portails Hypertexte
+ * Cliquez et vous serez teleporte (ou pas)
+ * ----------------------------------------------------------------------------- */
 a {
     text-decoration: none;
+    /* Pas de soulignement moche */
     color: var(--primary-color);
     transition: var(--transition);
+    /* Transition douce comme un fromage */
 }
 
 a:hover {
     color: var(--accent-color);
+    /* Changement de couleur au survol */
 }
 
+/* Listes sans puces - les puces c'est pour les presentateurs PowerPoint */
 ul {
     list-style: none;
 }
 
-/* Spotlight Effect */
+/* -----------------------------------------------------------------------------
+ * EFFET SPOTLIGHT - La Lampe Torche du Mineur
+ * Suit la souris comme ton ombre. Mais en lumineux.
+ * Effect subtil mais qui donne de la vie a la page.
+ * ----------------------------------------------------------------------------- */
 .spotlight {
     position: fixed;
     top: 0;
@@ -39,18 +76,26 @@ ul {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    /* Ne bloque pas les clics - c'est juste visuel */
+    /* Cercle lumineux centre sur la position de la souris */
     background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%);
     z-index: 9999;
+    /* Au-dessus de tout, sauf les modales */
 }
 
+/* En mode sombre, spotlight moins intense - les yeux remercient */
 [data-theme="dark"] .spotlight {
     background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.03), transparent 40%);
 }
 
-/* Skip Link */
+/* -----------------------------------------------------------------------------
+ * LIEN D'EVITEMENT - Pour l'Accessibilite
+ * Les lecteurs d'ecran nous remercient
+ * ----------------------------------------------------------------------------- */
 .skip-link {
     position: absolute;
     top: -40px;
+    /* Cache hors ecran par defaut */
     left: 0;
     background: var(--primary-color);
     color: white;
@@ -58,6 +103,7 @@ ul {
     z-index: 200;
 }
 
+/* Visible quand focus - Tab pour atteindre */
 .skip-link:focus {
     top: 0;
 }
