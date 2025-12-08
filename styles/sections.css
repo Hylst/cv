@@ -266,3 +266,308 @@ h2::after {
     gap: 1rem;
     justify-content: center;
 }
+
+/* =========================================
+   PREMIUM ENHANCEMENTS (Accessibility, Orientation, Contact)
+   ========================================= */
+
+/* --- Accessibility Section --- */
+.accessibility-content {
+    background: linear-gradient(145deg, var(--glass-bg), var(--card-bg));
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.accessibility-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    opacity: 0.8;
+}
+
+.accessibility-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.accessibility-content p strong {
+    color: var(--primary-color);
+    font-size: 1.05rem;
+}
+
+.accessibility-content ul {
+    margin-top: 1rem;
+}
+
+.accessibility-content ul li {
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234A90E2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><circle cx='12' cy='12' r='3'></circle></svg>") 12 12, auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Custom list bullet replacement */
+.accessibility-content ul li::before {
+    content: '\f192';
+    /* Dot circle from FontAwesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    transition: all 0.3s;
+}
+
+.accessibility-content ul li:hover {
+    background: var(--card-bg);
+    transform: translateX(8px) scale(1.01);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15);
+}
+
+.accessibility-content ul li:hover::before {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+[data-theme="dark"] .accessibility-content ul li {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .accessibility-content:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip Premium Animation */
+.tooltip i {
+    color: var(--accent-color);
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.tooltip:hover i {
+    color: var(--primary-color);
+    transform: scale(1.2) rotate(15deg);
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+.tooltip::after {
+    backdrop-filter: blur(5px);
+    background: rgba(46, 74, 125, 0.95);
+    /* Dark blue semi-transparent */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Orientation Section Enhancements --- */
+#orientation .collapsible-card {
+    border-left: 4px solid transparent;
+    transition: all 0.4s ease;
+    background: linear-gradient(to right, var(--card-bg), var(--secondary-color));
+}
+
+#orientation .collapsible-card:hover {
+    border-left-color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+#orientation .collapsible-card[open] {
+    border-left-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background: var(--card-bg);
+}
+
+#orientation .collapsible-card summary {
+    font-weight: 600;
+}
+
+/* Facets Animation */
+.facets-diagram .facet {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%234A90E2' opacity='0.5'><circle cx='12' cy='12' r='8'></circle></svg>") 12 12, cell;
+    animation: float-facet 6s ease-in-out infinite;
+}
+
+.facets-diagram .facet:nth-child(2) {
+    animation-delay: 1.5s;
+    animation-duration: 7s;
+}
+
+.facets-diagram .facet:nth-child(3) {
+    animation-delay: 3s;
+    animation-duration: 5s;
+}
+
+@keyframes float-facet {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-8px) scale(1.05);
+    }
+}
+
+.facet:hover {
+    animation-play-state: paused;
+    z-index: 20;
+    box-shadow: 0 0 30px rgba(var(--accent-color), 0.4);
+}
+
+/* Featured Lists in Orientation */
+#orientation ul li {
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed var(--border-color);
+    transition: color 0.2s;
+}
+
+#orientation ul li:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+/* --- Contact Section Premium --- */
+#contact .container {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.03), transparent 80%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    border: 1px solid rgba(74, 144, 226, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#contact .container::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-actions .btn {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+}
+
+/* Button Glow Effect */
+.contact-actions .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.contact-actions .btn:hover::before {
+    left: 100%;
+}
+
+.contact-actions .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4);
+}
+
+.contact-actions .btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Retro Mode Overrides --- */
+.retro-mode .accessibility-content,
+.retro-mode #contact .container {
+    background: #000 !important;
+    border: 2px solid #0f0 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 15px #0f0 !important;
+}
+
+.retro-mode .accessibility-content::before {
+    background: #0f0 !important;
+}
+
+.retro-mode .accessibility-content ul li {
+    background: #000 !important;
+    border: 1px solid #060 !important;
+    color: #0f0 !important;
+}
+
+.retro-mode .accessibility-content ul li:hover {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+    box-shadow: inset 0 0 15px #0f0 !important;
+    transform: translateX(10px) !important;
+}
+
+.retro-mode .tooltip i {
+    color: #0f0 !important;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.retro-mode #orientation .collapsible-card {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+    border-left: 4px solid #0f0 !important;
+}
+
+.retro-mode #orientation .collapsible-card[open] {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3) !important;
+}
+
+.retro-mode .contact-actions .btn {
+    border-radius: 0 !important;
+    border: 2px solid #0f0 !important;
+    color: #0f0 !important;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    background: transparent !important;
+}
+
+.retro-mode .contact-actions .btn:hover {
+    background: #0f0 !important;
+    color: #000 !important;
+    box-shadow: 0 0 20px #0f0 !important;
+}
+
+.retro-mode #contact .container::after {
+    display: none;
+}
