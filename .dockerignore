@@ -1,0 +1,12 @@
+.git
+.agent
+.gemini
+Dockerfile
+README.md
+ABOUT.md
+CHANGELOG.md
+ai_dev_rules_memory_recall.md
+node_modules
+task.md
+deployment_coolify.md
+nginx.conf
