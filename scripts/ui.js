@@ -26,6 +26,27 @@ import { processText, activateRetroMode } from './utils.js';
  * 
  * @param {Array} skills - Le bestiaire des competences
  */
+/**
+ * renderSkillItems - La liste de tags d'une (sous-)section de competences
+ *
+ * Commune aux categories avec sous-sections (ex: "Front-End", "Back-End")
+ * et aux categories simples - seul le conteneur autour differe.
+ */
+function renderSkillItems(items) {
+    return `
+        <div class="skill-items-list">
+            ${items.map(item => `
+                <div class="skill-item">
+                    <span class="skill-tag status-${item.status}" tabindex="0">
+                        ${item.name}
+                    </span>
+                    ${item.desc ? `<p class="skill-desc">${item.desc}</p>` : ''}
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
 export function renderSkills(skills) {
     const container = document.getElementById('skills-list');
     if (!container) return; // Pas de container, pas de quete
@@ -39,40 +60,16 @@ export function renderSkills(skills) {
 
     // On genere le HTML pour chaque categorie - template literals FTW
     const skillsHtml = skills.map(category => {
-        let content = '';
-
-        // Structure avec sous-sections (comme les specs dans WoW)
-        if (category.sections) {
-            content = category.sections.map(section => `
+        // Structure avec sous-sections (comme les specs dans WoW) ou simple
+        // (comme une liste d'inventaire) : seul le regroupement change.
+        const content = category.sections
+            ? category.sections.map(section => `
                 <div class="skill-section">
                     <h4 class="skill-section-title">${section.title}</h4>
-                    <div class="skill-items-list">
-                        ${section.items.map(item => `
-                            <div class="skill-item">
-                                <span class="skill-tag status-${item.status}" tabindex="0">
-                                    ${item.name}
-                                </span>
-                                ${item.desc ? `<p class="skill-desc">${item.desc}</p>` : ''}
-                            </div>
-                        `).join('')}
-                    </div>
+                    ${renderSkillItems(section.items)}
                 </div>
-            `).join('');
-        } else {
-            // Structure simple (comme une liste d'inventaire)
-            content = `
-                <div class="skill-items-list">
-                    ${category.items.map(item => `
-                        <div class="skill-item">
-                            <span class="skill-tag status-${item.status}" tabindex="0">
-                                ${item.name}
-                            </span>
-                            ${item.desc ? `<p class="skill-desc">${item.desc}</p>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
+            `).join('')
+            : renderSkillItems(category.items);
 
         // Chaque categorie est pliable comme un parchemin antique
         return `
@@ -247,11 +244,49 @@ function renderFilteredProjects(projects, filter) {
  */
 
 /**
+ * renderDocLink - Le lien (ou les deux liens) d'un document
+ *
+ * Un document a 4 combinaisons possibles link/file (lien externe seul, PDF
+ * seul, les deux, ou ni l'un ni l'autre - juste un nom affiche). Isole ici
+ * pour ne plus dupliquer cette logique entre le rendu categorise et le plat.
+ *
+ * @param {Object} item - { name, link?, file? }
+ * @param {string} basePath - Le chemin de base pour les PDFs
+ */
+function renderDocLink(item, basePath) {
+    if (item.link && item.file) {
+        return `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a><a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>`;
+    }
+    if (item.link) {
+        return `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>`;
+    }
+    if (item.file) {
+        return `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>`;
+    }
+    return `<span class="doc-link">${item.name}</span>`;
+}
+
+/**
+ * renderDocList - La liste <ul> de documents, commune aux deux formats
+ */
+function renderDocList(items, basePath) {
+    return `
+        <ul class="doc-list">
+            ${items.map(item => `
+                <li>
+                    <div class="doc-links">${renderDocLink(item, basePath)}</div>
+                </li>
+            `).join('')}
+        </ul>
+    `;
+}
+
+/**
  * renderDocuments - Affichage des Certifications et Diplomes
- * 
+ *
  * Les preuves ecrites de nos accomplissements.
  * Comme les medailles d'un veteran ou les badges Steam.
- * 
+ *
  * @param {Array} data - Les donnees des documents
  * @param {string} containerId - L'ID du conteneur cible
  * @param {string} basePath - Le chemin de base pour les PDFs
@@ -260,51 +295,19 @@ export function renderDocuments(data, containerId, basePath) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    let html = '';
-
     // Detection du format: categorise (avec sous-sections) ou plat
-    if (data.length > 0 && data[0].category) {
+    const isCategorized = data.length > 0 && data[0].category;
+
+    container.innerHTML = isCategorized
         // Format categorise - comme les chapitres d'un livre
-        html = data.map(cat => `
+        ? data.map(cat => `
             <details class="collapsible-card">
                 <summary><h3>${cat.category}</h3></summary>
-                <div class="collapsible-content">
-                    <ul class="doc-list">
-                        ${cat.items.map(item => `
-                            <li>
-                                <div class="doc-links">
-                                    ${item.link && item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a><a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
-                                    ${item.link && !item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
-                                    ${!item.link && item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>` : ''}
-                                    ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
-                                </div>
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
+                <div class="collapsible-content">${renderDocList(cat.items, basePath)}</div>
             </details>
-        `).join('');
-    } else {
+        `).join('')
         // Format plat - une liste simple comme un inventaire
-        html = `
-            <div class="collapsible-card" style="padding: 1.5rem;">
-                <ul class="doc-list">
-                    ${data.map(item => `
-                        <li>
-                            <div class="doc-links">
-                                ${item.link && item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a><a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
-                                ${item.link && !item.file ? `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>` : ''}
-                                ${!item.link && item.file ? `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>` : ''}
-                                ${!item.link && !item.file ? `<span class="doc-link">${item.name}</span>` : ''}
-                            </div>
-                        </li>
-                    `).join('')}
-                </ul>
-            </div>
-        `;
-    }
-
-    container.innerHTML = html;
+        : `<div class="collapsible-card" style="padding: 1.5rem;">${renderDocList(data, basePath)}</div>`;
 }
 
 /**

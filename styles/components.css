@@ -552,7 +552,10 @@
 
 .project-tag {
     font-size: 0.8rem;
-    color: var(--accent-color);
+    /* var(--accent-color) mesure 3.09:1 ici (audit QA du 04/09/2026) : sur ce fond tres
+       clair et translucide, le bleu vif signature ne passe pas le seuil WCAG AA de 4.5:1
+       pour du texte normal. --primary-color est le meme bleu assombri, 8.23:1. */
+    color: var(--primary-color);
     background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(74, 144, 226, 0.05));
     padding: 0.35rem 0.75rem;
     border-radius: 20px;
@@ -610,6 +613,9 @@
 [data-theme="dark"] .project-tag {
     background: linear-gradient(135deg, rgba(74, 144, 226, 0.2), rgba(74, 144, 226, 0.1));
     border-color: rgba(74, 144, 226, 0.3);
+    /* En sombre, --primary-color devient le bleu vif (3.85:1 mesure sur ce fond, sous le
+       seuil AA) : il faut ici une teinte plus claire que la variable, pas plus foncee. */
+    color: #8ab4f8;
 }
 
 [data-theme="dark"] .construction-notice {

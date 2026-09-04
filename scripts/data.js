@@ -396,81 +396,141 @@ export const PROJECTS_DATA = [
         "id": "hylst-hub",
         "category": "recent",
         "title": "Hylst IT Learning - Plateforme & Apps",
-        "description": "Hub personnel regroupant mes applications éducatives, outils et expérimentations : apprentissage, accessibilité, IA, sciences et arts numériques.<br>Il héberge <strong>14 parcours de cours interactifs</strong> (HTML, CSS, JavaScript, Python, Python Data &amp; IA, Python Web, PHP, Java, React, Node.js, Docker, DevOps, Réseaux) et une dizaine d'applications : Asciiverse, Keyboard Atlas, HylstDevToolBox, Bulle Sensorielle, CogniAI, NeuroDiversité, Data Explorer, À Votre Service.<br>Applications <strong>PWA</strong> 100 % front-end, sans publicité ni traqueur, utilisables hors ligne : vos données restent dans votre navigateur.",
-        "tech": ["Web Dev", "PWA", "IA", "Accessibilité"],
+        "description": "Hub personnel regroupant mes applications éducatives, outils et expérimentations : apprentissage, accessibilité, sciences et arts numériques.<br><strong>13 parcours de cours interactifs</strong> en ligne (HTML, CSS, JavaScript, Python, Python Data &amp; IA, Python Web, PHP, Java, React, Node.js, Docker, DevOps, Réseaux) et plusieurs applications autonomes détaillées ci-dessous (Asciiverse, Keyboard Atlas, HylstDevToolBox, Bulle Sensorielle, CogniAI…).<br>Plateforme personnelle encore en chantier par endroits : plusieurs parcours (Data Science, IA, Cybersécurité, Green IT…) sont annoncés mais pas encore ouverts.",
+        "tech": ["Web Dev", "PWA", "Accessibilité", "EdTech"],
         "status": "En ligne",
         "link": "https://hylst.fr/",
-        "image": "assets/screenshots/hylst-hub.svg"
+        "image": "assets/screenshots/hylst-hub.webp"
     },
     {
         "id": "brevet-2026",
         "category": "recent",
         "title": "Espace Réussite - Brevet 2026",
-        "description": "Application de révision du Brevet des collèges : plus de 400 questions calibrées, fiches de cours interactives, schémas SVG, mascottes par matière et gamification (XP, niveaux, badges, séries).<br>Pensée pour tous les rythmes d'apprentissage, en particulier les profils neuro-atypiques. Gratuite, sans traqueur, installable et utilisable en mode avion, avec import/export de la progression.",
+        "description": "Application de révision du Brevet des collèges : <strong>181 modules</strong> répartis par matière (Français, Maths, Histoire-Géo, EMC, Physique-Chimie, SVT, Technologie, Oral, Méthodologie), badges à débloquer (Pythagore, Molière, Einstein…), mode « Mise en situation » (QCM de 100 questions mêlant les matières) et gamification (XP, niveaux, séries).<br>Pensée pour tous les rythmes d'apprentissage, en particulier les profils neuro-atypiques. Gratuite, sans traqueur, avec suivi de progression par chapitre.",
         "tech": ["Web Dev", "PWA", "Accessibilité", "EdTech"],
         "status": "En ligne",
         "link": "https://hylst.fr/brevet2026/",
-        "image": "assets/screenshots/brevet.svg"
+        "image": "assets/screenshots/hylst-brevet2026.webp"
     },
     {
         "id": "guide-maths",
         "category": "recent",
         "title": "Guide Mathématiques Interactif",
-        "description": "Plateforme de cours de mathématiques interactifs : cours, exercices et manipulation visuelle des concepts.<br>Chantier au long cours visant à couvrir de la maternelle au post-bac, à travers les différentes voies, spécialités et filières.",
+        "description": "Plateforme de cours de mathématiques interactifs : <strong>215 cours</strong> visant à couvrir de la maternelle au post-bac, carte conceptuelle de 126 notions reliées entre elles, simulateurs et graphes dynamiques, glossaire animé, système de progression à badges (22 badges).<br>Pédagogie « spiralaire » pensée pour limiter la surcharge cognitive — approche assumée par un auteur qui se décrit lui-même neuroatypique (TDAH/dys). Encore en version bêta, contenu partiel.",
         "tech": ["Web Dev", "PWA", "EdTech", "Accessibilité"],
-        "status": "En ligne",
+        "status": "En ligne (bêta)",
         "link": "https://hylst.fr/guide_maths/",
-        "image": "assets/screenshots/maths.svg"
+        "image": "assets/screenshots/hylst-guide-maths.webp"
     },
     {
         "id": "books-reader",
         "category": "recent",
         "title": "Hylst Books & Reader",
-        "description": "Liseuse web développée sur mesure pour une lecture immersive, accessible et sans distraction.<br>Y sont publiés mes essais de prospective : <strong>L'Odyssée de l'IA</strong> (5 chapitres, complet) et sa suite <strong>L'Odyssée de l'énergie</strong>, mêlant veille technologique, analyse scientifique et narration.",
+        "description": "Bibliothèque numérique et liseuse web développées sur mesure pour une lecture immersive, accessible et sans distraction.<br>Deux essais de prospective publiés à ce jour : <strong>L'Odyssée de l'IA</strong> et sa suite <strong>L'Odyssée de l'énergie</strong>, mêlant veille technologique, analyse scientifique et narration — une vingtaine d'autres titres (romans, JDR, poésie) annoncés « bientôt ». Import de fichiers personnels (JSON, TXT, Markdown) pour lire ses propres textes.",
         "tech": ["Web Dev", "Accessibilité", "Écriture", "IA"],
         "status": "En ligne",
         "link": "https://hylst.fr/books_reader/",
-        "image": "assets/screenshots/books.svg"
+        "image": "assets/screenshots/hylst-books-reader.webp"
     },
     {
         "id": "3d-creator",
         "category": "recent",
         "title": "3D Creator - Studio 3D dans le navigateur",
-        "description": "Application web permettant de créer, manipuler et exporter des formes 3D sans installation ni compte : 24 presets géométriques, éditeur de maillage, matériaux PBR, éclairage HDR, historique Undo/Redo de 50 actions, export OBJ/JSON/CSV.<br>Stack : <strong>Next.js</strong> 16, <strong>React</strong> 19, TypeScript et <strong>Three.js</strong> (React Three Fiber). PWA 100 % front-end, open-source sous licence MIT.",
+        "description": "Application web permettant de créer, manipuler et exporter des formes 3D sans installation ni compte : onglets Objets / Créer / Presets / Caméra / Info, 24 presets géométriques annoncés, éditeur de maillage, matériaux PBR, éclairage HDR, export OBJ/JSON/CSV.<br>Stack confirmée : <strong>Next.js</strong>, <strong>React</strong>, TypeScript et <strong>Three.js</strong> (React Three Fiber). PWA 100 % front-end, open-source sous licence MIT.",
         "tech": ["Three.js", "React", "TypeScript", "Web Dev", "PWA"],
         "status": "En ligne (open-source MIT)",
         "link": "https://hylst.fr/3dcreator/",
-        "image": "assets/screenshots/creator3d.svg"
+        "image": "assets/screenshots/hylst-3dcreator.webp"
     },
     {
-        "id": "pang-genesis",
+        "id": "hylst-games",
         "category": "recent",
-        "title": "Pang Genesis - Hommage rétro",
-        "description": "Hommage web au Pang d'Ocean sur <strong>Atari ST</strong>, repris et modernisé : 5 thèmes visuels, balles traqueuses, charge shot, système de milestones et d'achievements.<br>Un projet passion né d'un exercice sur la logique du jeu vidéo en environnement web.",
-        "tech": ["JavaScript", "Web Dev", "Game Dev"],
+        "title": "Hylst.Games - 15 mini-jeux rétro",
+        "description": "Portail de <strong>15 mini-jeux</strong> gratuits, sans compte ni traqueur, répartis en Arcade, RPG et Puzzle/Simulation. Hommages modernisés à des classiques (<strong>Pang Genesis</strong> sur Atari ST, <strong>Galaga Legacy</strong> &amp; sa suite, <strong>Centizap</strong> façon Centipede, <strong>Serpentix</strong> façon Snake, <strong>Grid Evader</strong> façon Qix) aux côtés de créations originales (<strong>DonjonFlash</strong> &amp; sa suite — action-RPG à salles procédurales, <strong>Phandaline</strong> — RPG 3D façon campagne D&amp;D maison, <strong>SynthRider</strong>, <strong>Tidal Run</strong>, <strong>Hylst Runner</strong>, <strong>Tour de Tension</strong>, <strong>Conquête de Cases</strong>, <strong>Spinz</strong>).<br>Un terrain de jeu personnel pour explorer la logique du jeu vidéo en environnement web, du gameplay à la direction artistique.",
+        "tech": ["JavaScript", "React", "TypeScript", "Web Dev", "Game Dev"],
         "status": "En ligne",
-        "link": "https://games.hylst.fr/pang_genesis/",
-        "image": "assets/screenshots/pang.svg"
+        "link": "https://games.hylst.fr/",
+        "image": "assets/screenshots/games-hylst-hub.webp"
     },
     {
-        "id": "ia-apps",
+        "id": "hylst-cogniai",
         "category": "recent",
-        "title": "Apps & Sites Assistés par IA",
-        "description": "Conception d'applications et sites web sur des thématiques variées : Neuro-diversité, Green IT, Apprentissage (Optique, Électronique, Dev, Data Science), Culturel & Ludique.",
-        "tech": ["IA Générative", "Web Dev", "Python"],
-        "status": "En cours",
-        "link": "#",
-        "image": "assets/screenshots/ia-apps.webp"
+        "title": "CogniAI - Guide anti-illusion de compétence",
+        "description": "Site de vulgarisation pédagogique sur le « Phantom Learning » — l'illusion de compétence que peut créer un usage passif de l'IA en apprentissage. Protocole en 4 piliers (A.C.T.E.), approche socratique, quiz et tests interactifs, bibliothèque et manifeste.<br>Contenu appuyé sur les neurosciences de l'apprentissage (effet de génération, charge cognitive) pour cultiver l'esprit critique face à l'IA plutôt que la dépendance.",
+        "tech": ["IA", "EdTech", "Cognitive Science", "Web Dev"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/cogniai/",
+        "image": "assets/screenshots/hylst-cogniai.webp"
     },
     {
-        "id": "cognitive-assist",
+        "id": "hylst-bulle-sensorielle",
         "category": "recent",
-        "title": "Aides & Assistance Cognitive",
-        "description": "Outils pour profils neuro-atypiques (Dys, TDA/H, TSA, HPI) et troubles de l'apprentissage (mémoire, concentration).",
-        "tech": ["Accessibilité", "Cognitive Science", "App"],
+        "title": "Bulle Sensorielle",
+        "description": "Sanctuaire numérique apaisant pensé pour les profils neuro-atypiques (TDAH, TSA, hypersensibilités) : sons, visuels apaisants, minuteur, conseils, et « Mes Bulles » — des profils personnels sauvegardables pour retrouver rapidement sa combinaison de régulation sensorielle préférée.",
+        "tech": ["Accessibilité", "Cognitive Science", "App", "Web Dev"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/bulle.sensorielle/",
+        "image": "assets/screenshots/hylst-bulle-sensorielle.webp"
+    },
+    {
+        "id": "hylst-asciiverse",
+        "category": "recent",
+        "title": "ASCIIverse Studio",
+        "description": "Suite d'outils de création de texte créatif 100 % front-end : Social Studio (aperçu de post avec compteur de caractères et hashtags), générateur d'ASCII art et de kaomoji, « Weird Text Maker », décorateur/transformateur de texte, générateur d'emojis, conversion image vers ASCII, canvas de dessin.",
+        "tech": ["Web Dev", "Créativité"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/asciiverse/",
+        "image": "assets/screenshots/hylst-asciiverse.webp"
+    },
+    {
+        "id": "hylst-keyboard-atlas",
+        "category": "recent",
+        "title": "Keyboard Atlas",
+        "description": "Application pédagogique interactive de raccourcis clavier (Windows/macOS/Linux) : clavier virtuel AZERTY affiché à l'écran, bibliothèque de 315 raccourcis classés (Productivité, Navigation, Édition, Design, Code &amp; Dev, Accessibilité…) couvrant 42 logiciels (VS Code, IntelliJ, terminal…), mode apprentissage, « Speed Run » chronométré et jeu de frappe.",
+        "tech": ["Web Dev", "EdTech", "Accessibilité"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/keyboard_atlas/",
+        "image": "assets/screenshots/hylst-keyboard-atlas.webp"
+    },
+    {
+        "id": "hylst-devtoolbox",
+        "category": "recent",
+        "title": "HylstDevToolBox",
+        "description": "Boîte à outils développeur regroupant 129 utilitaires en 7 catégories (Texte &amp; Formats, Code &amp; Analyse, Design, Utilitaires, Dates &amp; Temps, Data &amp; Backend, Mémo) : formatters JSON/SQL/CSS/XML, décodeur JWT, Base64, générateur UUID/QR code, vérificateur de contraste WCAG, cheatsheets Git/Regex/Linux.<br>100 % local — aucune donnée envoyée — avec infobulles pédagogiques sur les termes techniques.",
+        "tech": ["Web Dev"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/hdtb/",
+        "image": "assets/screenshots/hylst-devtoolbox.webp"
+    },
+    {
+        "id": "hylst-neurodiversite",
+        "category": "recent",
+        "title": "Neurodiversity Explorer",
+        "description": "Plateforme éducative sur les troubles neurodéveloppementaux (dyslexie, TDAH, autisme, dyspraxie, dyscalculie…) : tableau comparatif des troubles, auto-évaluation, carte de centres de diagnostic, recherche avancée par symptôme et par âge, glossaire.<br>L'application précise explicitement que je ne suis ni neuropsychologue ni médecin — un outil de sensibilisation, pas un diagnostic.",
+        "tech": ["Web Dev", "Accessibilité", "EdTech"],
+        "status": "En ligne",
+        "link": "https://neuro-diversite.vercel.app/",
+        "image": "assets/screenshots/hylst-neurodiversite.webp"
+    },
+    {
+        "id": "hylst-a-votre-service",
+        "category": "recent",
+        "title": "À Votre Service - Suite d'outils du quotidien",
+        "description": "Suite de 86 outils pratiques en 11 catégories : convertisseurs, calculatrices, finance &amp; budget, dates &amp; temps, organisation, sécurité, créativité, carrière, santé, utilitaires de texte, gestion de données. Sauvegarde locale (IndexedDB), thème clair/sombre, installable en PWA.",
+        "tech": ["React", "TypeScript", "Web Dev", "PWA"],
+        "status": "En ligne",
+        "link": "https://a-votre-service.vercel.app/",
+        "image": "assets/screenshots/hylst-a-votre-service.webp"
+    },
+    {
+        "id": "hylst-data-explorer",
+        "category": "recent",
+        "title": "DataScienceExplorer",
+        "description": "Site personnel d'apprentissage de la data science, conçu et partagé pendant ma reconversion : parcours structuré (fondamentaux, collecte de données, programmation, traitement, analyse/visualisation, Machine Learning), cours pas à pas, blog et glossaire.<br>Explicitement en construction — accès anticipé disponible, contenu partiel.",
+        "tech": ["Python", "Data", "EdTech", "Web Dev"],
         "status": "En cours",
-        "link": "#",
-        "image": "assets/screenshots/cognitive.webp"
+        "link": "https://data-science-explorer.vercel.app/",
+        "image": "assets/screenshots/hylst-data-explorer.webp"
     },
     {
         "id": "dev-low-level",

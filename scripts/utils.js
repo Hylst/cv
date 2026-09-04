@@ -28,10 +28,15 @@ export function processText(text) {
     // Sinon "Python" pourrait matcher avant "Python Django" - pas cool
     const terms = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
 
+    // Des termes comme "Node.js" ou "Three.js" contiennent des caracteres
+    // regex (le point matche "n'importe quel caractere") : sans echappement,
+    // "Node.js" aurait aussi matche un improbable "NodeXjs".
+    const echapper = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
     terms.forEach(term => {
         // Regex magique: on cherche le mot exact, pas dans les balises HTML
         // C'est comme chercher un mot dans un livre mais pas dans les notes de marge
-        const regex = new RegExp(`\\b${term}\\b(?![^<]*>)`, 'gi');
+        const regex = new RegExp(`\\b${echapper(term)}\\b(?![^<]*>)`, 'gi');
         processed = processed.replace(regex, (match) => {
             // On echappe les guillemets - la securite avant tout, jeune padawan
             const tooltipText = GLOSSARY[term].replace(/"/g, '&quot;');

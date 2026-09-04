@@ -1,5 +1,63 @@
 # Changelog
 
+## [3.1.0] - 2026-09-04
+
+Enrichissement du portfolio : exploration exhaustive de hylst.fr et games.hylst.fr (Playwright,
+sous-agents dédiés) pour remplacer les cartes projet approximatives par du contenu vérifié.
+
+### Ajouté
+- **6 nouvelles cartes projet**, toutes vérifiées en HTTP 200 avec captures d'écran réelles :
+  ASCIIverse Studio, Keyboard Atlas, HylstDevToolBox, Neurodiversity Explorer (vercel.app),
+  À Votre Service (vercel.app — stack confirmée React/TypeScript/Tailwind/Shadcn/Vite/IndexedDB),
+  DataScienceExplorer (vercel.app, marqué explicitement en construction sur le site source).
+- **Captures d'écran réelles** (1280×800, recadrées 800×400, converties en `.webp`, 2 à 37 Ko
+  pièce) pour tous les projets Hylst : remplacent les 7 SVG placeholders dégradé+emoji.
+
+### Modifié
+- **Hylst IT Learning** : nombre de parcours corrigé (13 réellement en ligne, pas 14), liste des
+  parcours encore annoncés mais non ouverts (Data Science, IA, Cybersécurité, Green IT...) reflétée
+  honnêtement plutôt qu'omise.
+- **Espace Réussite Brevet 2026** : chiffres réels relevés en jeu (181 modules, mode « Mise en
+  situation » à 100 questions, badges nommés) remplacent les chiffres approximatifs précédents.
+- **Guide Mathématiques** : chiffres réels (215 cours, carte conceptuelle de 126 notions,
+  22 badges) et statut corrigé en « bêta », conforme au bandeau affiché sur le site lui-même.
+- **3D Creator** : la version « Next.js 16 » n'était pas vérifiable (seule la balise meta
+  generator confirme Next.js, sans numéro de version) — affirmation retirée.
+- **Pang Genesis → Hylst.Games** : la carte dédiée à un seul jeu devient une carte de portail
+  couvrant les 15 mini-jeux réellement en ligne sur games.hylst.fr (Arcade, RPG, Puzzle/Simulation),
+  cohérent avec le traitement déjà appliqué au hub hylst.fr plutôt qu'une carte par jeu.
+- **« Apps & Sites Assistés par IA » et « Aides & Assistance Cognitive »** : ces deux cartes
+  généralistes sans lien (`#`) sont remplacées, sans réduction du nombre de cartes, par leur
+  contenu réel identifié sur le terrain : CogniAI (guide anti-illusion de compétence face à l'IA)
+  et Bulle Sensorielle (outil d'apaisement sensoriel pour profils neuro-atypiques).
+
+### Corrigé
+- **Bug latent dans `processText` (`utils.js`)** : les termes du glossaire contenant un caractère
+  regex (le point de « Node.js », « Three.js »...) n'étaient pas échappés avant d'être injectés
+  dans une `RegExp` — un `.` y matche n'importe quel caractère. Sans conséquence visible constatée
+  sur le contenu actuel, mais un vrai bug de correction, corrigé par une fonction d'échappement.
+- **Duplication de template dans `ui.js`** : `renderDocuments` (documents/certifications) et
+  `renderSkills` (compétences) répétaient un bloc de rendu identique entre leur variante « avec
+  sous-catégories » et leur variante « à plat ». Extrait en fonctions communes
+  (`renderDocLink`/`renderDocList`, `renderSkillItems`) : même comportement, code non dupliqué.
+
+### Corrigé (suite à l'audit QA indépendant)
+- **Contraste `.project-tag` insuffisant dans les deux thèmes** : mesuré à 3,09:1 en clair et
+  3,85:1 en sombre (`var(--accent-color)` sur fond degrade translucide), sous le seuil AA de
+  4,5:1. Texte assombri en clair (`var(--primary-color)`, 8,40:1) et eclairci en sombre
+  (`#8ab4f8`, 8,51:1) — deux couleurs differentes car le degrade de fond n'est pas le meme.
+- **2 captures placeholder surdimensionnees** : `robotics.webp` (217 Ko) et `low-level.webp`
+  (157 Ko) recompressees a 64 et 52 Ko (memes dimensions 800x400, qualite webp abaissee — perte
+  invisible sur un simple degrade).
+
+### Vérifié sans changement
+- `sitemap.xml` et `robots.txt` de hylst.fr renvoient tous deux 404 — confirmé à nouveau, aucune
+  action possible depuis ce dépôt (ce sont des fichiers du site hylst.fr, pas de ce CV).
+- Le certificat LinkedIn Learning « HTML : Les images responsive » reste non résolu : le seul
+  fichier PDF présent dans `pdf/certifications/linkedin_learnings/` pour ce sujet est déjà utilisé
+  par « L'essentiel du HTML5 », et aucun fichier distinct n'existe pour ce certificat précis.
+  Non corrigé délibérément (consigne : ne pas deviner un lien) — décision laissée à l'utilisateur.
+
 ## [3.0.0] - 2026-09-04
 
 Mise à jour majeure : le site présentait encore un profil « en reconversion, formation en cours
