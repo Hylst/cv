@@ -213,6 +213,58 @@
 /* Print Styles */
 @media print {
 
+    /* Les variables gardaient leurs valeurs sombres si le visiteur imprimait
+       depuis le mode sombre : on obtenait du texte #121212 sur fond #1a1a1a
+       (1.08:1) sur l'encart .objective. On repasse toute la palette en clair. */
+    :root,
+    [data-theme="dark"] {
+        --primary-color: #2E4A7D;
+        --secondary-color: #F4F6F8;
+        --accent-color: #2E4A7D;
+        --text-color: #000;
+        --text-light: #333;
+        --bg-color: #fff;
+        --card-bg: #fff;
+        --sidebar-bg: #fff;
+        --border-color: #999;
+        --glass-bg: #fff;
+        --glass-border: #999;
+        --shadow: none;
+    }
+
+    /* Le contenu du CV vit dans des <details>. Fermes, ils ne sont pas rendus
+       du tout : environ deux tiers du document manquaient a l'impression.
+       Un listener beforeprint (voir main.js) les ouvre tous ; ces regles
+       garantissent le rendu meme si le JS ne s'execute pas. */
+    details>*,
+    details .collapsible-content,
+    details .skill-content,
+    details .timeline-content {
+        display: block !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    summary {
+        list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* Une carte coupee en deux entre deux pages est illisible */
+    .timeline-card,
+    .skill-category,
+    .collapsible-card,
+    .project-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
     .sidebar,
     .theme-toggle,
     .timeline-controls,

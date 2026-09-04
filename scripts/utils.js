@@ -52,11 +52,41 @@ export function activateRetroMode() {
     document.body.classList.toggle('retro-mode');
     const isRetro = document.body.classList.contains('retro-mode');
 
-    if (isRetro) {
-        // Bienvenue dans le terrier du lapin blanc, Neo
-        alert('🕹️ MODE RETRO ACTIVE ! 🕹️\nBienvenue dans la matrice...');
-    } else {
-        // Retour a la realite, les pilules bleues c\'est par la
-        alert('Mode normal retabli.');
-    }
+    // Un alert() bloque tout le navigateur et coupe la parole aux lecteurs
+    // d'ecran. Un toast dit la meme chose sans prendre le controle.
+    showToast(
+        isRetro
+            ? '🕹️ Mode rétro activé — bienvenue dans la matrice…'
+            : '↩️ Mode normal rétabli.'
+    );
+}
+
+/**
+ * showToast - Le Parchemin Volant
+ *
+ * Affiche un message temporaire en bas de l'ecran, puis le fait disparaitre.
+ * Annonce aussi le message aux lecteurs d'ecran via role="status".
+ *
+ * @param {string} message - Le texte a afficher
+ * @param {number} duration - Duree d'affichage en millisecondes
+ */
+export function showToast(message, duration = 3200) {
+    // Un seul toast a la fois : le nouveau remplace l'ancien
+    document.querySelectorAll('.toast').forEach(t => t.remove());
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    // Un frame de decalage pour que la transition d'entree soit visible
+    requestAnimationFrame(() => toast.classList.add('toast-visible'));
+
+    setTimeout(() => {
+        toast.classList.remove('toast-visible');
+        // On attend la fin de la transition avant de retirer l'element
+        setTimeout(() => toast.remove(), 400);
+    }, duration);
 }

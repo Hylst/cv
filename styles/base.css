@@ -89,6 +89,75 @@ ul {
 }
 
 /* -----------------------------------------------------------------------------
+ * MOUVEMENT REDUIT - Le Mode Calme
+ *
+ * Quand le systeme d'exploitation demande "moins d'animations", on obeit.
+ * Ce reglage existe pour des raisons medicales : vertiges, migraines
+ * vestibulaires, troubles de l'attention. Sur un CV qui parle d'accessibilite
+ * et de neurodiversite, l'ignorer serait la contradiction la plus visible.
+ *
+ * On neutralise la duree plutot que les regles une par une : toute animation
+ * ajoutee plus tard est couverte d'office.
+ * ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Le nom garde son degrade, mais fige : plus de balayage lumineux perpetuel */
+    .animated-name {
+        animation: none !important;
+        background: none !important;
+        -webkit-text-fill-color: var(--text-color) !important;
+        color: var(--text-color) !important;
+    }
+
+    /* Les elements reveles au scroll doivent rester visibles sans transition */
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Ni particules, ni halo de souris : le JS ne les cree meme pas,
+       ceci n'est qu'une ceinture de securite */
+    .spotlight,
+    #hero-canvas {
+        display: none !important;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+ * CONTENU RESERVE AUX LECTEURS D'ECRAN
+ * Invisible a l'oeil, parfaitement lisible pour une synthese vocale.
+ * ----------------------------------------------------------------------------- */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* -----------------------------------------------------------------------------
+ * FOCUS VISIBLE - On ne masque jamais le parcours au clavier
+ * ----------------------------------------------------------------------------- */
+:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* -----------------------------------------------------------------------------
  * LIEN D'EVITEMENT - Pour l'Accessibilite
  * Les lecteurs d'ecran nous remercient
  * ----------------------------------------------------------------------------- */

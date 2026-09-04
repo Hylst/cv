@@ -1211,3 +1211,168 @@
     background-color: #000 !important;
     border-color: #0f0 !important;
 }
+
+/* =============================================================================
+ * IDENTITE DE LA SIDEBAR - Sous-titre, certification, disponibilite
+ * ============================================================================= */
+/* Le poste occupe est desormais l'information principale de cette zone :
+   il doit peser plus lourd que la ligne de contexte qui le suit. */
+.role {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Remonte le sous-titre sous le poste : `.role` porte un margin-bottom de
+   1.5rem pense pour un bloc isole, trop large pour un duo titre/sous-titre. */
+.role-sub {
+    font-size: 0.85rem;
+    /* Plus sombre que --text-light (#666) : a 0.85rem sur le degrade clair de
+       la sidebar, #666 ne tenait que ~5.3:1 une fois anticrenele. */
+    color: #4a5560;
+    text-align: center;
+    margin: -1.1rem 0 0.9rem;
+    line-height: 1.4;
+}
+
+[data-theme="dark"] .role-sub {
+    color: var(--text-light);
+}
+
+/* Le titre professionnel : l'information la plus recente et la plus vendeuse,
+   donc la seule a porter la couleur d'accent dans cette zone. */
+.credential-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: rgba(74, 144, 226, 0.12);
+    border: 1px solid var(--accent-color);
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.availability {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* Vert assombri : ce point porte une information (le statut "disponible"), il
+   est donc soumis au seuil de contraste non-textuel WCAG 1.4.11 (3:1).
+   Le #2ecc71 d'origine ne donnait que 1.98:1 sur la sidebar claire.
+   #1e8449 tient dans les deux themes : 4.44:1 en clair, 3.53:1 en sombre. */
+.availability-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #1e8449;
+    margin-right: 0.4rem;
+    box-shadow: 0 0 0 3px rgba(30, 132, 73, 0.25);
+}
+
+/* En sombre, on peut eclaircir : le fond est fonce, le contraste suit */
+[data-theme="dark"] .availability-dot {
+    background-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.25);
+}
+
+/* Le bleu d'accent ne passait qu'a 4.71:1 sur le fond sombre du badge :
+   trop juste, la moindre variation de fond le ferait echouer. */
+[data-theme="dark"] .credential-badge {
+    color: #7db4ee;
+}
+
+.retro-mode .credential-badge {
+    color: #0f0 !important;
+    background-color: #000 !important;
+    border-color: #0f0 !important;
+}
+
+.retro-mode .availability-dot {
+    background-color: #0f0 !important;
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.25) !important;
+}
+
+/* =============================================================================
+ * TOAST - Notification non bloquante (remplace alert())
+ * ============================================================================= */
+.toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translate(-50%, 1rem);
+    z-index: 10000;
+    max-width: min(90vw, 420px);
+    padding: 0.85rem 1.25rem;
+    border-radius: 8px;
+    /* Fond sombre fixe, et non var(--primary-color) : cette variable devient un
+       bleu clair (#4A90E2) en mode sombre, ce qui ramenait le texte blanc a
+       3.29:1, sous le seuil AA. En dur, on tient 14.2:1 dans les deux themes. */
+    background-color: #1c2b45;
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.toast-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.retro-mode .toast {
+    background-color: #000 !important;
+    color: #0f0 !important;
+    border: 1px solid #0f0;
+    font-family: 'Courier New', monospace;
+}
+
+/* -----------------------------------------------------------------------------
+ * MODE RETRO : conteneurs oublies
+ *
+ * Le mode retro force tout le texte en vert (#0f0) par une regle globale, mais
+ * seuls certains conteneurs recevaient un fond noir en contrepartie. Ces trois
+ * la restaient clairs -> texte vert sur fond blanc, mesure entre 1.27:1 et
+ * 1.53:1, soit illisible. Chemin concerne : theme clair (le defaut) + easter
+ * egg + ouverture d'un projet.
+ * ----------------------------------------------------------------------------- */
+.retro-mode .modal-content,
+.retro-mode .objective,
+.retro-mode .collapsible-card,
+.retro-mode .modal-no-link {
+    background: #000 !important;
+    background-color: #000 !important;
+    border-color: #0f0 !important;
+}
+
+.retro-mode .modal-content {
+    box-shadow: 0 0 24px rgba(0, 255, 0, 0.35) !important;
+}
+
+/* Message affiche a la place du bouton quand un projet n'a pas de lien public */
+.modal-no-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-light);
+    background-color: var(--secondary-color);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+}
+
+/* La carte projet est un bouton : elle doit le montrer au clavier comme a la souris */
+.project-card {
+    cursor: pointer;
+}

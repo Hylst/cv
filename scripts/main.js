@@ -22,14 +22,20 @@ import {
     setupScrollReveal
 } from './ui.js';
 
+// Certains visiteurs demandent explicitement moins d'animations : migraines,
+// vertiges, troubles de l'attention. Sur un CV qui revendique l'accessibilite
+// et la neurodiversite, ce reglage n'est pas une option decorative.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // Quand le DOM est pret, on lance la quete principale
 document.addEventListener('DOMContentLoaded', () => {
 
     // -------------------------------------------------------------------------
     // PHASE 1: Invocation du Reseau de Particules
     // On cree un effet visuel digne d'un portail dimensionnel
+    // (sauf si l'utilisateur a demande le calme : on ne lance meme pas la boucle)
     // -------------------------------------------------------------------------
-    if (document.getElementById('hero-canvas')) {
+    if (!prefersReducedMotion && document.getElementById('hero-canvas')) {
         new ParticleNetwork('hero-canvas');
     }
 
@@ -73,16 +79,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------------------
-    // EFFET SPOTLIGHT: La Lampe du Mineur
-    // Suit la souris comme un compagnon fidele (ou un stalker bienveillant)
+    // IMPRESSION: Le Sort de Revelation Totale
+    //
+    // Tout le contenu du CV vit dans des <details>. Un <details> ferme n'est pas
+    // seulement masque : le navigateur ne le rend pas du tout, et aucune regle
+    // CSS ne peut le forcer. A l'impression, les deux tiers du document
+    // disparaissaient donc silencieusement -- alors que la page promet un
+    // "export PDF propre".
+    //
+    // On ouvre tout avant l'impression, et on restaure exactement l'etat
+    // precedent apres : le visiteur retrouve sa page telle qu'il l'avait pliee.
     // -------------------------------------------------------------------------
-    document.addEventListener('mousemove', (e) => {
-        document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
-        document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
-    });
+    let detailsOuvertsParImpression = [];
+    let impressionEnCours = false;
 
-    // On materialise le spotlight dans le DOM - Fiat Lux!
-    const spotlight = document.createElement('div');
-    spotlight.classList.add('spotlight');
-    document.body.appendChild(spotlight);
+    const ouvrirToutPourImpression = () => {
+        // Chrome declenche a la fois 'beforeprint' ET le changement de
+        // matchMedia('print'). Sans ce garde-fou, le second appel ecrasait la
+        // liste memorisee par un tableau vide (plus aucun details ferme a
+        // trouver), et la page restait entierement depliee apres impression.
+        if (impressionEnCours) return;
+        impressionEnCours = true;
+
+        detailsOuvertsParImpression = [];
+        document.querySelectorAll('details:not([open])').forEach(d => {
+            detailsOuvertsParImpression.push(d);
+            d.open = true;
+        });
+    };
+
+    const restaurerApresImpression = () => {
+        if (!impressionEnCours) return;
+        detailsOuvertsParImpression.forEach(d => { d.open = false; });
+        detailsOuvertsParImpression = [];
+        impressionEnCours = false;
+    };
+
+    window.addEventListener('beforeprint', ouvrirToutPourImpression);
+    window.addEventListener('afterprint', restaurerApresImpression);
+
+    // Safari et quelques navigateurs mobiles ignorent beforeprint/afterprint,
+    // mais exposent l'impression via matchMedia('print').
+    const mediaImpression = window.matchMedia('print');
+    if (mediaImpression.addEventListener) {
+        mediaImpression.addEventListener('change', (e) => {
+            if (e.matches) ouvrirToutPourImpression();
+            else restaurerApresImpression();
+        });
+    }
+
+    // -------------------------------------------------------------------------
+    // EFFET SPOTLIGHT: La Lampe du Mineur
+    // Suit la souris comme un compagnon fidele (ou un stalker bienveillant).
+    // Deux precautions : on ne l'active pas en mode "mouvement reduit", et on
+    // synchronise l'ecriture des variables CSS avec le rafraichissement ecran
+    // (sans ca, on repeint a chaque pixel parcouru par la souris).
+    // -------------------------------------------------------------------------
+    if (!prefersReducedMotion) {
+        let pending = false;
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (pending) return;
+            pending = true;
+            requestAnimationFrame(() => {
+                document.documentElement.style.setProperty('--mouse-x', mouseX + 'px');
+                document.documentElement.style.setProperty('--mouse-y', mouseY + 'px');
+                pending = false;
+            });
+        }, { passive: true });
+
+        // On materialise le spotlight dans le DOM - Fiat Lux!
+        const spotlight = document.createElement('div');
+        spotlight.classList.add('spotlight');
+        document.body.appendChild(spotlight);
+    }
 });

@@ -1,47 +1,57 @@
-# Interactive CV - Geoffroy Streit
+# CV Interactif — Geoffroy Streit
 
-## Overview
-This is a responsive, accessible, and interactive one-page CV website for Geoffroy Streit, an Engineer in IT reconversion.
+CV interactif et portfolio de **Geoffroy Streit**, Concepteur Développeur d'Applications
+(titre professionnel de niveau 6, obtenu en août 2026).
 
-## Features
-- **Responsive Design**: Fixed sidebar on desktop, stacked layout on mobile.
-- **Interactive Elements**: Timeline, Project Cards with Modals, Mobile Menu.
-# Interactive CV - Geoffroy Streit
-
-## Overview
-This is a responsive, accessible, and interactive one-page CV website for Geoffroy Streit, an Engineer in IT reconversion.
-
-## Features
-- **Responsive Design**: Fixed sidebar on desktop, stacked layout on mobile.
-- **Interactive Elements**: Timeline, Project Cards with Modals, Mobile Menu.
-- **Accessibility**: WCAG 2.1 AA compliant (Contrast, Keyboard Navigation, Semantic HTML).
-# CV Interactif - Geoffroy Streit
-
-Bienvenue sur le dépôt du CV interactif de Geoffroy Streit.
+🌐 En ligne : [cv.hylst.fr](https://cv.hylst.fr/)
 
 ## 📚 Documentation
-*   [À Propos](ABOUT.md) : Détails sur le projet et la stack technique.
-*   [Changelog](CHANGELOG.md) : Historique des modifications.
-*   [Règles IA](ai_dev_rules_memory_recall.md) : Contexte pour le développement assisté par IA.
 
-## 🚀 Installation & Lancement
-Il s'agit d'un site statique (HTML/CSS/JS).
-1.  Clonez le dépôt.
-2.  Ouvrez `index.html` dans votre navigateur.
-3.  Pour une expérience optimale (modules JS), utilisez un serveur local (ex: Live Server sur VS Code).
+* [À Propos](ABOUT.md) — le projet et sa stack technique.
+* [Changelog](CHANGELOG.md) — historique des versions.
+* [CLAUDE.md](CLAUDE.md) — architecture et conventions, pour le développement assisté par IA.
+* [Règles IA](ai_dev_rules_memory_recall.md) — mémoire contextuelle des sessions IA.
+
+## 🚀 Lancement
+
+Site statique : ni build, ni gestionnaire de paquets, ni dépendances à installer.
+
+```bash
+# Un serveur local est nécessaire : les modules ES6 ne se chargent pas en file://
+python -m http.server 8765
+# puis ouvrir http://127.0.0.1:8765/
+```
+
+Ou, pour reproduire la production (nginx) :
+
+```bash
+docker build -t cv .
+docker run -p 8080:80 cv
+```
 
 ## 🛠 Structure
-*   `index.html` : Point d'entrée.
-*   `scripts/` : Logique JS modulaire (`main.js`, `data.js`, `ui.js`...).
-*   `styles/` : Styles CSS modulaires.
-*   `assets/` : Images et icônes.
-*   `pdf/` : CV au format PDF et certifications.
+
+| Chemin | Rôle |
+|---|---|
+| `index.html` | Point d'entrée unique, structure des sections. |
+| `scripts/data.js` | **Tout le contenu du CV** (compétences, parcours, projets, certifications, glossaire). |
+| `scripts/main.js` | Point d'entrée JS : orchestre les modules au chargement. |
+| `scripts/ui.js` | Rendu du DOM et interactions (timeline, projets, thème, modales). |
+| `scripts/utils.js` | Utilitaires : infobulles du glossaire, mode rétro, toasts. |
+| `scripts/particles.js` | Animation de particules de la section d'accueil. |
+| `styles/` | CSS modulaire, importé en cascade par `main.css`. |
+| `assets/` | Photo, illustrations et visuels de projets. |
+| `pdf/` | CV, diplômes et certifications téléchargeables. |
 
 ## ✨ Fonctionnalités
-*   Mode Sombre / Clair.
-*   Mode Rétro (Easter Egg).
-*   Génération dynamique du contenu depuis `data.js`.
-*   Animations et interactivité.
+
+* Contenu généré dynamiquement depuis `data.js`.
+* Trois thèmes : clair, sombre (suit la préférence système) et rétro (easter egg).
+* Infobulles explicatives automatiques sur les termes techniques.
+* Timeline basculable : chronologique ou par catégorie.
+* Accessibilité : navigation clavier, lien d'évitement, piège à focus dans les modales,
+  respect de `prefers-reduced-motion`.
+* Impression : feuille de style dédiée (Ctrl+P).
 
 ---
-*Dernière mise à jour : Décembre 2025*
+*Dernière mise à jour : septembre 2026*

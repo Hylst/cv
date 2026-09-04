@@ -64,7 +64,30 @@ export const GLOSSARY = {
     "GitHub": "Plateforme d'hébergement de code et de gestion de développement logiciel utilisant Git.",
     "Linux": "Famille de systèmes d'exploitation open source de type Unix.",
     "Bash": "Interpréteur de commandes (shell) pour les systèmes Unix et Linux.",
-    "VSCode": "Éditeur de code source extensible développé par Microsoft."
+    "VSCode": "Éditeur de code source extensible développé par Microsoft.",
+    "SQLAlchemy": "Bibliothèque Python de référence pour dialoguer avec une base de données (ORM).",
+    "Zero-Trust": "Modèle de sécurité qui ne fait confiance à aucune requête par défaut : chaque accès est vérifié.",
+    "WebSockets": "Protocole de communication permanente entre le navigateur et le serveur, pour le temps réel.",
+    "OAuth2": "Standard d'autorisation permettant de se connecter à un service via un compte tiers (SSO).",
+    "RBAC": "Role-Based Access Control : gestion des droits d'accès selon le rôle de l'utilisateur.",
+    "ABAC": "Attribute-Based Access Control : droits d'accès calculés selon les attributs (service, projet, contexte).",
+    "Row-Level Security": "Sécurité au niveau de la ligne : chaque utilisateur ne voit que les enregistrements qui le concernent.",
+    "Transactional Outbox": "Motif d'architecture garantissant qu'un événement n'est jamais perdu entre deux systèmes.",
+    "Optimistic Locking": "Technique de gestion des conflits quand deux personnes modifient la même donnée simultanément.",
+    "Offline-first": "Conception d'une application qui fonctionne sans connexion et se resynchronise ensuite.",
+    "IndexedDB": "Base de données intégrée au navigateur, permettant de travailler hors ligne.",
+    "Tailwind": "Framework CSS utilitaire pour construire rapidement des interfaces cohérentes.",
+    "OWASP": "Organisation de référence sur la sécurité applicative, connue pour son Top 10 des vulnérabilités.",
+    "RGAA": "Référentiel Général d'Amélioration de l'Accessibilité : la norme française d'accessibilité numérique.",
+    "WCAG": "Web Content Accessibility Guidelines : le standard international d'accessibilité web.",
+    "ARIA": "Ensemble d'attributs HTML rendant les interfaces compréhensibles par les lecteurs d'écran.",
+    "RGPD": "Règlement Général sur la Protection des Données : cadre européen de protection de la vie privée.",
+    "Privacy by Design": "Approche intégrant la protection des données dès la conception, et non après coup.",
+    "Souveraineté": "Maîtrise de ses données et de son infrastructure, sans dépendance à un acteur extra-européen.",
+    "OpenAPI": "Standard de description des API, qui permet de générer documentation et clients automatiquement.",
+    "SOLID": "Cinq principes de conception orientée objet favorisant un code maintenable et évolutif.",
+    "TDD": "Test Driven Development : écrire les tests avant le code pour guider la conception.",
+    "RNCP": "Répertoire National des Certifications Professionnelles : registre officiel des diplômes reconnus par l'État."
 };
 
 export const SKILLS_DATA = [
@@ -88,6 +111,9 @@ export const SKILLS_DATA = [
                 "items": [
                     { name: "PHP / Symfony** / Laravel**", status: "acquired", desc: "Langage serveur historique et ses frameworks robustes." },
                     { name: "Python (Django* / Flask)", status: "acquired", desc: "Frameworks Python : complet (Django) ou micro (Flask)." },
+                    { name: "FastAPI", status: "acquired", desc: "Framework Python moderne pour API asynchrones. Utilisé en production sur une suite logicielle métier (stage 2026)." },
+                    { name: "SQLAlchemy", status: "acquired", desc: "ORM Python de référence. Version 2.0 en mode asynchrone sur mon projet de stage." },
+                    { name: "WebSockets / OpenAPI", status: "acquired", desc: "Communication temps réel et documentation d'API standardisée." },
                     { name: "Node.js* / Express**", status: "acquired", desc: "JavaScript côté serveur et framework web minimaliste." },
                     { name: "Java EE** / Spring**", status: "learning", desc: "Développement d'applications d'entreprise en Java." },
                     { name: "C#* / .NET**", status: "acquired", desc: "Écosystème Microsoft pour le développement applicatif." }
@@ -106,7 +132,8 @@ export const SKILLS_DATA = [
                 "title": "Architecture & Qualité",
                 "items": [
                     { name: "UI/UX* / Design Thinking*", status: "acquired", desc: "Conception centrée utilisateur et ergonomie." },
-                    { name: "SEO / WCAG* / RGPD", status: "acquired", desc: "Référencement, Accessibilité et Protection des données." },
+                    { name: "RGAA / WCAG / ARIA", status: "acquired", desc: "Accessibilité numérique : référentiel français, standard international et attributs pour lecteurs d'écran." },
+                    { name: "SEO / RGPD / Privacy by Design", status: "acquired", desc: "Référencement, protection des données et confidentialité intégrée dès la conception." },
                     { name: "API REST / GraphQL**", status: "acquired", desc: "Architectures d'échange de données standardisées." },
                     { name: "PWA* / Mobile First", status: "acquired", desc: "Applications Web Progressives et conception mobile." }
                 ]
@@ -173,6 +200,9 @@ export const SKILLS_DATA = [
                 "title": "Réseaux & Sécurité",
                 "items": [
                     { name: "Protocoles Web (HTTP/WS)", status: "acquired", desc: "Fonctionnement du web et websockets." },
+                    { name: "OWASP / Sécurité applicative", status: "acquired", desc: "Top 10 des vulnérabilités, validation des données, API sécurisées, défense en profondeur." },
+                    { name: "Authentification & droits", status: "acquired", desc: "SSO OAuth2, cookies HttpOnly, RBAC/ABAC, Row-Level Security — mis en œuvre en conditions réelles." },
+                    { name: "Zero-Trust*", status: "acquired", desc: "Modèle de sécurité sans confiance implicite : chaque accès est vérifié." },
                     { name: "Cybersécurité*", status: "acquired", desc: "Bonnes pratiques de sécurité informatique." },
                     { name: "Réseaux locaux / Distants", status: "acquired", desc: "Architecture réseau et communication." }
                 ]
@@ -240,12 +270,28 @@ export const SKILLS_DATA = [
 
 export const TIMELINE_DATA = [
     {
+        "year": "2026 - en cours",
+        "title": "GS Solutions Numériques - Fondateur & Développeur",
+        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Création en cours - début d'activité visé : octobre 2026</span> <br> <span class='location-highlight'>Brumath (67) - Distanciel France entière & présentiel Alsace</span></div><div class='timeline-role-block'><span class='timeline-subtitle'>Activité</span><p>Entreprise individuelle de développement d'applications, de sites internet et de conseil en données &amp; intelligence artificielle. Double compétence technique et métier : je conçois des solutions qui répondent réellement à l'activité du client.</p></div><div class='timeline-courses-block'><span class='timeline-subtitle'>Offre de services</span><ul><li><strong>Développement d'applications &amp; sites internet</strong> : applications métier, sites vitrines et e-commerce avec back-office, PWA, reprise et sécurisation de l'existant.</li><li><strong>Numérisation, données &amp; gouvernance</strong> : automatisation de tâches, structuration de données, tableaux de bord, accompagnement RGPD, souveraineté.</li><li><strong>Conseil &amp; intégration d'IA</strong> : cadrage honnête des usages, assistants et chatbots, traitement documentaire, formation des équipes.</li><li><strong>Gestion de projets numériques</strong> : cahier des charges, pilotage, coordination, recette.</li><li><strong>Design &amp; création de médias</strong> : identité visuelle, composition musicale, montage vidéo, traitement audio, 3D. <em>(signés Hylst)</em></li><li><strong>Rédaction technique, commerciale &amp; littéraire</strong> : documentation, contenus, cahiers des charges en langage clair.</li></ul></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Engagements</span><ul><li>Accessibilité (RGAA / WCAG) intégrée dès la conception, pas ajoutée après coup</li><li>Souveraineté et confidentialité des données : hébergement européen, RGPD</li><li>Livrables documentés, testés, et dont vous restez propriétaire</li></ul></div>",
+        "type": "experience",
+        "url": null,
+        "logo": null
+    },
+    {
+        "year": "2026",
+        "title": "Prométhée Technologies & Ingénierie - Concepteur Développeur Full-Stack (stage)",
+        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Avril - Juillet 2026 (4 mois)</span> <br> <span class='location-highlight'>Vendenheim / Bas-Rhin (67) - Sur site</span></div><div class='timeline-role-block'><span class='timeline-subtitle'>Mission : Atelier Numérique Souverain</span><p>Conception et développement d'une suite logicielle modulaire et souveraine unifiant le système d'information technique de l'entreprise.</p><p><em>Informations partielles et non exhaustives par considération de confidentialité.</em></p></div><div class='timeline-courses-block'><span class='timeline-subtitle'>Réalisations techniques</span><ul><li><strong>Backend sécurisé</strong> : API asynchrone FastAPI (Python 3.14+) et SQLAlchemy 2.0, protégée par un modèle Zero-Trust strict — SSO OAuth2, cookies HttpOnly, RBAC/ABAC et Row-Level Security.</li><li><strong>Orchestration asynchrone</strong> : mise en œuvre du Transactional Outbox pattern pour une synchronisation résiliente (MariaDB SKIP LOCKED), garantissant une interface fluide sans dépendance à un broker externe type Redis.</li><li><strong>Architecture de données</strong> : hybride, avec sauvegarde automatisée, contrôle d'intégrité systématique, reconstitution et défense en profondeur.</li><li><strong>Frontend modulaire &amp; UX « Flow »</strong> : interface « TDAH-friendly » en React 19 et Tailwind CSS v4 — Command Palette (Ctrl+K), tiroirs latéraux, 3 modes de densité d'affichage réglables.</li><li><strong>Résilience &amp; collaboration</strong> : fonctionnement Offline-first via Dexie.js (IndexedDB), temps réel par WebSockets, gestion fine des conflits d'édition (Optimistic Locking).</li><li><strong>Innovation RH &amp; IA</strong> : algorithme de <em>Skill / Relation Decay</em> (modèle mathématique d'obsolescence des compétences) et préparation d'un moteur de recherche sémantique RAG local et souverain.</li></ul></div>",
+        "type": "experience",
+        "url": "https://www.promethee-ti.fr",
+        "logo": null
+    },
+    {
         "year": "2025 - 2026",
-        "title": "Formation Concepteur Développeur d'Applications (CDA)",
-        "description": "<div class='timeline-meta-block'><span class='date-highlight'>17 Sept 2025 - 23 Juil 2026</span> <br> <span class='location-highlight'>Schiltigheim / Bas Rhin (67)</span></div><div class='timeline-institution-block'><span class='timeline-subtitle'>Établissement</span><p>M2i Formation - Titre Professionnel Niveau 6 (BAC+3/4)</p><p><em>Format :</em> Distanciel synchrone/asynchrone + Présentiel</p></div><div class='timeline-courses-block'><span class='timeline-subtitle'>Programme</span><p><em>Légende : * Bases | ** Notions</em></p><h4>Développement Web :</h4><ul><li>Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**</li><li>Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*</li><li>CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce</li><li>Java EE/SE* : servlets, JSP, frameworks entreprise**</li></ul><h4>Data & Architecture :</h4><ul><li>Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data</li><li>Conception : UML, Algorithmie, Architectures applicatives</li><li>Méthodes : Scrum, gestion de projet agile</li></ul><h4>DevOps & Cloud :</h4><ul><li>Fondamentaux DevOps*, CI/CD*</li><li>Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)</li></ul><h4>Sécurité & Qualité :</h4><ul><li>Cybersécurité, RGPD</li><li>Testing applicatif (unitaires, intégration)</li></ul></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Soft Skills</span><ul><li>Communication, travail équipe, gestion stress, anglais professionnel, TRE</li></ul></div><div class='timeline-projects-block'><span class='timeline-subtitle'>Projets & Stages</span><ul><li><strong>Projet fil rouge :</strong> Application complète (conception → déploiement)</li><li><strong>Stage :</strong> 3+ mois en entreprise (Avril-Juillet 2026)</li><li><strong>Examen :</strong> Titre Professionnel CDA (Juillet 2026)</li></ul></div>",
+        "title": "Titre Professionnel Concepteur Développeur d'Applications (CDA) - Obtenu",
+        "description": "<div class='timeline-meta-block'><span class='date-highlight'>17 Sept 2025 - 23 Juil 2026 · Titre obtenu le 4 août 2026</span> <br> <span class='location-highlight'>Schiltigheim / Bas Rhin (67)</span></div><div class='timeline-institution-block'><span class='timeline-subtitle'>Certification</span><p><strong>Titre professionnel de Concepteur Développeur d'Applications</strong>, délivré par le Ministère du Travail et des Solidarités — <strong>niveau 6 du cadre national des certifications professionnelles</strong> (BAC+3/4), domaine d'activité 326t.</p><p><em>Arrêté du 26 avril 2023, publié au Journal Officiel du 13 mai 2023. Établi à Strasbourg le 4 août 2026.</em></p><p><em>Organisme de formation :</em> M2i Formation — PRF à temps plein sur 10-11 mois, distanciel synchrone/asynchrone + présentiel.</p></div><div class='timeline-courses-block'><span class='timeline-subtitle'>Programme</span><p><em>Légende : * Bases | ** Notions</em></p><h4>Développement Web :</h4><ul><li>Front-end : <i class=\"fab fa-html5 timeline-icon\"></i> HTML/<i class=\"fab fa-css3-alt timeline-icon\"></i> CSS, <i class=\"fab fa-js timeline-icon\"></i> JavaScript, jQuery, <i class=\"fab fa-react timeline-icon\"></i> React*, <i class=\"fab fa-vuejs timeline-icon\"></i> Vue**, <i class=\"fab fa-angular timeline-icon\"></i> Angular**</li><li>Back-end : <i class=\"fab fa-php timeline-icon\"></i> PHP (procédural & OO), <i class=\"fab fa-node timeline-icon\"></i> Node.js*</li><li>CMS : <i class=\"fab fa-wordpress timeline-icon\"></i> WordPress/WooCommerce</li><li>Java EE/SE* : servlets, JSP, frameworks entreprise**</li></ul><h4>Data & Architecture :</h4><ul><li>Bases de données : SQL, Merise, NoSQL*, MongoDB*, Big Data</li><li>Conception : UML, Algorithmie, Architectures applicatives</li><li>Méthodes : Scrum, gestion de projet agile</li></ul><h4>DevOps & Cloud :</h4><ul><li>Fondamentaux DevOps*, CI/CD*</li><li>Cloud Native <i class=\"fab fa-aws timeline-icon\"></i> AWS (containerisation, déploiement)</li></ul><h4>Sécurité & Qualité :</h4><ul><li>Cybersécurité, RGPD</li><li>Testing applicatif (unitaires, intégration)</li></ul></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Soft Skills</span><ul><li>Communication, travail équipe, gestion stress, anglais professionnel, TRE</li></ul></div><div class='timeline-projects-block'><span class='timeline-subtitle'>Projets & Stages</span><ul><li><strong>Projet fil rouge :</strong> application complète, de la conception au déploiement</li><li><strong>3 applications principales</strong> développées sur la période de formation</li><li><strong>Stage :</strong> 4 mois chez Prométhée Technologies &amp; Ingénierie (Avril-Juillet 2026)</li><li><strong>Examen :</strong> validé — titre obtenu le 4 août 2026</li></ul></div>",
         "type": "education",
         "url": "https://macarriere.m2iformation.fr/offres/concepteur-rice-developpeur-se-d-applications/89/",
-        "logo": "https://logo.clearbit.com/m2iformation.fr"
+        "logo": null
     },
     {
         "year": "2024 - 2025",
@@ -261,7 +307,7 @@ export const TIMELINE_DATA = [
         "description": "<div class='timeline-meta-block'><span class='date-highlight'>2023 - 2024</span> <br> <span class='location-highlight'>Formation en ligne</span></div><div class='timeline-institution-block'><span class='timeline-subtitle'>Plateformes</span><p>Docstrings, OpenClassrooms, Machine Learnia, Kaggle</p><p><em>Certifications :</em> OpenClassrooms, Google Cloud/IA, SecNum Académie.</p></div><div class='timeline-courses-block'><span class='timeline-subtitle'>Programme</span><p><em>Légende : * Bases | ** Notions</em></p><h4>Développement Python :</h4><ul><li><i class=\"fab fa-python timeline-icon\"></i> Django*, Flask, FastAPI*</li><li>Bonnes pratiques PEP, scripts modulaires</li></ul><h4>Automatisation :</h4><ul><li>Requests, BeautifulSoup, Selenium**, PyAutoGUI**</li><li>Pipenv, Virtualenv, <i class=\"fab fa-docker timeline-icon\"></i> Docker</li></ul><h4>Data & Analyse :</h4><ul><li>Pandas, NumPy, visualisation (Matplotlib, Seaborn, Plotly)</li><li>SQLAlchemy, Psycopg2, PyMongo</li></ul><h4>Machine Learning* & Deep Learning** :</h4><ul><li>Modèles supervisés/non-supervisés, Feature engineering, Cross-validation</li><li>Scikit-learn, TensorFlow*/Keras**, PyTorch*</li></ul><h4>IA & LLMs :</h4><ul><li>Transformers, LangChain, LlamaIndex*, Whisper, OpenAI SDK</li><li>Modèles génératifs, CNN** / RAG*</li></ul><h4>MLOps & Data Engineering :</h4><ul><li>Notions Airflow, Luigi, déploiement/monitoring de modèles</li></ul></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Expérimentations</span><ul><li>Jupyter Notebooks, Scrapy, Streamlit*, Dask**, OpenCV**</li></ul></div>",
         "type": "education",
         "url": null,
-        "logo": "https://logo.clearbit.com/openclassrooms.com"
+        "logo": null
     },
     {
         "year": "2004 - 2024",
@@ -269,7 +315,7 @@ export const TIMELINE_DATA = [
         "description": "<div class='timeline-meta-block'><span class='date-highlight'>Mars 2004 - Sept 2024 (20 ans 7 mois)</span> <br> <span class='location-highlight'>Vendenheim (67)</span></div><div class='timeline-role-block'><span class='timeline-subtitle'>Missions & Rôles</span><p>Rôles variés : Coordinateur commercial, Vendeur, Responsable SAV, Chef de rayon électroménager, Attaché de direction.</p></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Compétences Développées</span><ul><li>Vente, Coordination, Management d'équipe</li><li>Gestion de rayon, Gestion des litiges et SAV</li><li>Relation client et fournisseurs</li><li>Achat et marketing</li><li>Dépannage et installation, Planification, communication, formation</li></ul></div>",
         "type": "experience",
         "url": "https://www.but.fr",
-        "logo": "https://logo.clearbit.com/but.fr"
+        "logo": null
     },
     {
         "year": "2002",
@@ -277,7 +323,7 @@ export const TIMELINE_DATA = [
         "description": "<div class='timeline-meta-block'><span class='date-highlight'>Mars - Août 2002 (6 mois)</span> <br> <span class='location-highlight'>Essonne (91)</span></div><div class='timeline-company-block'><span class='timeline-subtitle'>Activité de l'entreprise</span><p>Production de matériels optiques/photographiques — entre autres composants laser / opto-électronique, relevant de la division laser/optique de Thales.</p></div><div class='timeline-role-block'><span class='timeline-subtitle'>Mission</span><p>Ingénieur co-responsable de l’industrialisation d'un laser.</p></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Compétences</span><ul><li>Méthode, Qualité, Communication</li><li>Technique (Optique, Électronique, Mécanique)</li></ul></div>",
         "type": "experience",
         "url": "https://www.thalesgroup.com",
-        "logo": "https://logo.clearbit.com/thalesgroup.com"
+        "logo": null
     },
     {
         "year": "2001",
@@ -301,7 +347,7 @@ export const TIMELINE_DATA = [
         "description": "<div class='timeline-meta-block'><span class='date-highlight'>Juillet - Août 1997 (2 mois)</span> <br> <span class='location-highlight'>Bas Rhin (67)</span></div><div class='timeline-company-block'><span class='timeline-subtitle'>Activité de l'entreprise</span><p>Fabrication de codeurs incrémentaux et absolus, systèmes de mesure et d’encodeurs pour l’industrie — c-à-d des composants de position / rotation destinés à des applications industrielles d’automatisme.</p></div><div class='timeline-role-block'><span class='timeline-subtitle'>Mission</span><p>Optimisation d'un système miniaturisé de transmission optique pour codeur optique de rotation.</p></div>",
         "type": "experience",
         "url": "https://www.hohner-elektrotechnik.de",
-        "logo": "https://logo.clearbit.com/hohner-elektrotechnik.de"
+        "logo": null
     },
     {
         "year": "1999 - 2002",
@@ -309,7 +355,7 @@ export const TIMELINE_DATA = [
         "description": "<div class='timeline-meta-block'><span class='date-highlight'>1999 - 2002</span> <br> <span class='location-highlight'>Orsay / Essonne (91)</span></div><div class='timeline-institution-block'><span class='timeline-subtitle'>Établissement</span><p>NFIO / Université Paris-Sud (devenue Paris-Saclay)</p></div><div class='timeline-courses-block'><span class='timeline-subtitle'>Domaines d'expertise</span><h4>Optique :</h4><ul><li>Géométrique, ondulatoire, non linéaire, holographie, vision, photonique, radio-photométrie</li></ul><h4>Électronique :</h4><ul><li>Analogique, numérique, haute fréquence, électrotechnique, micro-électronique</li></ul><h4>Télécommunications :</h4><ul><li>Fibre optique, radio-télécoms, traitement du signal, réseaux, multiplexage</li></ul><h4>Autres :</h4><ul><li>Détecteurs, spectroscopie, métrologie, automatismes, mécanique quantique, optomécanique</li></ul></div>",
         "type": "education",
         "url": "https://www.universite-paris-saclay.fr",
-        "logo": "https://logo.clearbit.com/universite-paris-saclay.fr"
+        "logo": null
     },
     {
         "year": "1998 - 1999",
@@ -336,6 +382,76 @@ export const TIMELINE_DATA = [
 ];
 
 export const PROJECTS_DATA = [
+    {
+        "id": "promethee-suite",
+        "category": "pro",
+        "title": "Suite logicielle métier souveraine (Prométhée TI)",
+        "description": "Conception et développement d'un « Atelier Numérique Souverain » unifiant le système d'information technique d'une PME industrielle.<br>API asynchrone <strong>FastAPI</strong> / <strong>SQLAlchemy</strong> 2.0 sous modèle <strong>Zero-Trust</strong> (SSO OAuth2, RBAC/ABAC, Row-Level Security), synchronisation résiliente par Transactional Outbox, front <strong>React</strong> 19 / Tailwind pensé « TDAH-friendly », mode Offline-first et temps réel par WebSockets.<br><em>Informations partielles par considération de confidentialité — code non public.</em>",
+        "tech": ["FastAPI", "React", "Sécurité", "WebSockets", "Data"],
+        "status": "Livré (stage, 2026)",
+        "link": null,
+        "image": "assets/screenshots/promethee.svg"
+    },
+    {
+        "id": "hylst-hub",
+        "category": "recent",
+        "title": "Hylst IT Learning - Plateforme & Apps",
+        "description": "Hub personnel regroupant mes applications éducatives, outils et expérimentations : apprentissage, accessibilité, IA, sciences et arts numériques.<br>Il héberge <strong>14 parcours de cours interactifs</strong> (HTML, CSS, JavaScript, Python, Python Data &amp; IA, Python Web, PHP, Java, React, Node.js, Docker, DevOps, Réseaux) et une dizaine d'applications : Asciiverse, Keyboard Atlas, HylstDevToolBox, Bulle Sensorielle, CogniAI, NeuroDiversité, Data Explorer, À Votre Service.<br>Applications <strong>PWA</strong> 100 % front-end, sans publicité ni traqueur, utilisables hors ligne : vos données restent dans votre navigateur.",
+        "tech": ["Web Dev", "PWA", "IA", "Accessibilité"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/",
+        "image": "assets/screenshots/hylst-hub.svg"
+    },
+    {
+        "id": "brevet-2026",
+        "category": "recent",
+        "title": "Espace Réussite - Brevet 2026",
+        "description": "Application de révision du Brevet des collèges : plus de 400 questions calibrées, fiches de cours interactives, schémas SVG, mascottes par matière et gamification (XP, niveaux, badges, séries).<br>Pensée pour tous les rythmes d'apprentissage, en particulier les profils neuro-atypiques. Gratuite, sans traqueur, installable et utilisable en mode avion, avec import/export de la progression.",
+        "tech": ["Web Dev", "PWA", "Accessibilité", "EdTech"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/brevet2026/",
+        "image": "assets/screenshots/brevet.svg"
+    },
+    {
+        "id": "guide-maths",
+        "category": "recent",
+        "title": "Guide Mathématiques Interactif",
+        "description": "Plateforme de cours de mathématiques interactifs : cours, exercices et manipulation visuelle des concepts.<br>Chantier au long cours visant à couvrir de la maternelle au post-bac, à travers les différentes voies, spécialités et filières.",
+        "tech": ["Web Dev", "PWA", "EdTech", "Accessibilité"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/guide_maths/",
+        "image": "assets/screenshots/maths.svg"
+    },
+    {
+        "id": "books-reader",
+        "category": "recent",
+        "title": "Hylst Books & Reader",
+        "description": "Liseuse web développée sur mesure pour une lecture immersive, accessible et sans distraction.<br>Y sont publiés mes essais de prospective : <strong>L'Odyssée de l'IA</strong> (5 chapitres, complet) et sa suite <strong>L'Odyssée de l'énergie</strong>, mêlant veille technologique, analyse scientifique et narration.",
+        "tech": ["Web Dev", "Accessibilité", "Écriture", "IA"],
+        "status": "En ligne",
+        "link": "https://hylst.fr/books_reader/",
+        "image": "assets/screenshots/books.svg"
+    },
+    {
+        "id": "3d-creator",
+        "category": "recent",
+        "title": "3D Creator - Studio 3D dans le navigateur",
+        "description": "Application web permettant de créer, manipuler et exporter des formes 3D sans installation ni compte : 24 presets géométriques, éditeur de maillage, matériaux PBR, éclairage HDR, historique Undo/Redo de 50 actions, export OBJ/JSON/CSV.<br>Stack : <strong>Next.js</strong> 16, <strong>React</strong> 19, TypeScript et <strong>Three.js</strong> (React Three Fiber). PWA 100 % front-end, open-source sous licence MIT.",
+        "tech": ["Three.js", "React", "TypeScript", "Web Dev", "PWA"],
+        "status": "En ligne (open-source MIT)",
+        "link": "https://hylst.fr/3dcreator/",
+        "image": "assets/screenshots/creator3d.svg"
+    },
+    {
+        "id": "pang-genesis",
+        "category": "recent",
+        "title": "Pang Genesis - Hommage rétro",
+        "description": "Hommage web au Pang d'Ocean sur <strong>Atari ST</strong>, repris et modernisé : 5 thèmes visuels, balles traqueuses, charge shot, système de milestones et d'achievements.<br>Un projet passion né d'un exercice sur la logique du jeu vidéo en environnement web.",
+        "tech": ["JavaScript", "Web Dev", "Game Dev"],
+        "status": "En ligne",
+        "link": "https://games.hylst.fr/pang_genesis/",
+        "image": "assets/screenshots/pang.svg"
+    },
     {
         "id": "ia-apps",
         "category": "recent",
@@ -495,9 +611,9 @@ export const CERTIFICATIONS_DATA = [
             { name: "L'essentiel de PHP et MySQL", link: "https://www.linkedin.com/learning/certificates/e97453a47bfcd3e1f2bfeaddfc11eaba83be9ff44114a49b3d22351fbc3cca1a?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Lessentiel de PHP et MySQL.pdf" },
             { name: "JavaScript : La programmation orientée objet", link: "https://www.linkedin.com/learning/certificates/8ba8d437d6865120738e11ae82f6f2d986cd54a7291f8a8c83db5acf8c49d86e?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_JavaScript  La programmation orientee objet.pdf" },
             { name: "UML : Modélisation d'une base de données", link: "https://www.linkedin.com/learning/certificates/7b996d1f0512e61f839e132eddf8b32127b0854ba8674fb7c6a1764d4ff81552?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_UML  Modelisation dune base de donnees.pdf" },
-            { name: "Découvrir le cloud computing : Les concepts clés", link: "https://www.linkedin.com/learning/certificates/20a815e9d77366002b8f6b0428135dd4c34aa424a1ac9089560c15396e5ed621?trk=share_certificate", file: "CertificatDaccomplissement_Decouvrir le cloud computing  Les concepts cles.pdf" },
-            { name: "L'essentiel de Docker", link: "https://www.linkedin.com/learning/certificates/44868e0e7e457da7a1d55b98fac52bfc06c8a288e05bcbb7b4a8a365fa73639c?trk=share_certificate", file: "CertificatDaccomplissement_Lessentiel de Docker.pdf" },
-            { name: "L'essentiel de Git", link: "https://www.linkedin.com/learning/certificates/c9591ab08d12a3dd6d7108fbcdef367e8d4da947f0d79277c1945ded7d2cf7ce?trk=share_certificate", file: "CertificatDaccomplissement_Lessentiel de Git.pdf" }
+            { name: "Découvrir le cloud computing : Les concepts clés", link: "https://www.linkedin.com/learning/certificates/20a815e9d77366002b8f6b0428135dd4c34aa424a1ac9089560c15396e5ed621?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Decouvrir le cloud computing  Les concepts cles.pdf" },
+            { name: "L'essentiel de Docker", link: "https://www.linkedin.com/learning/certificates/44868e0e7e457da7a1d55b98fac52bfc06c8a288e05bcbb7b4a8a365fa73639c?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Lessentiel de Docker.pdf" },
+            { name: "L'essentiel de Git", link: "https://www.linkedin.com/learning/certificates/c9591ab08d12a3dd6d7108fbcdef367e8d4da947f0d79277c1945ded7d2cf7ce?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Lessentiel de Git.pdf" }
         ]
     },
     {
@@ -512,6 +628,7 @@ export const CERTIFICATIONS_DATA = [
 ];
 
 export const DIPLOMAS_DATA = [
+    { name: "Titre Professionnel Concepteur Développeur d'Applications - Niveau 6 (2026)", file: "TITRE PROFESSIONEL CONCEPTEUR DEVELOPPEUR D APPLICATION 2026.webp" },
     { name: "Diplôme d'ingénieur Optronique", file: "Diplôme d'ingénieur des techniques de l'industrie spécialité optronique - Geoffroy Streit _c.pdf" },
     { name: "BTS Optique Photonique", file: "BTS Optique photonique - Geoffroy Streit_c.pdf" },
     { name: "TOEIC Anglais (835)", file: "TOEIC ANGLAIS 835 - Geoffroy Streit_c.pdf" },

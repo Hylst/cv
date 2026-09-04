@@ -160,25 +160,50 @@ function renderFilteredProjects(projects, filter) {
     const container = document.getElementById('projects-list');
     if (!container) return;
 
-    let filtered = projects;
-    if (filter !== 'all') {
-        filtered = projects.filter(p => {
-            const tags = p.tech.map(t => t.toLowerCase());
+    // Mots-cles par filtre. On compare des tags ENTIERS et non des sous-chaines :
+    // l'ancienne version testait t.includes('ia'), donc le tag "Social" tombait
+    // dans le filtre "IA" ("soc-IA-l"), et "Graphisme" aurait suivi le meme sort.
+    const FILTRES = {
+        python: ['python', 'data', 'scikit', 'fastapi', 'pandas', 'sqlalchemy', 'machine learning'],
+        web: ['web dev', 'web', 'html', 'css', 'react', 'javascript', 'js', 'typescript', 'pwa',
+            'three.js', 'next.js', 'node.js', 'websockets', 'game dev', 'webmastering', 'accessibilité'],
+        ia: ['ia', 'ia générative', 'llm', 'gpt', 'rag', 'automatisation', 'cognitive science',
+            'edtech', 'app'],
+        hardware: ['hardware', 'électronique', 'optique', 'laser', 'arduino', 'robotique', 'c', 'c++',
+            'asm', 'holographie', 'chimie', 'vr', 'ihm', 'recherche', 'sécurité']
+    };
 
-            // Les regles de filtrage - comme les conditions d'une quete
-            if (filter === 'python') return tags.some(t => t.includes('python') || t.includes('data') || t.includes('scikit'));
-            if (filter === 'web') return tags.some(t => t.includes('web') || t.includes('html') || t.includes('react') || t.includes('js'));
-            if (filter === 'ia') return tags.some(t => t.includes('ia') || t.includes('gpt') || t.includes('llm') || t.includes('auto'));
-            if (filter === 'hardware') return tags.some(t => t.includes('hardware') || t.includes('optique') || t.includes('laser') || t.includes('arduino'));
-            return true;
-        });
+    const correspond = (projet, cles) =>
+        projet.tech.some(t => cles.includes(t.trim().toLowerCase()));
+
+    let filtered = projects;
+    if (filter === 'autres') {
+        // Categorie de recuperation, calculee et non declaree : tout projet
+        // qu'aucun filtre technique ne retient reste accessible. Aucun projet
+        // ne peut donc disparaitre silencieusement de la navigation.
+        filtered = projects.filter(p =>
+            !Object.values(FILTRES).some(cles => correspond(p, cles))
+        );
+    } else if (filter !== 'all') {
+        filtered = projects.filter(p => correspond(p, FILTRES[filter] || []));
     }
 
-    // Template pour chaque carte projet - comme une fiche de monstre
+    // Un filtre qui ne renvoie rien doit le dire, pas afficher une grille vide
+    if (filtered.length === 0) {
+        container.innerHTML = `
+            <p class="section-notice">Aucun projet dans cette catégorie pour le moment.</p>
+        `;
+        return;
+    }
+
+    // Template pour chaque carte projet - comme une fiche de monstre.
+    // L'image est purement decorative (alt vide) : le titre juste en dessous
+    // dit deja de quoi il s'agit, inutile de le faire repeter par le lecteur d'ecran.
     const renderCard = (project) => `
-        <article class="project-card reveal" data-id="${project.id}" onclick="openModal('${project.id}')" role="button" tabindex="0" onkeypress="if(event.key === 'Enter') openModal('${project.id}')">
+        <article class="project-card reveal" data-id="${project.id}" role="button" tabindex="0"
+                 aria-label="${project.title} — ouvrir le détail">
             <div class="project-image">
-                <img src="${project.image}" alt="${project.title}" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22300%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22300%22%20height%3D%22180%22%20fill%3D%22%23e1e4e8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2216%22%20fill%3D%22%23666%22%3EImage%20non%20disponible%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                <img src="${project.image}" alt="" loading="lazy" decoding="async" width="800" height="400">
             </div>
             <div class="project-content">
                 <h3 class="project-title">${project.title}</h3>
@@ -195,6 +220,19 @@ function renderFilteredProjects(projects, filter) {
             ${filtered.map(renderCard).join('')}
         </div>
     `;
+
+    // Activation clavier ET souris, sans handler inline (une CSP stricte les
+    // interdirait). Espace autant qu'Entree : c'est ce qu'attend un vrai bouton.
+    container.querySelectorAll('.project-card').forEach(card => {
+        const open = () => window.openModal(card.dataset.id);
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault(); // sinon Espace fait defiler la page
+                open();
+            }
+        });
+    });
 
     // Animation d'apparition progressive
     if (window.observeElements) {
@@ -376,27 +414,55 @@ export function setupThemeToggle() {
     const btn = document.getElementById('theme-btn');
     if (!btn) return;
 
-    // On verifie les preferences systeme - respect du choix utilisateur
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    /**
+     * applyTheme - Applique un theme et synchronise l'etat accessible du bouton.
+     * Le bouton est un interrupteur : aria-pressed dit s'il est enclenche,
+     * aria-label dit ce que fera le prochain clic. Sans ca, un lecteur d'ecran
+     * annonce une lune ou un soleil, ce qui ne veut rien dire.
+     */
+    const applyTheme = (theme) => {
+        const isDark = theme === 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        btn.textContent = isDark ? '☀️' : '🌙';
+        btn.setAttribute('aria-pressed', String(isDark));
+        btn.setAttribute('aria-label', isDark ? 'Activer le mode clair' : 'Activer le mode sombre');
+    };
 
-    // Par defaut on est en mode sombre (parce que c'est plus classe)
-    if (!localStorage.getItem('theme') || localStorage.getItem('theme') === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        btn.textContent = '☀️'; // Emoji soleil pour basculer vers la lumiere
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        btn.textContent = '🌙'; // Emoji lune pour basculer vers les tenebres
-    }
+    // Choix initial : la preference enregistree l'emporte, sinon on suit le
+    // reglage du systeme d'exploitation (et non un mode sombre impose).
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(stored || (prefersDark ? 'dark' : 'light'));
 
     // On branche l'evenement click
     btn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        document.documentElement.setAttribute('data-theme', newTheme);
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
         localStorage.setItem('theme', newTheme);
-        btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        announce(newTheme === 'dark' ? 'Mode sombre activé.' : 'Mode clair activé.');
     });
+
+    // Si l'utilisateur n'a jamais choisi, on suit les changements systeme a la volee
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+    });
+}
+
+/**
+ * announce - Le Heraut Discret
+ *
+ * Envoie un message dans la zone aria-live pour les lecteurs d'ecran.
+ * Utile quand une action change l'etat de la page sans deplacer le focus.
+ *
+ * @param {string} message - Ce qu'il faut annoncer
+ */
+export function announce(message) {
+    const region = document.getElementById('live-region');
+    if (!region) return;
+    region.textContent = '';
+    // Un reflow force la re-annonce meme si le texte est identique
+    void region.offsetWidth;
+    region.textContent = message;
 }
 
 /**
@@ -411,25 +477,63 @@ export function setupThemeToggle() {
  * Les modales sont comme des inventaires popup dans les jeux.
  * On peut les fermer avec le bouton X ou la touche Echap (comme tout bon menu).
  */
+// Element qui avait le focus avant l'ouverture : on doit le lui rendre a la
+// fermeture, sinon l'utilisateur au clavier est renvoye en haut de la page.
+let lastFocusedElement = null;
+
+/**
+ * closeModal - Le Sort de Renvoi
+ * Ferme la modale et restitue le focus a son point de depart.
+ */
+export function closeModal() {
+    const modalContainer = document.getElementById('modal-container');
+    if (!modalContainer || !modalContainer.classList.contains('active')) return;
+
+    modalContainer.classList.remove('active');
+    modalContainer.setAttribute('aria-hidden', 'true');
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+    }
+    lastFocusedElement = null;
+}
+
 export function setupModalListeners() {
     const modalContainer = document.getElementById('modal-container');
     if (!modalContainer) return;
 
-    const closeBtns = document.querySelectorAll('[data-close-modal]');
-
-    // Boutons de fermeture - le X classique
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            modalContainer.classList.remove('active');
-            modalContainer.setAttribute('aria-hidden', 'true');
-        });
+    // Boutons de fermeture - le X classique et le clic sur le fond
+    document.querySelectorAll('[data-close-modal]').forEach(btn => {
+        btn.addEventListener('click', closeModal);
     });
 
-    // Touche Echap - la touche universelle de "laisse-moi tranquille"
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalContainer.classList.contains('active')) {
-            modalContainer.classList.remove('active');
-            modalContainer.setAttribute('aria-hidden', 'true');
+        if (!modalContainer.classList.contains('active')) return;
+
+        // Touche Echap - la touche universelle de "laisse-moi tranquille"
+        if (e.key === 'Escape') {
+            closeModal();
+            return;
+        }
+
+        // Piege a focus : tant que la modale est ouverte, Tab tourne en boucle
+        // a l'interieur. Sans ca, on tabule derriere la modale sans le voir.
+        if (e.key !== 'Tab') return;
+
+        const focusables = modalContainer.querySelectorAll(
+            'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
         }
     });
 }
@@ -447,20 +551,29 @@ window.openModal = function (projectId) {
     const modalBody = document.getElementById('modal-body');
     const modalContainer = document.getElementById('modal-container');
 
+    // Un lien reel ou rien : un bouton "Voir le projet" qui pointe vers "#"
+    // fait plus de degats que pas de bouton du tout.
+    const hasLink = project.link && project.link !== '#';
+
     // On remplit la modale avec les infos du projet
     modalBody.innerHTML = `
-        <h2>${project.title}</h2>
-        <img src="${project.image}" alt="${project.title}" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:1rem; border-radius:8px;" onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22300%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22300%22%20height%3D%22180%22%20fill%3D%22%23e1e4e8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2216%22%20fill%3D%22%23666%22%3EImage%20non%20disponible%3C%2Ftext%3E%3C%2Fsvg%3E'">
-        <p><strong>Statut:</strong> ${project.status}</p>
+        <h2 id="modal-title">${project.title}</h2>
+        <img src="${project.image}" alt="" loading="lazy" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:1rem; border-radius:8px;">
+        <p><strong>Statut :</strong> ${project.status}</p>
         <p>${processText(project.description)}</p>
         <div style="margin: 1rem 0;">
-            <strong>Technologies:</strong>
+            <strong>Technologies :</strong>
             <div class="skill-tags" style="margin-top:0.5rem;">
                 ${project.tech.map(t => `<span class="skill-tag">${t}</span>`).join('')}
             </div>
         </div>
-        <a href="${project.link}" target="_blank" class="btn btn-primary">Voir le projet</a>
+        ${hasLink
+            ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Voir le projet <i class="fas fa-external-link-alt"></i></a>`
+            : `<p class="modal-no-link"><i class="fas fa-lock"></i> Pas de lien public pour ce projet.</p>`}
     `;
+
+    // On memorise d'ou l'on vient pour y revenir a la fermeture
+    lastFocusedElement = document.activeElement;
 
     // On affiche la modale
     modalContainer.classList.add('active');
