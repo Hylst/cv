@@ -1,5 +1,68 @@
 # Changelog
 
+## [3.2.0] - 2026-09-04
+
+Alignement sur le nouveau CV papier de référence, corrections rédactionnelles et SEO.
+
+### Ajouté
+- **`robots.txt` et `sitemap.xml`** : le site n'en avait aucun. Il se déclare pourtant indexable
+  (`meta robots: index, follow` + `canonical`) — les moteurs devaient donc deviner. Les PDF
+  (`/pdf/`, `/ressources/`) sont exclus de l'indexation : ils doivent rester accessibles au
+  visiteur, pas remonter dans les résultats à la place du CV lui-même.
+- **Compétences issues du CV papier et absentes du site** : nouvelle section « Intégration &
+  Services tiers » (API/Webhooks, Stripe, Sendcloud, Factur-X / facturation électronique, SaaS),
+  plus UML/Merise, Responsive, MySQL/SQLite, Vector DB, Google Cloud, Jira/Notion, Merchandising /
+  gestion de rayon, mécatronique, acquisition &amp; calibration, transmission et (dé)modulation.
+  76 compétences listées contre 68 auparavant.
+- **Légende des compétences complétée** : le liseré vert/jaune des étiquettes n'avait aucune clé
+  de lecture. Les deux axes sont désormais explicites — les astérisques disent la *profondeur*
+  (bases / notions), le liseré dit l'*état* (acquis / en cours). Les deux sont indépendants :
+  on peut avoir acquis des notions.
+
+### Modifié
+- **CV téléchargeable** : `pdf/CV_2026-09_Geoffroy_Streit_CDA.pdf` remplace la version du
+  3 septembre. Les trois PDF obsolètes (2014, 2025, 2026-09-03) sont supprimés du dépôt — une
+  seule version de référence, pas d'ambiguïté possible sur laquelle un recruteur télécharge.
+- **Accents rétablis dans les métadonnées SEO** (`title`, `description`, `keywords`, Open Graph,
+  Twitter Card, JSON-LD) : elles étaient intégralement écrites sans accents (« Developpeur »,
+  « securite », « Ministere »…) alors que tout le contenu visible est accentué. Ces chaînes
+  s'affichent telles quelles dans les résultats Google et les aperçus de partage LinkedIn.
+- **BUT** : les trois sites d'affectation du CV papier (Vendenheim, Fegersheim, Schweighouse)
+  remplacent la mention du seul Vendenheim.
+
+### Corrigé
+- **Certificat LinkedIn en double supprimé** : « HTML : Les images responsive » pointait vers le
+  lien *et* le fichier de « L'essentiel du HTML5 », et aucun PDF distinct n'existe pour lui.
+  20 certificats LinkedIn au lieu de 21 — un de moins affiché, mais plus aucun lien trompeur.
+- **Fautes de français** : « dans le vente » → « dans la vente » ; « Plusieurs aspect » →
+  « aspects » ; « accès à apprentissage facilité » → « d'accès à un apprentissage facilité » ;
+  « micro électronique » → « micro-électronique » ; « solutions électronique embarquée » →
+  « solutions d'électronique embarquée » ; « c-à-d » → « c.-à-d. » ; « repose pied » /
+  « appuis tête » → « repose-pieds » / « appuis-tête ».
+
+### Corrigé (audit visuel indépendant, mode rétro)
+Le mode rétro comportait une liste d'éléments qui n'avaient **jamais reçu de règle
+`.retro-mode`** et gardaient donc les couleurs du thème sous-jacent — en rétro-sur-clair, cela
+donnait des pavés blancs en plein écran noir. Corrigés : les **boutons de filtre de projets**
+(pastilles blanches, les plus visibles), la bascule de vue du parcours (`.btn-sm`), les **cartes
+du parcours** (seules cartes sans bordure verte), les titres de sous-section de la sidebar, le
+bouton de téléchargement du CV, le **pied de page** (bande claire en bas d'une page noire), les
+étiquettes de compétences (`.skill-tag` n'avait pas de règle alors que `.tag` et `.project-tag`
+en avaient), la pastille d'année du parcours, le diagramme des trois facettes et sa légende, le
+nom animé (dégradé gris/bleu au lieu du vert néon), ainsi que les accents restés bleus
+(soulignement des titres de section, icônes de contact).
+Vérification finale automatisée : plus **aucune zone de fond clair** détectée en mode rétro, sur
+les deux bases (clair et sombre), toutes sections dépliées.
+
+### Signalé, non corrigé (hors de portée de ce dépôt)
+- Le **CV papier** annonce « Concepteur Développeur d'Applications **sécurisées** » alors que le
+  diplôme officiel (relu visuellement) indique « Concepteur développeur d'applications », sans
+  « sécurisées ». Le site est conforme au diplôme ; c'est le PDF qui est à corriger.
+- Le CV papier porte aussi « RELATIONELLES » (deux N attendus), un point mal placé dans
+  « managériale. et industrielle », et « Bas Rhin » sans trait d'union.
+- Durées : le papier annonce « 1 an 1/2 » de stages cumulés, le détail du site en totalise 17
+  mois. L'un des deux arrondit — à trancher côté CV papier.
+
 ## [3.1.0] - 2026-09-04
 
 Enrichissement du portfolio : exploration exhaustive de hylst.fr et games.hylst.fr (Playwright,

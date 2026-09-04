@@ -230,6 +230,27 @@
     border-left: 3px solid #f1c40f;
 }
 
+/* Legende des competences : les asterisques disent la profondeur, le lisere
+   dit l'etat. Les deux doivent etre explicites, sinon les couleurs ne veulent
+   rien dire pour le visiteur. */
+.skills-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.skills-legend .legend-swatch {
+    padding-left: 0.5rem;
+}
+
+.retro-mode .skills-legend {
+    color: #0f0;
+}
+
 /* Skill Items Layout (inline descriptions) */
 .skill-items-list {
     display: flex;

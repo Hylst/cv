@@ -1,0 +1,12 @@
+# CV interactif de Geoffroy Streit — cv.hylst.fr
+# Le site est un CV public : il a vocation a etre indexe.
+
+User-agent: *
+Allow: /
+
+# Les PDF (CV, diplomes, certificats) restent accessibles au visiteur mais
+# n'ont pas vocation a etre indexes separement du CV lui-meme.
+Disallow: /pdf/
+Disallow: /ressources/
+
+Sitemap: https://cv.hylst.fr/sitemap.xml

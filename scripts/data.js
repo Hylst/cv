@@ -132,10 +132,12 @@ export const SKILLS_DATA = [
                 "title": "Architecture & Qualité",
                 "items": [
                     { name: "UI/UX* / Design Thinking*", status: "acquired", desc: "Conception centrée utilisateur et ergonomie." },
+                    { name: "UML / Merise", status: "acquired", desc: "Modélisation objet et méthode française de conception de bases de données." },
+                    { name: "Responsive / Mobile First", status: "acquired", desc: "Interfaces qui s'adaptent à toutes les tailles d'écran, conçues d'abord pour le mobile." },
                     { name: "RGAA / WCAG / ARIA", status: "acquired", desc: "Accessibilité numérique : référentiel français, standard international et attributs pour lecteurs d'écran." },
                     { name: "SEO / RGPD / Privacy by Design", status: "acquired", desc: "Référencement, protection des données et confidentialité intégrée dès la conception." },
                     { name: "API REST / GraphQL**", status: "acquired", desc: "Architectures d'échange de données standardisées." },
-                    { name: "PWA* / Mobile First", status: "acquired", desc: "Applications Web Progressives et conception mobile." }
+                    { name: "PWA*", status: "acquired", desc: "Applications Web Progressives : installables et utilisables hors ligne." }
                 ]
             }
         ]
@@ -149,7 +151,8 @@ export const SKILLS_DATA = [
                 "items": [
                     { name: "Python", status: "acquired", desc: "Langage de référence pour la Data Science." },
                     { name: "Pandas / NumPy / Matplotlib", status: "acquired", desc: "Manipulation, calcul et visualisation de données." },
-                    { name: "SQL* / NoSQL* / MongoDB*", status: "acquired", desc: "Bases de données relationnelles et orientées documents." },
+                    { name: "SQL / MySQL / SQLite", status: "acquired", desc: "Bases de données relationnelles : requêtes, modélisation, moteurs serveur et embarqué." },
+                    { name: "NoSQL* / MongoDB*", status: "acquired", desc: "Bases de données orientées documents, pour les schémas flexibles." },
                     { name: "Scikit-learn / TensorFlow*", status: "acquired", desc: "Machine Learning classique et Deep Learning." },
                     { name: "PyTorch* / Keras**", status: "acquired", desc: "Frameworks de Deep Learning flexibles." }
                 ]
@@ -159,6 +162,7 @@ export const SKILLS_DATA = [
                 "items": [
                     { name: "LLMs / RAG / Agents", status: "acquired", desc: "Grands modèles de langage, génération augmentée et agents autonomes." },
                     { name: "LangChain** / LlamaIndex**", status: "acquired", desc: "Frameworks pour orchestrer les applications LLM." },
+                    { name: "Vector DB*", status: "acquired", desc: "Bases de données vectorielles : le socle de la recherche sémantique et du RAG." },
                     { name: "Prompt Engineering", status: "acquired", desc: "Optimisation des instructions aux modèles d'IA." },
                     { name: "Hugging Face / OpenAI SDK", status: "acquired", desc: "Hubs de modèles et APIs d'IA." },
                     { name: "Computer Vision (OpenCV**)", status: "learning", desc: "Traitement d'images et vision par ordinateur." }
@@ -167,7 +171,7 @@ export const SKILLS_DATA = [
             {
                 "title": "Automatisation",
                 "items": [
-                    { name: "n8n / Make / Zapier", status: "acquired", desc: "Outils d'automatisation de workflows Low-Code." },
+                    { name: "n8n / Make / Zapier (iPaaS)", status: "acquired", desc: "Plateformes d'intégration et d'automatisation de workflows Low-Code." },
                     { name: "Selenium** / PyAutoGUI", status: "acquired", desc: "Automatisation de navigateur et d'interface graphique." },
                     { name: "Web Scraping (Scrapy*)", status: "acquired", desc: "Extraction de données web à grande échelle." },
                     { name: "Scripting (Bash / Python)", status: "acquired", desc: "Scripts d'automatisation système." }
@@ -185,7 +189,17 @@ export const SKILLS_DATA = [
                     { name: "Git / GitHub / GitLab", status: "acquired", desc: "Gestion de version et collaboration." },
                     { name: "Docker* / Kubernetes**", status: "acquired", desc: "Conteneurisation et orchestration." },
                     { name: "CI/CD/GitHub Actions*", status: "acquired", desc: "Intégration et déploiement continus." },
-                    { name: "AWS** / Cloud Native*", status: "learning", desc: "Services Cloud Amazon et architectures cloud." }
+                    { name: "Google Cloud* / AWS**", status: "learning", desc: "Services cloud Google et Amazon, architectures cloud native." }
+                ]
+            },
+            {
+                "title": "Intégration & Services tiers",
+                "items": [
+                    { name: "API / Webhooks", status: "acquired", desc: "Connexion d'applications entre elles, en appel direct ou par notification d'événement." },
+                    { name: "Stripe*", status: "acquired", desc: "Encaissement de paiements en ligne et gestion des abonnements." },
+                    { name: "Sendcloud*", status: "acquired", desc: "Plateforme d'expédition : étiquettes, transporteurs et suivi de colis." },
+                    { name: "Factur-X / facturation électronique*", status: "acquired", desc: "Format hybride PDF + données structurées, au cœur de la réforme française de la facturation." },
+                    { name: "Services SaaS", status: "acquired", desc: "Intégration d'outils métier tiers dans un système d'information." }
                 ]
             },
             {
@@ -193,6 +207,7 @@ export const SKILLS_DATA = [
                 "items": [
                     { name: "Linux* / Bash*", status: "acquired", desc: "Système d'exploitation et ligne de commande." },
                     { name: "VSCode / PyCharm / Cursor", status: "acquired", desc: "IDE et éditeurs de code avancés (et IA)." },
+                    { name: "Jira / Notion", status: "acquired", desc: "Suivi de tickets, gestion de projet et base de connaissances d'équipe." },
                     { name: "Virtualenv / Pipenv", status: "acquired", desc: "Gestion d'environnements virtuels Python." }
                 ]
             },
@@ -217,14 +232,14 @@ export const SKILLS_DATA = [
                 "title": "Optique & Télécoms",
                 "items": [
                     { name: "Optique", status: "acquired", desc: "Géométrique, ondulatoire, non linéaire, holographie, vision, photonique et radio-photométrie." },
-                    { name: "Télécoms", status: "acquired", desc: "Fibre optique, radio-télécoms, traitement du signal, théorie des réseaux, multiplexages." }
+                    { name: "Télécoms", status: "acquired", desc: "Fibre optique, transmission, radio-télécoms, traitement du signal, théorie des réseaux, multiplexages, (dé)modulation." }
                 ]
             },
             {
                 "title": "Électronique & Mesure",
                 "items": [
-                    { name: "Électronique", status: "acquired", desc: "Analogique et numérique, électronique rapide, électrotechnique et micro électronique." },
-                    { name: "Instrumentation", status: "acquired", desc: "Détecteurs, spectroscopie, métrologie, automatismes." }
+                    { name: "Électronique", status: "acquired", desc: "Analogique et numérique, électronique rapide, haute fréquence, électrotechnique et micro-électronique." },
+                    { name: "Instrumentation", status: "acquired", desc: "Détecteurs, spectroscopie, métrologie, automatismes, acquisition et calibration." }
                 ]
             },
             {
@@ -237,7 +252,7 @@ export const SKILLS_DATA = [
             {
                 "title": "Mécanique & Physique",
                 "items": [
-                    { name: "Mécanique", status: "acquired", desc: "Fondamentale, solide, quantique, fluides, optomécanique, dessin industriel, matériaux." }
+                    { name: "Mécanique & Mécatronique", status: "acquired", desc: "Fondamentale, solide, quantique, fluides, optomécanique, mécatronique, dessin industriel, matériaux." }
                 ]
             }
         ]
@@ -252,6 +267,7 @@ export const SKILLS_DATA = [
                     { name: "Gestion Projet (Agile/Scrum)", status: "acquired", desc: "Méthodologies de gestion de projet itératives." },
                     { name: "Management d'équipe", status: "acquired", desc: "Animation, motivation et suivi d'équipes." },
                     { name: "Coordination Commerciale", status: "acquired", desc: "Pilotage de l'activité commerciale." },
+                    { name: "Merchandising / Gestion de rayon", status: "acquired", desc: "Implantation, mise en avant produit et pilotage d'un rayon (achats, stocks, marges)." },
                     { name: "Stratégie / Marketing", status: "acquired", desc: "Vision stratégique et actions marketing." }
                 ]
             },
@@ -312,7 +328,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2004 - 2024",
         "title": "BUT - Coordinateur Commercial",
-        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Mars 2004 - Sept 2024 (20 ans 7 mois)</span> <br> <span class='location-highlight'>Vendenheim (67)</span></div><div class='timeline-role-block'><span class='timeline-subtitle'>Missions & Rôles</span><p>Rôles variés : Coordinateur commercial, Vendeur, Responsable SAV, Chef de rayon électroménager, Attaché de direction.</p></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Compétences Développées</span><ul><li>Vente, Coordination, Management d'équipe</li><li>Gestion de rayon, Gestion des litiges et SAV</li><li>Relation client et fournisseurs</li><li>Achat et marketing</li><li>Dépannage et installation, Planification, communication, formation</li></ul></div>",
+        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Mars 2004 - Sept 2024 (20 ans 7 mois)</span> <br> <span class='location-highlight'>Vendenheim, Fegersheim et Schweighouse (67)</span></div><div class='timeline-role-block'><span class='timeline-subtitle'>Missions & Rôles</span><p>Rôles variés : Coordinateur commercial, Vendeur, Responsable SAV, Chef de rayon électroménager, Attaché de direction.</p></div><div class='timeline-skills-block'><span class='timeline-subtitle'>Compétences Développées</span><ul><li>Vente, Coordination, Management d'équipe</li><li>Gestion de rayon, Gestion des litiges et SAV</li><li>Relation client et fournisseurs</li><li>Achat et marketing</li><li>Dépannage et installation, Planification, communication, formation</li></ul></div>",
         "type": "experience",
         "url": "https://www.but.fr",
         "logo": null
@@ -336,7 +352,7 @@ export const TIMELINE_DATA = [
     {
         "year": "2000",
         "title": "Bonnet Électronique - Technicien Sup. Électro/Info Embarquée",
-        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Juin - Août 2000 (3 mois)</span> <br> <span class='location-highlight'>Eichhoffen / Bas Rhin (67)</span></div><div class='timeline-company-block'><span class='timeline-subtitle'>Activité de l'entreprise</span><p>Fabrication et assemblage de cartes électroniques. Développement de solutions électronique embarquée.</p></div><div class='timeline-role-block'><span class='timeline-subtitle'>Mission</span><p>Conception d'une carte de télégestion de centre de lavage automatique et d'un système automatisé d'orientation de panneau solaire (software essentiellement).</p></div>",
+        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Juin - Août 2000 (3 mois)</span> <br> <span class='location-highlight'>Eichhoffen / Bas Rhin (67)</span></div><div class='timeline-company-block'><span class='timeline-subtitle'>Activité de l'entreprise</span><p>Fabrication et assemblage de cartes électroniques. Développement de solutions d'électronique embarquée.</p></div><div class='timeline-role-block'><span class='timeline-subtitle'>Mission</span><p>Conception d'une carte de télégestion de centre de lavage automatique et d'un système automatisé d'orientation de panneau solaire (software essentiellement).</p></div>",
         "type": "experience",
         "url": "https://www.pappers.fr/entreprise/bonnet-electronique-412634651?utm_source=chatgpt.com",
         "logo": null
@@ -344,7 +360,7 @@ export const TIMELINE_DATA = [
     {
         "year": "1997",
         "title": "Hohner Automation (Ideacod) - Technicien Optronique/Photométrie",
-        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Juillet - Août 1997 (2 mois)</span> <br> <span class='location-highlight'>Bas Rhin (67)</span></div><div class='timeline-company-block'><span class='timeline-subtitle'>Activité de l'entreprise</span><p>Fabrication de codeurs incrémentaux et absolus, systèmes de mesure et d’encodeurs pour l’industrie — c-à-d des composants de position / rotation destinés à des applications industrielles d’automatisme.</p></div><div class='timeline-role-block'><span class='timeline-subtitle'>Mission</span><p>Optimisation d'un système miniaturisé de transmission optique pour codeur optique de rotation.</p></div>",
+        "description": "<div class='timeline-meta-block'><span class='date-highlight'>Juillet - Août 1997 (2 mois)</span> <br> <span class='location-highlight'>Bas Rhin (67)</span></div><div class='timeline-company-block'><span class='timeline-subtitle'>Activité de l'entreprise</span><p>Fabrication de codeurs incrémentaux et absolus, systèmes de mesure et d’encodeurs pour l’industrie — c.-à-d. des composants de position / rotation destinés à des applications industrielles d’automatisme.</p></div><div class='timeline-role-block'><span class='timeline-subtitle'>Mission</span><p>Optimisation d'un système miniaturisé de transmission optique pour codeur optique de rotation.</p></div>",
         "type": "experience",
         "url": "https://www.hohner-elektrotechnik.de",
         "logo": null
@@ -658,7 +674,6 @@ export const CERTIFICATIONS_DATA = [
             { name: "Parler en public", link: "https://www.linkedin.com/learning/certificates/5220458727fad1ccd6140357ab4897b07ae040fd8169fa77f2a39a10d6c46dc0?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Parler en public.pdf" },
             { name: "L'essentiel du HTML5", link: "https://www.linkedin.com/learning/certificates/df7384d02496aae8a039c61b04feef45d08d16ffc4e2c396de37ac6f4b4c60c5?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Lessentiel du HTML5 .pdf" },
             { name: "HTML5 : Utilisation de la vidéo et de l'audio", link: "https://www.linkedin.com/learning/certificates/5092542b0269d896628f5ff3f368893330c205504a2bbbe4aec47a8c45e413c5?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_HTML5  Utilisation de la video et de laudio.pdf" },
-            { name: "HTML : Les images responsive", link: "https://www.linkedin.com/learning/certificates/df7384d02496aae8a039c61b04feef45d08d16ffc4e2c396de37ac6f4b4c60c5?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Lessentiel du HTML5 .pdf" },
             { name: "Découvrir la gestion de projet simplifiée", link: "https://www.linkedin.com/learning/certificates/9d7a7d037e095422090a68ebb900847c3fb8cc1a404ad686e3281f4817047186?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Decouvrir la gestion de projet simplifiee.pdf" },
             { name: "Les fondements de la programmation : Les algorithmes", link: "https://www.linkedin.com/learning/certificates/8ee2b109678f62ef8d7dae266b4c03a1496e1301ec90050aeb3b4f8452222d1f?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Les fondements de la programmation  Les algorithmes.pdf" },
             { name: "Les fondements de la programmation", link: "https://www.linkedin.com/learning/certificates/2e58e1c93e97a539cad3b10d6a07aa3f49a12b4f432290a0138254244d5d42d8?trk=share_certificate", file: "linkedin_learnings/CertificatDaccomplissement_Les fondements de la programmation.pdf" },

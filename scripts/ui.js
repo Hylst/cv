@@ -51,10 +51,17 @@ export function renderSkills(skills) {
     const container = document.getElementById('skills-list');
     if (!container) return; // Pas de container, pas de quete
 
-    // La legende, indispensable comme un tuto dans un jeu From Software
+    // La legende, indispensable comme un tuto dans un jeu From Software.
+    // Deux axes independants cohabitent et il faut le dire, sinon le visiteur
+    // voit des liseres de couleur sans cle de lecture : les asterisques disent
+    // la PROFONDEUR de la connaissance, le lisere dit ou j'en suis (acquis ou
+    // en cours). On peut tres bien avoir acquis des notions.
     const legendHtml = `
         <div class="skills-legend">
-            <span style="font-size:0.9em; opacity:0.8"><em>Légende : * Bases | ** Notions</em></span>
+            <span class="legend-item"><em>* Bases</em></span>
+            <span class="legend-item"><em>** Notions</em></span>
+            <span class="legend-item legend-swatch status-acquired">Acquis</span>
+            <span class="legend-item legend-swatch status-learning">En cours d'apprentissage</span>
         </div>
     `;
 

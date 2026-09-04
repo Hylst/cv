@@ -165,6 +165,146 @@
     border: 1px solid #0f0;
 }
 
+/* -----------------------------------------------------------------------------
+ * RETRO : les oublis rattrapes (audit visuel du 04/09/2026)
+ *
+ * Ces elements n'avaient jamais recu de regle .retro-mode : ils gardaient donc
+ * les couleurs du theme sous-jacent. En retro-sur-clair, ca donnait des pavés
+ * blancs en plein ecran noir (les pilules de filtre etaient les pires).
+ * Le fond des blocs est force en noir plutot qu'en transparent : plusieurs de
+ * ces conteneurs peignent un degrade, qu'un simple `background-color` ne
+ * couvrirait pas.
+ * ----------------------------------------------------------------------------- */
+
+/* Filtres de projets : pilules blanches sur fond noir avant correction */
+.retro-mode .filter-btn {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+    color: #0f0 !important;
+    border-radius: 0 !important;
+    font-family: 'Courier New', monospace !important;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.retro-mode .filter-btn.active,
+.retro-mode .filter-btn:hover {
+    background: #0f0 !important;
+    color: #000 !important;
+    text-shadow: none;
+}
+
+/* Titres de sous-section de la sidebar : bloc de fond clair residuel */
+.retro-mode .sidebar-section h3 {
+    background: #000 !important;
+    color: #0f0 !important;
+    border-color: #0f0 !important;
+    text-shadow: 0 0 5px #0f0;
+}
+
+/* Cartes du parcours : les seules cartes sans bordure verte */
+.retro-mode .timeline-card {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.25);
+}
+
+.retro-mode .timeline-year,
+.retro-mode .timeline-title-text {
+    color: #0f0 !important;
+    text-shadow: 0 0 5px #0f0;
+}
+
+/* La pastille d'annee gardait un fond clair : la regle ci-dessus ne portait
+   que sur la couleur du texte. */
+.retro-mode .timeline-year {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+}
+
+/* Bascule de vue du parcours (Chronologique / Par Categorie) : ces boutons
+   n'ont ni la classe btn-primary ni btn-secondary, ils passaient entre les
+   mailles du filet. */
+.retro-mode .btn-sm {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+    color: #0f0 !important;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.retro-mode .btn-sm.active,
+.retro-mode .btn-sm:hover {
+    background: #0f0 !important;
+    color: #000 !important;
+    text-shadow: none;
+}
+
+/* Etiquettes de competences : .tag et .project-tag avaient leur regle retro,
+   .skill-tag non. Le lisere de statut (vert acquis / jaune en cours) est
+   conserve : c'est une information, pas une decoration. */
+.retro-mode .skill-tag {
+    background: #000 !important;
+    color: #0f0 !important;
+    border: 1px solid #0f0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+/* Diagramme des trois facettes (technique / humain / creatif) et sa legende */
+.retro-mode .facet,
+.retro-mode .facet-center,
+.retro-mode .facets-legend {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+    color: #0f0 !important;
+    text-shadow: 0 0 5px #0f0;
+}
+
+/* Bouton de telechargement du CV : restait bleu plein */
+.retro-mode .btn-primary,
+.retro-mode .btn-secondary {
+    background: #000 !important;
+    border: 1px solid #0f0 !important;
+    color: #0f0 !important;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.retro-mode .btn-primary:hover,
+.retro-mode .btn-secondary:hover {
+    background: #0f0 !important;
+    color: #000 !important;
+    text-shadow: none;
+}
+
+/* Pied de page : bande claire en bas d'une page noire */
+.retro-mode .footer {
+    background: #000 !important;
+    border-top: 1px solid #0f0;
+    color: #0f0 !important;
+}
+
+/* Le nom anime : c'est le texte le plus visible du site, il restait gris/bleu.
+   On neutralise le degrade anime (qui porte ses propres couleurs) au profit
+   d'un vert neon fixe. */
+.retro-mode .animated-name {
+    animation: none !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #0f0 !important;
+    color: #0f0 !important;
+    text-shadow: 0 0 10px #0f0;
+}
+
+/* Accents decoratifs restes bleus : soulignement des titres de section,
+   puces de liste et icones de contact. */
+.retro-mode h2::after {
+    background: #0f0 !important;
+}
+
+.retro-mode .contact-item i,
+.retro-mode .accessibility-list li::before {
+    color: #0f0 !important;
+}
+
 /* ===== DARK MODE SIDEBAR ENHANCEMENTS ===== */
 [data-theme="dark"] .sidebar {
     background: linear-gradient(180deg, var(--sidebar-bg) 0%, #0a0a0a 100%);
