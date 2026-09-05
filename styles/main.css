@@ -248,6 +248,24 @@
     text-shadow: 0 0 5px #0f0;
 }
 
+/* Audit du 05/09/2026 : la regle ".retro-mode * { border-color: #0f0 !important }"
+   plus haut ecrasait aussi le liseré acquis/en-cours (etiquettes ET legende),
+   qui devenait identique partout - toute distinction acquis/en-cours disparaissait
+   en retro. Le style de bordure (trait plein vs pointille), pas la couleur,
+   porte maintenant la distinction : ca marche meme si le vert neon est la
+   seule teinte disponible dans ce theme. */
+.retro-mode .status-acquired {
+    border-left-style: solid !important;
+    border-left-width: 4px !important;
+    border-left-color: #0f0 !important;
+}
+
+.retro-mode .status-learning {
+    border-left-style: dashed !important;
+    border-left-width: 4px !important;
+    border-left-color: #0f0 !important;
+}
+
 /* Diagramme des trois facettes (technique / humain / creatif) et sa legende */
 .retro-mode .facet,
 .retro-mode .facet-center,

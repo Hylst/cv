@@ -1,5 +1,60 @@
 # Changelog
 
+## [3.3.0] - 2026-09-05
+
+Session autonome de nuit (planifiée la veille, exécutée par cron pendant que l'utilisateur
+dormait) : fusion dans `main`, vérification Docker/nginx, audit pessimiste final indépendant.
+
+### Fusionné
+- **`maj-cv-2026` fusionnée dans `main`** (fast-forward, `5a555bd..54f226e`) : condition posée
+  par l'utilisateur remplie (contrôle pessimiste + contrôle visuel réalisés la veille). Rien
+  poussé sur le remote.
+
+### Corrigé
+- **CSP : `logo.clearbit.com` retiré** — ce domaine ne résout plus depuis que les logos de
+  timeline ont été mis à `null` (session du 04/09), mais `nginx.conf` continuait à l'autoriser
+  dans `img-src`. Trouvé en vérifiant `nginx -t` (Docker enfin disponible) puis un conteneur réel
+  avec `curl` sur les en-têtes.
+- **Incohérence « Bas Rhin » / « Bas-Rhin »** dans `scripts/data.js` : trois entrées de la
+  timeline (Titre CDA, Bonnet Électronique, Hohner) écrivaient le département sans trait
+  d'union, deux autres avec — uniformisé sur la graphie correcte.
+- **« 20 ans 7 mois »** pour une période Mars 2004 → Sept 2024, qui fait 20 ans 6 mois — corrigé.
+- **Contraste WCAG 1.4.11 du liseré de statut compétence** (`.status-acquired` vert /
+  `.status-learning` jaune) : 1,94:1 et 1,53:1 en thème clair sur les 76 étiquettes de
+  compétences, sous le seuil de 3:1 pour un objet graphique porteur de sens (c'est le seul signal
+  distinguant "acquis" de "en cours" sur chaque étiquette individuelle). Nouvelles teintes plus
+  soutenues (`#1b8a4a` / `#9c6400`) qui passent sur les deux thèmes sans variante par thème
+  (~4:1 à ~4,6:1 selon le fond).
+- **Mode rétro : distinction acquis/en cours totalement perdue.** La règle générale
+  `.retro-mode * { border-color: #0f0 !important }` rendait les deux statuts strictement
+  identiques (même vert néon), sur les 76 étiquettes et les swatches de légende. Restaurée via le
+  style de bordure (plein pour acquis, pointillé pour en cours) plutôt que la couleur : la
+  distinction reste lisible même dans une palette mono-teinte, et sans dépendre de la perception
+  des couleurs.
+- **Lien mort `https://portfolio.hylst.fr`** dans la section « Ma Story » (certificat TLS
+  invalide + 503) : présenté comme un lien actif alors que la timeline elle-même le décrivait
+  déjà comme « à venir ». Remplacé par le vrai hub `hylst.fr` (200, déjà largement documenté
+  ailleurs sur le site) aux deux endroits — le lien et la mention dans la timeline 2024-2025.
+- **17 captures d'écran orphelines supprimées** (`assets/screenshots/`, ~416 Ko) : restes des
+  consolidations de cartes déjà actées (15 jeux → une seule carte portail « Hylst.Games »,
+  placeholders génériques → CogniAI/Bulle Sensorielle) mais jamais nettoyés sur disque. 24
+  fichiers restants pour 24 références dans `PROJECTS_DATA` — correspondance exacte.
+
+### Vérifié sans changement
+- `nginx -t` : syntaxe OK, et vérification fonctionnelle réelle (conteneur lancé, en-têtes de
+  sécurité confirmés par `curl` sur `/`, un asset CSS et un `.webp`) — le piège `add_header`
+  documenté dans `CLAUDE.md` n'est pas déclenché.
+- Cohérence interne de `data.js` : 76 compétences, 24 projets, 20 certificats LinkedIn, 5
+  diplômes — tous les fichiers référencés existent, correspondance exacte avec le disque.
+  Aucune régression sur les nouvelles compétences ajoutées la veille (Intégration & Services
+  tiers, UML/Merise, Vector DB...), toutes visibles dans le DOM rendu avec un statut cohérent.
+- Les 24 liens de projets et 10 liens de timeline retestés indépendamment : tous 200. `pappers.fr`
+  et `demozoo.org` renvoient un défi Cloudflare à un client script (403) mais s'affichent
+  normalement pour un vrai navigateur — faux positif écarté après vérification Chromium réelle.
+- `.skills-legend`, les nouvelles règles `.retro-mode` (filtres, footer, boutons, badge), et les
+  6 nouvelles cartes projet en thème sombre : contrastes mesurés entre 5,36:1 et 15,30:1, tous
+  conformes.
+
 ## [3.2.0] - 2026-09-04
 
 Alignement sur le nouveau CV papier de référence, corrections rédactionnelles et SEO.

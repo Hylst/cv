@@ -222,12 +222,17 @@
     background-color: #333;
 }
 
+/* Audit du 05/09/2026 : le vert/jaune "vif" d'origine (#2ecc71 / #f1c40f) tombait
+   a 1.94:1 / 1.53:1 sur le fond clair des etiquettes, tres sous le seuil WCAG
+   1.4.11 (3:1) pour un objet graphique porteur de sens. Ces deux teintes plus
+   soutenues passent le seuil sur les DEUX themes (~4:1 et ~3.5 a 4.6:1 selon
+   le fond), pas besoin de variante par theme. */
 .status-acquired {
-    border-left: 3px solid #2ecc71;
+    border-left: 3px solid #1b8a4a;
 }
 
 .status-learning {
-    border-left: 3px solid #f1c40f;
+    border-left: 3px solid #9c6400;
 }
 
 /* Legende des competences : les asterisques disent la profondeur, le lisere
