@@ -1538,3 +1538,160 @@
     font-style: italic;
     font-size: 0.9rem;
 }
+
+/* =============================================================================
+ * ACCORDEON SERVICES - Section Offre de services (2 niveaux dépliables)
+ * ============================================================================= */
+
+.services-accordion {
+    margin-top: 0.75rem;
+}
+
+.service-category {
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.service-category > summary {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: var(--secondary-color);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: background-color 0.2s ease;
+}
+
+.service-category > summary::-webkit-details-marker {
+    display: none;
+}
+
+.service-category > summary::before {
+    content: '\f078'; /* fa-chevron-down */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.75rem;
+    transition: transform 0.25s ease;
+}
+
+.service-category[open] > summary::before {
+    transform: rotate(180deg);
+}
+
+.service-category > summary:hover {
+    background: var(--border-color);
+}
+
+.service-icon {
+    font-size: 1rem;
+    width: 1.5rem;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.service-content {
+    padding: 1rem;
+    background: var(--bg-color);
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.service-list li::before {
+    content: '\f004'; /* fa-heart */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.5rem;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+}
+
+.service-note {
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    background: var(--secondary-color);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.service-note i {
+    margin-right: 0.4rem;
+    color: var(--accent-color);
+}
+
+/* Animation d'ouverture douce */
+.service-content {
+    animation: fadeInService 0.25s ease;
+}
+
+@keyframes fadeInService {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mode sombre */
+[data-theme="dark"] .service-category > summary {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .service-category > summary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .service-content {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+/* Mode retro */
+.retro-mode .service-category {
+    border-color: #0f0 !important;
+}
+
+.retro-mode .service-category > summary {
+    background: #000 !important;
+    color: #0f0 !important;
+}
+
+.retro-mode .service-icon {
+    color: #0f0 !important;
+}
+
+.retro-mode .service-content {
+    background: #000 !important;
+}
+
+.retro-mode .service-list li::before {
+    color: #0f0 !important;
+}
+
+.retro-mode .service-note {
+    background: #000 !important;
+    border-left-color: #0f0 !important;
+    color: #0f0 !important;
+}

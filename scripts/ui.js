@@ -375,7 +375,7 @@ function renderTimeline(timeline, mode = 'chronological') {
                 </div>
             </summary>
             <div class="timeline-content">
-                <p>${processText(item.description)}</p>
+                ${processText(item.description)}
                 ${item.url ? `<div class="timeline-footer"><a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">En savoir plus</a></div>` : ''}
             </div>
         </details>
