@@ -1,4 +1,4 @@
-/**
+﻿/**
  * =============================================================================
  * UI.JS - L'Interface du Heros
  * =============================================================================
@@ -11,6 +11,9 @@
  */
 
 import { processText, activateRetroMode } from './utils.js';
+
+// Stockage local des projets pour les modales - evite de polluer window
+let projectsData = [];
 
 /**
  * =============================================================================
@@ -92,9 +95,7 @@ export function renderSkills(skills) {
     container.innerHTML = legendHtml + '<div class="skills-grid">' + skillsHtml + '</div>';
 
     // On anime les nouveaux elements - spell de revelation
-    if (window.observeElements) {
-        window.observeElements(container.querySelectorAll('.skill-category'));
-    }
+    observeElements(container.querySelectorAll('.skill-category'));
 }
 
 /**
@@ -130,7 +131,7 @@ export function renderProjects(projects) {
 
     // Rendu initial - on montre tout le bestiaire
     renderFilteredProjects(projects, 'all');
-    window.projectsData = projects; // Export global pour les modales
+    projectsData = projects; // Stockage local pour les modales
 
     // -------------------------------------------------------------------------
     // EASTER EGG NUMERO 2: Le Code Konami (le classique des classiques)
@@ -205,7 +206,7 @@ function renderFilteredProjects(projects, filter) {
     // dit deja de quoi il s'agit, inutile de le faire repeter par le lecteur d'ecran.
     const renderCard = (project) => `
         <article class="project-card reveal" data-id="${project.id}" role="button" tabindex="0"
-                 aria-label="${project.title} — ouvrir le détail">
+                 aria-label="${project.title} - ouvrir le détail">
             <div class="project-image">
                 <img src="${project.image}" alt="" loading="lazy" decoding="async" width="800" height="400">
             </div>
@@ -220,7 +221,7 @@ function renderFilteredProjects(projects, filter) {
     `;
 
     container.innerHTML = `
-        <div class="projects-grid-inner" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%;">
+        <div class="projects-grid-inner">
             ${filtered.map(renderCard).join('')}
         </div>
     `;
@@ -228,7 +229,7 @@ function renderFilteredProjects(projects, filter) {
     // Activation clavier ET souris, sans handler inline (une CSP stricte les
     // interdirait). Espace autant qu'Entree : c'est ce qu'attend un vrai bouton.
     container.querySelectorAll('.project-card').forEach(card => {
-        const open = () => window.openModal(card.dataset.id);
+        const open = () => openModal(card.dataset.id);
         card.addEventListener('click', open);
         card.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
@@ -239,9 +240,7 @@ function renderFilteredProjects(projects, filter) {
     });
 
     // Animation d'apparition progressive
-    if (window.observeElements) {
-        window.observeElements(container.querySelectorAll('.project-card'));
-    }
+    observeElements(container.querySelectorAll('.project-card'));
 }
 
 /**
@@ -314,7 +313,7 @@ export function renderDocuments(data, containerId, basePath) {
             </details>
         `).join('')
         // Format plat - une liste simple comme un inventaire
-        : `<div class="collapsible-card" style="padding: 1.5rem;">${renderDocList(data, basePath)}</div>`;
+        : `<div class="collapsible-card doc-card-padding">${renderDocList(data, basePath)}</div>`;
 }
 
 /**
@@ -403,9 +402,7 @@ function renderTimeline(timeline, mode = 'chronological') {
     }
 
     // Animation des cartes
-    if (window.observeElements) {
-        window.observeElements(container.querySelectorAll('.timeline-card'));
-    }
+    observeElements(container.querySelectorAll('.timeline-card'));
 }
 
 /**
@@ -551,11 +548,11 @@ export function setupModalListeners() {
 /**
  * openModal - Ouverture de la Modale Projet
  * 
- * Fonction globale pour ouvrir une modale avec les details d'un projet.
+ * Ouvre une modale avec les details d'un projet.
  * C'est comme consulter la page wiki d'un boss avant de l'affronter.
  */
-window.openModal = function (projectId) {
-    const project = window.projectsData.find(p => p.id === projectId);
+export function openModal(projectId) {
+    const project = projectsData.find(p => p.id === projectId);
     if (!project) return; // Projet introuvable, 404 heroique
 
     const modalBody = document.getElementById('modal-body');
@@ -568,12 +565,12 @@ window.openModal = function (projectId) {
     // On remplit la modale avec les infos du projet
     modalBody.innerHTML = `
         <h2 id="modal-title">${project.title}</h2>
-        <img src="${project.image}" alt="" loading="lazy" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:1rem; border-radius:8px;">
+        <img src="${project.image}" alt="" loading="lazy" class="modal-image">
         <p><strong>Statut :</strong> ${project.status}</p>
         <p>${processText(project.description)}</p>
-        <div style="margin: 1rem 0;">
+        <div class="modal-tech-margin">
             <strong>Technologies :</strong>
-            <div class="skill-tags" style="margin-top:0.5rem;">
+            <div class="skill-tags modal-tech-tags">
                 ${project.tech.map(t => `<span class="skill-tag">${t}</span>`).join('')}
             </div>
         </div>
@@ -615,15 +612,15 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 /**
- * Fonction globale pour observer les elements
+ * observeElements - Observateur d'elements
  * Ajoute la classe 'reveal' et commence a surveiller
  */
-window.observeElements = (elements) => {
+export function observeElements(elements) {
     elements.forEach(el => {
         el.classList.add('reveal');
         observer.observe(el);
     });
-};
+}
 
 /**
  * setupScrollReveal - Initialisation des Animations au Scroll
@@ -634,5 +631,5 @@ window.observeElements = (elements) => {
 export function setupScrollReveal() {
     // On observe les elements statiques qui existent deja dans le HTML
     const staticElements = document.querySelectorAll('.section, .timeline-item, .interest-card');
-    window.observeElements(staticElements);
+    observeElements(staticElements);
 }
