@@ -1,5 +1,38 @@
 ﻿# Changelog
 
+## [3.3.1] - 2026-09-08
+
+Session corrective et éditoriale : réparation du chargement complet du site sous Chrome,
+correction d'accessibilité et mise à jour des contenus (parcours, compétences, orientation).
+
+### Corrigé
+- **Site entièrement inopérant sous Chrome** (contenus vides, boutons morts) : une chaîne
+  entre guillemets doubles s'étendait sur plus de 70 lignes dans `scripts/data.js`
+  (l'accordéon de l'offre de services), ce qui est illégal en JavaScript et provoquait un
+  `SyntaxError` faisant échouer le chargement de tout le graphe de modules. Les sauts de
+  ligne ont été retirés de la chaîne ; validé par import Node et rendu headless Chrome.
+- **BOM résiduels** supprimés de `index.html` et des scripts (premier diagnostic erroné,
+  ils masquaient le vrai bug).
+
+### Accessibilité
+- **Lien interactif retiré des `<summary>` de timeline** (30 alertes
+  « Interactive element inside of a `<summary>` element ») : l'icône de lien externe du
+  titre était un `<a>` imbriqué dans le `<summary>`, inaccessible proprement au clavier.
+  Le lien reste disponible via le bouton « En savoir plus » dans le contenu déplié.
+
+### Contenus
+- Stage Prométhée : durée 4 → 3 mois (timeline, « En bref » et résumé professionnel).
+- Orientation : suppression de « active » dans « recherche de CDI ».
+- BUT : ajout des rôles Livreur - installateur et Dépanneur ; détail du rayon géré
+  (électroménager / électro-loisir, informatique / Hifi / Vidéo / TV, mobilité urbaine,
+  accessoires).
+- Bonnet Électronique : « Conception » → « Co-Conception » (mission).
+- Hohner Automation : ajout de la rédaction de documentations techniques et datasheets.
+- Forces principales : « technique + relationnel » → « technique + organisationnel ».
+- Compétences : légende recalibrée - Tailwind, Bootstrap, LangChain et Google Cloud
+  passent de ** à * ; n8n / Make / Zapier, GitLab et Jira passent en *.
+
+## [3.3.0] - 2026-09-05
 ## [3.3.0] - 2026-09-05
 
 Session autonome de nuit (planifiée la veille, exécutée par cron pendant que l'utilisateur

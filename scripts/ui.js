@@ -370,7 +370,6 @@ function renderTimeline(timeline, mode = 'chronological') {
                     <div class="timeline-title-group">
                         ${item.logo ? `<img src="${item.logo}" alt="Logo" class="timeline-logo" onerror="this.style.display='none'">` : ''}
                         <h3 class="timeline-title-text">${item.title}</h3>
-                        ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="timeline-link-icon" title="Voir Lien"><i class="fas fa-external-link-alt"></i></a>` : ''}
                     </div>
                 </div>
             </summary>
