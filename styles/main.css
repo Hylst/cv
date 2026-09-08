@@ -1,4 +1,4 @@
-@import 'variables.css';
+﻿@import 'variables.css';
 @import 'base.css';
 @import 'layout.css';
 @import 'components.css';
@@ -30,7 +30,6 @@
 
 /* Retro Mode - Enhanced Terminal Style */
 .retro-mode {
-    background-color: #000 !important;
     background: #000 !important;
     color: #0f0 !important;
     font-family: 'Courier New', Courier, monospace !important;

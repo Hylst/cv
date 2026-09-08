@@ -1,11 +1,11 @@
-# À Propos du Projet CV Interactif
+﻿# À Propos du Projet CV Interactif
 
 Ce projet est le CV interactif et le portfolio de **Geoffroy Streit**, **Concepteur Développeur
 d'Applications** (titre professionnel de niveau 6 délivré par le Ministère du Travail, août 2026),
 ancien ingénieur en sciences de l'industrie et manager commercial.
 
 Il sert un double objectif : présenter un parcours, et **démontrer par lui-même** les compétences
-qu'il revendique — accessibilité, sécurité applicative, qualité de conception.
+qu'il revendique - accessibilité, sécurité applicative, qualité de conception.
 
 ## Fonctionnalités Clés
 
@@ -27,10 +27,10 @@ qu'il revendique — accessibilité, sécurité applicative, qualité de concept
 * **Assets** : FontAwesome pour les icônes, Google Fonts (Inter, Roboto).
 * **Déploiement** : image Docker `nginx:alpine`, avec en-têtes de sécurité (CSP, HSTS,
   X-Frame-Options…), compression gzip et politique de cache.
-* **Outils** : aucun framework ni build step, volontairement — le projet reste léger, auditable et
+* **Outils** : aucun framework ni build step, volontairement - le projet reste léger, auditable et
   démarrable en une commande.
 
 ## Auteur
 
-Geoffroy Streit — [geoffroy.streit@gmail.com](mailto:geoffroy.streit@gmail.com)
+Geoffroy Streit - [geoffroy.streit@gmail.com](mailto:geoffroy.streit@gmail.com)
 Plateforme personnelle : [hylst.fr](https://hylst.fr) · GitHub : [Hylst](https://github.com/Hylst)

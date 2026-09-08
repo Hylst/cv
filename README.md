@@ -1,4 +1,4 @@
-# CV Interactif — Geoffroy Streit
+﻿# CV Interactif - Geoffroy Streit
 
 CV interactif et portfolio de **Geoffroy Streit**, Concepteur Développeur d'Applications
 (titre professionnel de niveau 6, obtenu en août 2026).
@@ -7,10 +7,10 @@ CV interactif et portfolio de **Geoffroy Streit**, Concepteur Développeur d'App
 
 ## 📚 Documentation
 
-* [À Propos](ABOUT.md) — le projet et sa stack technique.
-* [Changelog](CHANGELOG.md) — historique des versions.
-* [CLAUDE.md](CLAUDE.md) — architecture et conventions, pour le développement assisté par IA.
-* [Règles IA](ai_dev_rules_memory_recall.md) — mémoire contextuelle des sessions IA.
+* [À Propos](ABOUT.md) - le projet et sa stack technique.
+* [Changelog](CHANGELOG.md) - historique des versions.
+* [CLAUDE.md](CLAUDE.md) - architecture et conventions, pour le développement assisté par IA.
+* [Règles IA](ai_dev_rules_memory_recall.md) - mémoire contextuelle des sessions IA.
 
 ## 🚀 Lancement
 

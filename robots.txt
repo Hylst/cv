@@ -1,4 +1,4 @@
-# CV interactif de Geoffroy Streit — cv.hylst.fr
+# CV interactif de Geoffroy Streit - cv.hylst.fr
 # Le site est un CV public : il a vocation a etre indexe.
 
 User-agent: *

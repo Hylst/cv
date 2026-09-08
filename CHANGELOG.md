@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 
 ## [3.3.0] - 2026-09-05
 
@@ -11,14 +11,14 @@ dormait) : fusion dans `main`, vérification Docker/nginx, audit pessimiste fina
   poussé sur le remote.
 
 ### Corrigé
-- **CSP : `logo.clearbit.com` retiré** — ce domaine ne résout plus depuis que les logos de
+- **CSP : `logo.clearbit.com` retiré** - ce domaine ne résout plus depuis que les logos de
   timeline ont été mis à `null` (session du 04/09), mais `nginx.conf` continuait à l'autoriser
   dans `img-src`. Trouvé en vérifiant `nginx -t` (Docker enfin disponible) puis un conteneur réel
   avec `curl` sur les en-têtes.
 - **Incohérence « Bas Rhin » / « Bas-Rhin »** dans `scripts/data.js` : trois entrées de la
   timeline (Titre CDA, Bonnet Électronique, Hohner) écrivaient le département sans trait
-  d'union, deux autres avec — uniformisé sur la graphie correcte.
-- **« 20 ans 7 mois »** pour une période Mars 2004 → Sept 2024, qui fait 20 ans 6 mois — corrigé.
+  d'union, deux autres avec - uniformisé sur la graphie correcte.
+- **« 20 ans 7 mois »** pour une période Mars 2004 → Sept 2024, qui fait 20 ans 6 mois - corrigé.
 - **Contraste WCAG 1.4.11 du liseré de statut compétence** (`.status-acquired` vert /
   `.status-learning` jaune) : 1,94:1 et 1,53:1 en thème clair sur les 76 étiquettes de
   compétences, sous le seuil de 3:1 pour un objet graphique porteur de sens (c'est le seul signal
@@ -34,23 +34,23 @@ dormait) : fusion dans `main`, vérification Docker/nginx, audit pessimiste fina
 - **Lien mort `https://portfolio.hylst.fr`** dans la section « Ma Story » (certificat TLS
   invalide + 503) : présenté comme un lien actif alors que la timeline elle-même le décrivait
   déjà comme « à venir ». Remplacé par le vrai hub `hylst.fr` (200, déjà largement documenté
-  ailleurs sur le site) aux deux endroits — le lien et la mention dans la timeline 2024-2025.
+  ailleurs sur le site) aux deux endroits - le lien et la mention dans la timeline 2024-2025.
 - **17 captures d'écran orphelines supprimées** (`assets/screenshots/`, ~416 Ko) : restes des
   consolidations de cartes déjà actées (15 jeux → une seule carte portail « Hylst.Games »,
   placeholders génériques → CogniAI/Bulle Sensorielle) mais jamais nettoyés sur disque. 24
-  fichiers restants pour 24 références dans `PROJECTS_DATA` — correspondance exacte.
+  fichiers restants pour 24 références dans `PROJECTS_DATA` - correspondance exacte.
 
 ### Vérifié sans changement
 - `nginx -t` : syntaxe OK, et vérification fonctionnelle réelle (conteneur lancé, en-têtes de
-  sécurité confirmés par `curl` sur `/`, un asset CSS et un `.webp`) — le piège `add_header`
+  sécurité confirmés par `curl` sur `/`, un asset CSS et un `.webp`) - le piège `add_header`
   documenté dans `CLAUDE.md` n'est pas déclenché.
 - Cohérence interne de `data.js` : 76 compétences, 24 projets, 20 certificats LinkedIn, 5
-  diplômes — tous les fichiers référencés existent, correspondance exacte avec le disque.
+  diplômes - tous les fichiers référencés existent, correspondance exacte avec le disque.
   Aucune régression sur les nouvelles compétences ajoutées la veille (Intégration & Services
   tiers, UML/Merise, Vector DB...), toutes visibles dans le DOM rendu avec un statut cohérent.
 - Les 24 liens de projets et 10 liens de timeline retestés indépendamment : tous 200. `pappers.fr`
   et `demozoo.org` renvoient un défi Cloudflare à un client script (403) mais s'affichent
-  normalement pour un vrai navigateur — faux positif écarté après vérification Chromium réelle.
+  normalement pour un vrai navigateur - faux positif écarté après vérification Chromium réelle.
 - `.skills-legend`, les nouvelles règles `.retro-mode` (filtres, footer, boutons, badge), et les
   6 nouvelles cartes projet en thème sombre : contrastes mesurés entre 5,36:1 et 15,30:1, tous
   conformes.
@@ -61,7 +61,7 @@ Alignement sur le nouveau CV papier de référence, corrections rédactionnelles
 
 ### Ajouté
 - **`robots.txt` et `sitemap.xml`** : le site n'en avait aucun. Il se déclare pourtant indexable
-  (`meta robots: index, follow` + `canonical`) — les moteurs devaient donc deviner. Les PDF
+  (`meta robots: index, follow` + `canonical`) - les moteurs devaient donc deviner. Les PDF
   (`/pdf/`, `/ressources/`) sont exclus de l'indexation : ils doivent rester accessibles au
   visiteur, pas remonter dans les résultats à la place du CV lui-même.
 - **Compétences issues du CV papier et absentes du site** : nouvelle section « Intégration &
@@ -70,13 +70,13 @@ Alignement sur le nouveau CV papier de référence, corrections rédactionnelles
   gestion de rayon, mécatronique, acquisition &amp; calibration, transmission et (dé)modulation.
   76 compétences listées contre 68 auparavant.
 - **Légende des compétences complétée** : le liseré vert/jaune des étiquettes n'avait aucune clé
-  de lecture. Les deux axes sont désormais explicites — les astérisques disent la *profondeur*
+  de lecture. Les deux axes sont désormais explicites - les astérisques disent la *profondeur*
   (bases / notions), le liseré dit l'*état* (acquis / en cours). Les deux sont indépendants :
   on peut avoir acquis des notions.
 
 ### Modifié
 - **CV téléchargeable** : `pdf/CV_2026-09_Geoffroy_Streit_CDA.pdf` remplace la version du
-  3 septembre. Les trois PDF obsolètes (2014, 2025, 2026-09-03) sont supprimés du dépôt — une
+  3 septembre. Les trois PDF obsolètes (2014, 2025, 2026-09-03) sont supprimés du dépôt - une
   seule version de référence, pas d'ambiguïté possible sur laquelle un recruteur télécharge.
 - **Accents rétablis dans les métadonnées SEO** (`title`, `description`, `keywords`, Open Graph,
   Twitter Card, JSON-LD) : elles étaient intégralement écrites sans accents (« Developpeur »,
@@ -88,7 +88,7 @@ Alignement sur le nouveau CV papier de référence, corrections rédactionnelles
 ### Corrigé
 - **Certificat LinkedIn en double supprimé** : « HTML : Les images responsive » pointait vers le
   lien *et* le fichier de « L'essentiel du HTML5 », et aucun PDF distinct n'existe pour lui.
-  20 certificats LinkedIn au lieu de 21 — un de moins affiché, mais plus aucun lien trompeur.
+  20 certificats LinkedIn au lieu de 21 - un de moins affiché, mais plus aucun lien trompeur.
 - **Fautes de français** : « dans le vente » → « dans la vente » ; « Plusieurs aspect » →
   « aspects » ; « accès à apprentissage facilité » → « d'accès à un apprentissage facilité » ;
   « micro électronique » → « micro-électronique » ; « solutions électronique embarquée » →
@@ -97,7 +97,7 @@ Alignement sur le nouveau CV papier de référence, corrections rédactionnelles
 
 ### Corrigé (audit visuel indépendant, mode rétro)
 Le mode rétro comportait une liste d'éléments qui n'avaient **jamais reçu de règle
-`.retro-mode`** et gardaient donc les couleurs du thème sous-jacent — en rétro-sur-clair, cela
+`.retro-mode`** et gardaient donc les couleurs du thème sous-jacent - en rétro-sur-clair, cela
 donnait des pavés blancs en plein écran noir. Corrigés : les **boutons de filtre de projets**
 (pastilles blanches, les plus visibles), la bascule de vue du parcours (`.btn-sm`), les **cartes
 du parcours** (seules cartes sans bordure verte), les titres de sous-section de la sidebar, le
@@ -116,7 +116,7 @@ les deux bases (clair et sombre), toutes sections dépliées.
 - Le CV papier porte aussi « RELATIONELLES » (deux N attendus), un point mal placé dans
   « managériale. et industrielle », et « Bas Rhin » sans trait d'union.
 - Durées : le papier annonce « 1 an 1/2 » de stages cumulés, le détail du site en totalise 17
-  mois. L'un des deux arrondit — à trancher côté CV papier.
+  mois. L'un des deux arrondit - à trancher côté CV papier.
 
 ## [3.1.0] - 2026-09-04
 
@@ -126,7 +126,7 @@ sous-agents dédiés) pour remplacer les cartes projet approximatives par du con
 ### Ajouté
 - **6 nouvelles cartes projet**, toutes vérifiées en HTTP 200 avec captures d'écran réelles :
   ASCIIverse Studio, Keyboard Atlas, HylstDevToolBox, Neurodiversity Explorer (vercel.app),
-  À Votre Service (vercel.app — stack confirmée React/TypeScript/Tailwind/Shadcn/Vite/IndexedDB),
+  À Votre Service (vercel.app - stack confirmée React/TypeScript/Tailwind/Shadcn/Vite/IndexedDB),
   DataScienceExplorer (vercel.app, marqué explicitement en construction sur le site source).
 - **Captures d'écran réelles** (1280×800, recadrées 800×400, converties en `.webp`, 2 à 37 Ko
   pièce) pour tous les projets Hylst : remplacent les 7 SVG placeholders dégradé+emoji.
@@ -140,7 +140,7 @@ sous-agents dédiés) pour remplacer les cartes projet approximatives par du con
 - **Guide Mathématiques** : chiffres réels (215 cours, carte conceptuelle de 126 notions,
   22 badges) et statut corrigé en « bêta », conforme au bandeau affiché sur le site lui-même.
 - **3D Creator** : la version « Next.js 16 » n'était pas vérifiable (seule la balise meta
-  generator confirme Next.js, sans numéro de version) — affirmation retirée.
+  generator confirme Next.js, sans numéro de version) - affirmation retirée.
 - **Pang Genesis → Hylst.Games** : la carte dédiée à un seul jeu devient une carte de portail
   couvrant les 15 mini-jeux réellement en ligne sur games.hylst.fr (Arcade, RPG, Puzzle/Simulation),
   cohérent avec le traitement déjà appliqué au hub hylst.fr plutôt qu'une carte par jeu.
@@ -152,7 +152,7 @@ sous-agents dédiés) pour remplacer les cartes projet approximatives par du con
 ### Corrigé
 - **Bug latent dans `processText` (`utils.js`)** : les termes du glossaire contenant un caractère
   regex (le point de « Node.js », « Three.js »...) n'étaient pas échappés avant d'être injectés
-  dans une `RegExp` — un `.` y matche n'importe quel caractère. Sans conséquence visible constatée
+  dans une `RegExp` - un `.` y matche n'importe quel caractère. Sans conséquence visible constatée
   sur le contenu actuel, mais un vrai bug de correction, corrigé par une fonction d'échappement.
 - **Duplication de template dans `ui.js`** : `renderDocuments` (documents/certifications) et
   `renderSkills` (compétences) répétaient un bloc de rendu identique entre leur variante « avec
@@ -163,18 +163,18 @@ sous-agents dédiés) pour remplacer les cartes projet approximatives par du con
 - **Contraste `.project-tag` insuffisant dans les deux thèmes** : mesuré à 3,09:1 en clair et
   3,85:1 en sombre (`var(--accent-color)` sur fond degrade translucide), sous le seuil AA de
   4,5:1. Texte assombri en clair (`var(--primary-color)`, 8,40:1) et eclairci en sombre
-  (`#8ab4f8`, 8,51:1) — deux couleurs differentes car le degrade de fond n'est pas le meme.
+  (`#8ab4f8`, 8,51:1) - deux couleurs differentes car le degrade de fond n'est pas le meme.
 - **2 captures placeholder surdimensionnees** : `robotics.webp` (217 Ko) et `low-level.webp`
-  (157 Ko) recompressees a 64 et 52 Ko (memes dimensions 800x400, qualite webp abaissee — perte
+  (157 Ko) recompressees a 64 et 52 Ko (memes dimensions 800x400, qualite webp abaissee - perte
   invisible sur un simple degrade).
 
 ### Vérifié sans changement
-- `sitemap.xml` et `robots.txt` de hylst.fr renvoient tous deux 404 — confirmé à nouveau, aucune
+- `sitemap.xml` et `robots.txt` de hylst.fr renvoient tous deux 404 - confirmé à nouveau, aucune
   action possible depuis ce dépôt (ce sont des fichiers du site hylst.fr, pas de ce CV).
 - Le certificat LinkedIn Learning « HTML : Les images responsive » reste non résolu : le seul
   fichier PDF présent dans `pdf/certifications/linkedin_learnings/` pour ce sujet est déjà utilisé
   par « L'essentiel du HTML5 », et aucun fichier distinct n'existe pour ce certificat précis.
-  Non corrigé délibérément (consigne : ne pas deviner un lien) — décision laissée à l'utilisateur.
+  Non corrigé délibérément (consigne : ne pas deviner un lien) - décision laissée à l'utilisateur.
 
 ## [3.0.0] - 2026-09-04
 
@@ -185,7 +185,7 @@ jusqu'en juillet 2026 ». Il présente désormais un profil certifié et en acti
 - **Titre professionnel CDA (niveau 6)** obtenu le 4 août 2026 : ajouté aux diplômes, au parcours,
   à l'identité de la barre latérale et aux données structurées Schema.org (`hasCredential`).
 - **Stage Prométhée Technologies & Ingénierie** (avril-juillet 2026) : conception d'une suite
-  logicielle métier souveraine — FastAPI/SQLAlchemy, Zero-Trust, Transactional Outbox, React 19,
+  logicielle métier souveraine - FastAPI/SQLAlchemy, Zero-Trust, Transactional Outbox, React 19,
   Offline-first, WebSockets. Ajouté au parcours et aux projets.
 - **GS Solutions Numériques** : entreprise individuelle en cours de création (activité visée en
   octobre 2026), avec son offre de services, ajoutée au parcours et à la section Orientation.
@@ -201,7 +201,7 @@ jusqu'en juillet 2026 ». Il présente désormais un profil certifié et en acti
 - Zone `aria-live` pour annoncer les changements d'état aux lecteurs d'écran.
 
 ### Modifié
-- **Titre et positionnement** : « Concepteur Développeur d'Applications — Full-stack · Data / IA ».
+- **Titre et positionnement** : « Concepteur Développeur d'Applications - Full-stack · Data / IA ».
 - Métadonnées SEO, Open Graph, Twitter Card et JSON-LD entièrement réalignés.
 - Bouton de téléchargement pointant vers le CV 2026.
 - Sections « En bref », « Ma Story », « Résumé professionnel » et « Positionnement marché »
@@ -213,7 +213,7 @@ jusqu'en juillet 2026 ». Il présente désormais un profil certifié et en acti
 
 ### Corrigé
 - **3 liens de certificats LinkedIn morts** (Cloud computing, Docker, Git) : préfixe
-  `linkedin_learnings/` manquant depuis le commit précédent — 404 sur les trois.
+  `linkedin_learnings/` manquant depuis le commit précédent - 404 sur les trois.
 - **Favicon 404** : `assets/icons/favicon.ico` n'existait pas, remplacé par un SVG inline.
 - **`og:image` 404** : l'aperçu était vide lors des partages sur LinkedIn.
 - **Accessibilité** : piège à focus et restauration du focus dans les modales, activation des
@@ -228,13 +228,13 @@ jusqu'en juillet 2026 ». Il présente désormais un profil certifié et en acti
   d'erreurs console ; les logos étaient masqués par un `onerror`, donc la panne était invisible.
   Références supprimées.
 - **Impression : deux tiers du contenu manquaient.** Tout le CV vit dans des `<details>`, qu'un
-  navigateur ne rend pas du tout lorsqu'ils sont fermés — aucune règle CSS ne peut y remédier.
+  navigateur ne rend pas du tout lorsqu'ils sont fermés - aucune règle CSS ne peut y remédier.
   Un couple `beforeprint`/`afterprint` (plus un repli sur `matchMedia('print')` pour Safari) les
   ouvre puis restaure exactement l'état plié du visiteur. Mesuré : 11 595 px → 27 400 px imprimés.
 - **Impression depuis le thème sombre** : les variables gardaient leurs valeurs sombres, donnant
   du texte à 1,08:1 sur l'encart « Objectif ». La palette est réinitialisée en clair au print.
 - **Mode rétro : trois conteneurs illisibles** (`.modal-content`, `.objective`,
-  `.collapsible-card`) — texte vert sur fond resté blanc, entre 1,27:1 et 1,53:1. Fond noir ajouté.
+  `.collapsible-card`) - texte vert sur fond resté blanc, entre 1,27:1 et 1,53:1. Fond noir ajouté.
 - **Contrastes WCAG** : toast en thème sombre (3,29:1 → 15,30:1, il réutilisait `--primary-color`
   qui vire au bleu clair en sombre), pastille de disponibilité (1,98:1 → 4,72:1, seuil non-textuel
   1.4.11), sous-titre de poste (5,36:1 → 7,02:1), badge du titre en sombre (4,71:1 → 6,94:1).

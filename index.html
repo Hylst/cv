@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -109,8 +109,7 @@
         <!-- Sidebar -->
         <header class="sidebar">
             <div class="profile-section">
-                <div class="photo-container"
-                    style="display: flex; justify-content: center; align-items: center; background-color: var(--secondary-color);">
+                <div class="photo-container photo-container-flex">
                     <img src="assets/photo.jpg" alt="Portrait de Geoffroy Streit" class="profile-photo" width="200"
                         height="200" decoding="async"
                         onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user\' style=\'font-size: 4rem; color: var(--text-light);\'></i>'">
@@ -203,18 +202,17 @@
 
             <div class="sidebar-section">
                 <details>
-                    <summary style="cursor: pointer; color: var(--primary-color); font-weight: bold;">✨ Nouveautés 2.0
+                    <summary class="summary-highlight">✨ Nouveautés 2.0
                     </summary>
-                    <div
-                        style="font-size: 0.85rem; margin-top: 0.5rem; padding-left: 0.5rem; border-left: 2px solid var(--accent-color);">
+                    <div class="news-content">
                         <p><strong>🎨 Glassmorphism :</strong> Activez le mode sombre (🌙) pour voir l'effet !</p>
                         <p><strong>🔍 Filtres :</strong> Testez les filtres dans la section Projets.</p>
                         <p><strong>🖨️ Print CSS :</strong> Faites Ctrl+P pour un export PDF propre.</p>
                         <p><strong>🕹️ Easter Egg :</strong> Cliquez 5 fois sur ma photo pour un mode surprise...</p>
                     </div>
-                    <p style="font-size: 0.85rem; margin-bottom: 0.5rem;">Refonte complète en modules ES6, CSS modulaire
+                    <p class="text-small-margin">Refonte complète en modules ES6, CSS modulaire
                         et séparation de la Data.</p>
-                    <p style="font-size: 0.8rem; color: var(--accent-color); margin-top: 1rem;">
+                    <p class="text-accent">
                         <i class="fas fa-info-circle"></i> <em>Les sections Certifications et Projets sont en cours de
                             mise à jour.</em>
                     </p>
@@ -232,7 +230,7 @@
             <!-- Hero / Pitch -->
             <section id="about" class="section hero">
                 <canvas id="hero-canvas"></canvas>
-                <div class="container" style="position: relative; z-index: 2;">
+                <div class="container hero-content">
                     <h2>À propos</h2>
                     <h3>Concepteur Développeur d'Applications | Full-stack, Data & IA</h3>
                     <p class="pitch">
@@ -253,7 +251,7 @@
                         aux missions, via mon entreprise GS Solutions Numériques en cours de création.
                     </div>
 
-                    <div style="margin-top: 2rem;">
+                    <div class="margin-top-2">
                         <details class="collapsible-card">
                             <summary>
                                 <h3>En bref</h3>
@@ -292,9 +290,9 @@
                                 <br>
                                 <p>🛠 <strong>Mon socle technique (titre CDA + stage full-stack + autoformation
                                         continue) :</strong></p>
-                                <ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
+                                <ul class="list-disc">
                                     <li><strong>Front-end :</strong> HTML5/CSS3, JavaScript (ES6+), React, Tailwind,
-                                        PWA — avec accessibilité RGAA/WCAG et ARIA intégrées dès la conception.</li>
+                                        PWA - avec accessibilité RGAA/WCAG et ARIA intégrées dès la conception.</li>
                                     <li><strong>Back-end :</strong> Python/FastAPI, Django, Flask, PHP, Node.js, API
                                         REST/OpenAPI, WebSockets.</li>
                                     <li><strong>Données :</strong> SQL, MySQL/MariaDB, SQLite, SQLAlchemy, NoSQL, ETL,
@@ -445,23 +443,21 @@
                 <div class="container">
                     <h2>Accessibilité & Conditions de travail</h2>
                     <div class="accessibility-content">
-                        <div class="accessibility-highlight"
-                            style="font-size: 1.2rem; font-weight: bold; color: var(--accent-color); margin-bottom: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 8px; text-align: center;">
+                        <div class="accessibility-highlight">
                             <details>
-                                <summary style="cursor: pointer; list-style: none;">
-                                    <i class="fas fa-hourglass-half"></i> Station assise limitée à 1–3h/jour <i
-                                        class="fas fa-caret-down" style="padding-left: 0.5rem"></i>
+                                <summary class="summary-no-list">
+                                    <i class="fas fa-hourglass-half"></i> Station assise limitée à 1-3h/jour <i
+                                        class="fas fa-caret-down padding-left"></i>
                                 </summary>
-                                <p
-                                    style="font-size: 1rem; font-weight: normal; margin-top: 0.5rem; color: var(--text-color);">
+                                <p class="margin-top-1">
                                     Variable, suivant assise, type de travail, et alternance de déplacement ou position
                                     allongée.
                                 </p>
                             </details>
                         </div>
-                        <p><strong>Handicap / contrainte physique :</strong> RQTH – Prothèse discale (L5/S1)</p>
+                        <p><strong>Handicap / contrainte physique :</strong> RQTH - Prothèse discale (L5/S1)</p>
                         <p>Conditions de travail adaptées :</p>
-                        <ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem;">
+                        <ul class="list-disc">
                             <li>fauteuil ergonomique inclinable (>130°) avec repose-pieds, accoudoirs et appuis-tête
                                 réglables</li>
                             <li>travail sur tapis de marche + bureau surélevé alterné avec assise 'dynamique' sur grande
@@ -497,8 +493,8 @@
                                 commercial / innovant. Un stage de 4 mois en conception d'une suite logicielle métier
                                 souveraine m'a confronté aux exigences réelles de la production : architecture
                                 asynchrone, sécurité en couches, résilience des données et ergonomie soignée.</p>
-                            <p>Je recherche aujourd'hui des projets qui ont du sens à plusieurs égards — impact humain,
-                                éducatif ou technologique — que ce soit en CDI au sein d'une équipe, ou en mission via
+                            <p>Je recherche aujourd'hui des projets qui ont du sens à plusieurs égards - impact humain,
+                                éducatif ou technologique - que ce soit en CDI au sein d'une équipe, ou en mission via
                                 mon entreprise en cours de création.</p>
                         </div>
                     </details>
@@ -529,15 +525,14 @@
                                     <p><strong>Créatif :</strong> Design, Musique, Écriture, Conception</p>
                                 </div>
                             </div>
-                            <p style="text-align: center; margin-top: 1rem; font-style: italic; font-size: 0.9rem;">
+                            <p class="neuro-atypic-note">
                                 <span class="tooltip"
                                     data-tooltip="mais aussi les quelques défauts assortis liés à ma neuro-atypie, à découvrir =)">Ma
                                     personnalité</span> à la croisée des chemins.
                             </p>
 
-                            <div
-                                style="margin-top: 1.5rem; border-top: 1px dashed var(--border-color); padding-top: 1rem;">
-                                <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                            <div class="border-top-dashed">
+                                <ul class="list-disc">
                                     <li>Forte pluridisciplinarité : optique, électronique, informatique, data, commerce
                                     </li>
                                     <li>Grande autonomie & capacité d'auto-formation</li>
@@ -557,7 +552,7 @@
                             <h3><i class="fas fa-compass"></i> Axes de spécialisation</h3>
                         </summary>
                         <div class="collapsible-content">
-                            <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                            <ul class="list-disc">
                                 <li>Développement full-stack (Python/FastAPI, React)</li>
                                 <li>Data Science / Machine Learning / IA générative & RAG</li>
                                 <li>Sécurité applicative et gouvernance des données (OWASP, RGPD, souveraineté)</li>
@@ -574,7 +569,7 @@
                         </summary>
                         <div class="collapsible-content">
                             <p><strong>➡️ Postes visés :</strong></p>
-                            <ul style="list-style-type: disc; margin-left: 1.5rem;">
+                            <ul class="list-disc">
                                 <li>Concepteur Développeur d'Applications / Développeur full-stack</li>
                                 <li>Développeur Python / back-end (FastAPI, Django, Flask)</li>
                                 <li>Développeur Web front-end orienté accessibilité (RGAA/WCAG)</li>
@@ -584,7 +579,7 @@
                                 <li>Développeur d'outils éducatifs ou inclusifs</li>
                                 <li>Ingénieur pluridisciplinaire (IT / optique / électronique légère)</li>
                             </ul>
-                            <p style="margin-top: 1rem;"><strong>➡️ Modalités :</strong> CDI, CDD, ou mission en
+                            <p class="margin-top-1"><strong>➡️ Modalités :</strong> CDI, CDD, ou mission en
                                 prestation via <strong>GS Solutions Numériques</strong> (entreprise individuelle en
                                 cours de création, début d'activité visé en octobre 2026). Distanciel France entière,
                                 présentiel en Alsace (≤ 1 h 30 de Brumath).</p>

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * =============================================================================
  * UTILS.JS - La Boite a Outils du Magicien
  * =============================================================================
@@ -61,7 +61,7 @@ export function activateRetroMode() {
     // d'ecran. Un toast dit la meme chose sans prendre le controle.
     showToast(
         isRetro
-            ? '🕹️ Mode rétro activé — bienvenue dans la matrice…'
+            ? '🕹️ Mode rétro activé - bienvenue dans la matrice…'
             : '↩️ Mode normal rétabli.'
     );
 }
