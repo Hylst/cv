@@ -1,4 +1,4 @@
-﻿export const GLOSSARY = {
+export const GLOSSARY = {
     "Python": "Langage de programmation polyvalent, très utilisé en Data Science et Web.",
     "Django": "Framework web Python complet et robuste.",
     "Flask": "Micro-framework web Python léger et flexible.",
