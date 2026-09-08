@@ -43,16 +43,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // PHASE 2: Materialisation du Contenu
     // On rend visible tout le contenu comme un sort de Revelation
     // -------------------------------------------------------------------------
-    renderSkills(SKILLS_DATA);
-    renderProjects(PROJECTS_DATA);
-    renderDocuments(CERTIFICATIONS_DATA, 'certifications-list', 'pdf/certifications/');
-    renderDocuments(DIPLOMAS_DATA, 'diplomas-list', 'pdf/diplômes/');
+    try {
+        renderSkills(SKILLS_DATA);
+        console.log('Skills rendered');
+    } catch (e) {
+        console.error('Error rendering skills:', e);
+    }
+    try {
+        renderProjects(PROJECTS_DATA);
+        console.log('Projects rendered');
+    } catch (e) {
+        console.error('Error rendering projects:', e);
+    }
+    try {
+        renderDocuments(CERTIFICATIONS_DATA, 'certifications-list', 'pdf/certifications/');
+        console.log('Certifications rendered');
+    } catch (e) {
+        console.error('Error rendering certifications:', e);
+    }
+    try {
+        renderDocuments(DIPLOMAS_DATA, 'diplomas-list', 'pdf/diplômes/');
+        console.log('Diplomas rendered');
+    } catch (e) {
+        console.error('Error rendering diplomas:', e);
+    }
 
     // -------------------------------------------------------------------------
     // PHASE 3: Enchantements Interactifs
     // On ajoute les interactions - chaque clic est un jet de des
     // -------------------------------------------------------------------------
-    setupTimelineView(TIMELINE_DATA);
+    try {
+        setupTimelineView(TIMELINE_DATA);
+        console.log('Timeline rendered');
+    } catch (e) {
+        console.error('Error rendering timeline:', e);
+    }
     setupThemeToggle();
     setupModalListeners();
     setupScrollReveal();
