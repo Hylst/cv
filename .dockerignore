@@ -1,10 +1,9 @@
+# Exclure tout ce qui ne doit jamais entrer dans l'image de production :
+# le site se limite a HTML, CSS, JS, assets et PDF - tout le reste est superflu.
 .git
+*.md
 .agent
+.claude
+.cline
 .gemini
-README.md
-ABOUT.md
-CHANGELOG.md
-ai_dev_rules_memory_recall.md
 node_modules
-task.md
-deployment_coolify.md
