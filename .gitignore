@@ -1,0 +1,18 @@
+# Regle d'or : AUCUNE trace de conception assistee par IA dans le depot.
+# Ces fichiers vivent en local, jamais sur GitHub.
+ai_dev_rules_memory_recall.md
+CONTINUE.md
+CLAUDE.md
+task.md
+.agent/
+.claude/
+.gemini/
+.cline/
+
+# Systeme et editeurs
+Thumbs.db
+Desktop.ini
+*.log
+
+# Dependencies / build locaux
+node_modules/
