@@ -1,5 +1,28 @@
 ﻿# Changelog
 
+## [3.3.2] - 2026-09-09
+
+Déploiement final sur `cv.hylst.fr` et mise à jour de la documentation.
+
+### Déploiement
+- **17 commits poussés sur `origin/main`** (`5a555bd..a666670`) puis **redeploy manuel dans
+  Coolify** (VPS Hostinger) : le webhook GitHub n'a pas déclenché le déploiement
+  automatiquement, un clic sur "Redeploy" de l'application `cv` a suffi à mettre le site à
+  jour. Constat important à retenir pour les prochaines sessions.
+- **Site en ligne vérifié** (`https://cv.hylst.fr/`, HTTP 200) : les corrections de la 3.3.1
+  y sont bien présentes (stage 3 mois, "recherche de CDI" sans "active", "technique +
+  organisationnel", plus aucun "4 mois").
+
+### Corrigé
+- **Doublon d'en-tête `## [3.3.0] - 2026-09-05`** dans ce fichier (lignes 35/36) - le titre
+  était dupliqué, une entrée redondante a été retirée.
+
+### Documentation
+- **Création de `FEATURES.md`** : liste consolidée et à jour des fonctionnalités du site
+  (interface, thèmes, accessibilité, sécurité, SEO, impression).
+- **`README.md` mis à jour** : lien vers `FEATURES.md` ajouté à la section documentation,
+  détail du déploiement Coolify précisé.
+
 ## [3.3.1] - 2026-09-08
 
 Session corrective et éditoriale : réparation du chargement complet du site sous Chrome,
@@ -32,7 +55,6 @@ correction d'accessibilité et mise à jour des contenus (parcours, compétences
 - Compétences : légende recalibrée - Tailwind, Bootstrap, LangChain et Google Cloud
   passent de ** à * ; n8n / Make / Zapier, GitLab et Jira passent en *.
 
-## [3.3.0] - 2026-09-05
 ## [3.3.0] - 2026-09-05
 
 Session autonome de nuit (planifiée la veille, exécutée par cron pendant que l'utilisateur

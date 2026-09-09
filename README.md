@@ -8,6 +8,7 @@ CV interactif et portfolio de **Geoffroy Streit**, Concepteur Développeur d'App
 ## 📚 Documentation
 
 * [À Propos](ABOUT.md) - le projet et sa stack technique.
+* [Fonctionnalités](FEATURES.md) - les fonctionnalités détaillées du site.
 * [Changelog](CHANGELOG.md) - historique des versions.
 * [CLAUDE.md](CLAUDE.md) - architecture et conventions, pour le développement assisté par IA.
 * [Règles IA](ai_dev_rules_memory_recall.md) - mémoire contextuelle des sessions IA.
@@ -27,6 +28,20 @@ Ou, pour reproduire la production (nginx) :
 ```bash
 docker build -t cv .
 docker run -p 8080:80 cv
+```
+
+## 🌍 Déploiement en ligne
+
+En production, le site est servi via **Docker + nginx** puis exposé sur
+[https://cv.hylst.fr/](https://cv.hylst.fr/) par **Coolify** (VPS Hostinger, HTTPS via le
+reverse proxy).
+
+Pour publier une mise à jour :
+
+```bash
+git push origin main
+# puis : redeploy manuel de l'application `cv` dans Coolify
+# (le webhook GitHub ne déclenche pas toujours le déploiement automatiquement)
 ```
 
 ## 🛠 Structure
