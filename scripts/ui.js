@@ -40,7 +40,7 @@ function renderSkillItems(items) {
         <div class="skill-items-list">
             ${items.map(item => `
                 <div class="skill-item">
-                    <span class="skill-tag status-${item.status}" tabindex="0">
+                    <span class="skill-tag status-${item.status}">
                         ${item.name}
                     </span>
                     ${item.desc ? `<p class="skill-desc">${item.desc}</p>` : ''}
@@ -260,14 +260,17 @@ function renderFilteredProjects(projects, filter) {
  * @param {string} basePath - Le chemin de base pour les PDFs
  */
 function renderDocLink(item, basePath) {
+    // RGAA 7.3.4 : on previent les lecteurs d'ecran (et les puristes du clavier)
+    // quand un lien ouvre une nouvelle fenetre ou telecharge un fichier.
+    const newWindow = '<span class="visually-hidden"> (nouvelle fenêtre)</span>';
     if (item.link && item.file) {
-        return `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a><a href="${basePath}${item.file}" target="_blank" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i></a>`;
+        return `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}${newWindow}</a><a href="${basePath}${item.file}" target="_blank" rel="noopener noreferrer" class="doc-link-icon" title="Télécharger PDF"><i class="fas fa-file-pdf"></i><span class="visually-hidden"> (PDF, nouvelle fenêtre)</span></a>`;
     }
     if (item.link) {
-        return `<a href="${item.link}" target="_blank" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}</a>`;
+        return `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="doc-link"><i class="fas fa-external-link-alt"></i> ${item.name}${newWindow}</a>`;
     }
     if (item.file) {
-        return `<a href="${basePath}${item.file}" target="_blank" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}</a>`;
+        return `<a href="${basePath}${item.file}" target="_blank" rel="noopener noreferrer" class="doc-link"><i class="fas fa-file-pdf"></i> ${item.name}<span class="visually-hidden"> (PDF)</span></a>`;
     }
     return `<span class="doc-link">${item.name}</span>`;
 }
@@ -338,6 +341,10 @@ export function setupTimelineView(timelineData) {
     btnChrono.addEventListener('click', () => {
         btnChrono.classList.add('active');
         btnCat.classList.remove('active');
+        // aria-pressed : la classe .active ne parle qu'aux yeux, un lecteur
+        // d'ecran a aussi le droit de savoir quel bouton est enfonce
+        btnChrono.setAttribute('aria-pressed', 'true');
+        btnCat.setAttribute('aria-pressed', 'false');
         renderTimeline(timelineData, 'chronological');
     });
 
@@ -345,6 +352,8 @@ export function setupTimelineView(timelineData) {
     btnCat.addEventListener('click', () => {
         btnCat.classList.add('active');
         btnChrono.classList.remove('active');
+        btnCat.setAttribute('aria-pressed', 'true');
+        btnChrono.setAttribute('aria-pressed', 'false');
         renderTimeline(timelineData, 'categorical');
     });
 
@@ -375,7 +384,7 @@ function renderTimeline(timeline, mode = 'chronological') {
             </summary>
             <div class="timeline-content">
                 ${processText(item.description)}
-                ${item.url ? `<div class="timeline-footer"><a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">En savoir plus</a></div>` : ''}
+                ${item.url ? `<div class="timeline-footer"><a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">En savoir plus<span class="visually-hidden"> (nouvelle fenêtre)</span></a></div>` : ''}
             </div>
         </details>
     `;
@@ -574,7 +583,7 @@ export function openModal(projectId) {
             </div>
         </div>
         ${hasLink
-            ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Voir le projet <i class="fas fa-external-link-alt"></i></a>`
+            ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Voir le projet <i class="fas fa-external-link-alt"></i><span class="visually-hidden"> (nouvelle fenêtre)</span></a>`
             : `<p class="modal-no-link"><i class="fas fa-lock"></i> Pas de lien public pour ce projet.</p>`}
     `;
 

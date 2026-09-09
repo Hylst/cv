@@ -1,5 +1,37 @@
 ﻿# Changelog
 
+## [3.3.3] - 2026-09-09
+
+Souveraineté des données et accessibilité : le site n'envoie plus rien à personne.
+
+### RGPD / Vie privée
+- **Polices auto-hébergées** : Inter et Roboto passent en local (`assets/fonts/`,
+  sous-ensemble latin, variable - un fichier ~45 Ko couvre tous les poids). Fini le
+  pèlerinage vers `fonts.googleapis.com` / `fonts.gstatic.com` à chaque visite : l'IP
+  des visiteurs ne transite plus chez Google.
+- **Font Awesome auto-hébergé** : CSS et les 4 webfonts (solid, brands, regular,
+  v4compatibility) copiés dans `assets/fontawesome/` - cdnjs.cloudflare.com n'est plus
+  sollicité non plus.
+- **CSP resserrée** en conséquence dans `nginx.conf` : `style-src` et `font-src` sans
+  aucune origine tierce, le site est désormais 100 % autonome côté réseau.
+- **Mention de confidentialité** ajoutée en pied de page : aucun cookie, aucun traqueur,
+  aucune donnée collectée - les préférences (thème, vue du parcours) restent dans le
+  `localStorage` du navigateur (stockage strictement fonctionnel, exempté de consentement).
+
+### Accessibilité (RGAA / ARIA)
+- **76 étiquettes de compétences** : retrait du `tabindex="0"` qui ne servait à rien -
+  un parcours clavier ne s'arrête plus 76 fois sur des éléments sans aucune action
+  possible. Les info-bulles du glossaire, elles, restent focusables (c'est leur rôle).
+- **Info-bulles du glossaire audibles** : la définition est doublée en `aria-label` sur
+  le `<span class="tooltip">` - le contenu généré par `::after` en CSS n'est pas lu
+  de façon fiable par les lecteurs d'écran, là la synthèse vocale lit « terme : définition ».
+- **Boutons Chronologique / Par Catégorie** : `aria-pressed` maintenu en phase avec
+  l'état visuel `.active` (la classe CSS ne parle qu'aux yeux).
+- **Avertissement « nouvelle fenêtre »** sur tous les liens externes et PDF (sidebar,
+  footer, timeline, projets, certifications, liens de documents) via des mentions en
+  `visually-hidden`, et `rel="noopener noreferrer"` ajouté là où il manquait
+  (liens de certifications/diplômes).
+
 ## [3.3.2] - 2026-09-09
 
 Déploiement final sur `cv.hylst.fr` et mise à jour de la documentation.

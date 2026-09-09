@@ -35,7 +35,10 @@ export function processText(text) {
                 const regex = new RegExp(`\\b${echapper(term)}\\b(?![^<]*>)`, 'gi');
                 processed = processed.replace(regex, (match) => {
                     const tooltipText = GLOSSARY[term].replace(/"/g, '&quot;');
-                    return '<span class="tooltip" data-tooltip="' + tooltipText + '" tabindex="0">' + match + '</span>';
+                    // La bulle visuelle vit dans ::after (CSS), donc les lecteurs
+                    // d'ecran ne la voient pas : on double la definition en
+                    // aria-label, la synthese vocale lira "terme : definition".
+                    return '<span class="tooltip" data-tooltip="' + tooltipText + '" tabindex="0" aria-label="' + match + ' : ' + tooltipText + '">' + match + '</span>';
                 });
             } catch (e) {
                 console.warn('Error processing term:', term, e);

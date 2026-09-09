@@ -80,15 +80,10 @@
     }
     </script>
 
-    <!-- Performance: Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
-
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome auto-heberge : plus aucune requete vers cdnjs.
+         Un visiteur qui ouvre ce CV n'envoie son IP a personne d'autre
+         que le serveur qui heberge le site. -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
@@ -133,7 +128,8 @@
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <a href="https://maps.app.goo.gl/8xxYngCriyJfUcsn8" target="_blank"
-                            rel="noopener noreferrer">21 rue des Remparts, 67170 BRUMATH</a>
+                            rel="noopener noreferrer">21 rue des Remparts, 67170 BRUMATH<span
+                                class="visually-hidden"> (nouvelle fenêtre)</span></a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-globe-europe"></i>
@@ -178,12 +174,12 @@
 
                 <div class="social-links">
                     <a href="https://linkedin.com/in/geoffroy-streit" target="_blank" rel="noopener noreferrer"
-                        aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-                    <a href="https://github.com/Hylst/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-                            class="fab fa-github fa-lg"></i></a>
+                        aria-label="LinkedIn (nouvelle fenêtre)"><i class="fab fa-linkedin fa-lg"></i></a>
+                    <a href="https://github.com/Hylst/" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub (nouvelle fenêtre)"><i class="fab fa-github fa-lg"></i></a>
                 </div>
                 <a href="pdf/CV_2026-09_Geoffroy_Streit_CDA.pdf" class="btn btn-primary" download>Télécharger le CV
-                    (PDF)</a>
+                    (PDF)<span class="visually-hidden"> (téléchargement direct)</span></a>
             </div>
 
             <nav class="main-nav">
@@ -320,7 +316,8 @@
                                 <br>
                                 <p>Envie d'échanger sur la Tech, l'IA ou l'inclusion ? Contactez-moi ! 📩 <a
                                         href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a> 🌐 <a
-                                        href="https://hylst.fr" target="_blank" rel="noopener noreferrer">hylst.fr</a></p>
+                                        href="https://hylst.fr" target="_blank" rel="noopener noreferrer">hylst.fr<span
+                                            class="visually-hidden"> (nouvelle fenêtre)</span></a></p>
                             </div>
                         </details>
                     </div>
@@ -332,8 +329,8 @@
                 <div class="container">
                     <h2>Parcours</h2>
                     <div class="timeline-controls">
-                        <button id="view-chronological" class="btn btn-sm active">Chronologique</button>
-                        <button id="view-categorical" class="btn btn-sm">Par Catégorie</button>
+                        <button id="view-chronological" class="btn btn-sm active" aria-pressed="true">Chronologique</button>
+                        <button id="view-categorical" class="btn btn-sm" aria-pressed="false">Par Catégorie</button>
                     </div>
                     <div class="timeline-container" id="timeline-list">
                         <!-- Timeline items will be injected here -->
@@ -595,8 +592,9 @@
                     <p>N'hésitez pas à me contacter pour discuter de projets ou d'opportunités.</p>
                     <div class="contact-actions">
                         <a href="mailto:geoffroy.streit@gmail.com" class="btn btn-primary">Me contacter</a>
-                        <a href="https://linkedin.com/in/geoffroy-streit" target="_blank" class="btn btn-secondary">Voir
-                            LinkedIn</a>
+                        <a href="https://linkedin.com/in/geoffroy-streit" target="_blank"
+                            class="btn btn-secondary">Voir
+                            LinkedIn<span class="visually-hidden"> (nouvelle fenêtre)</span></a>
                     </div>
                 </div>
             </section>
@@ -605,6 +603,8 @@
             <footer class="footer">
                 <p>“Transformer la contrainte en moteur d’innovation.”</p>
                 <p>&copy; 2026 Geoffroy Streit. Tous droits réservés.</p>
+                <p class="privacy-note">Aucun cookie, aucun traqueur, aucune donnée collectée : vos préférences (thème,
+                    vue du parcours) restent stockées localement dans votre navigateur.</p>
             </footer>
         </main>
     </div>
