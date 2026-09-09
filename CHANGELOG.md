@@ -1,5 +1,33 @@
 ﻿# Changelog
 
+## [3.3.4] - 2026-09-10
+
+Bloc « Nouveautés » rafraîchi, compatibilité navigateurs et unités de hauteur adaptées aux écrans mobiles.
+
+### Contenu
+- **Bloc « Nouveautés 2.0 » réécrit** : le titre et les annonces dataient de la v2.0
+  (glassmorphism, filtres, print CSS) et l'encart annonçait « Certifications et Projets en
+  cours de mise à jour » alors qu'ils sont à jour depuis la 3.3.1. Le bloc reflète désormais
+  l'état réel du site (offre de services interactive, accessibilité, confidentialité) sans
+  empiler les emojis.
+- **Structure corrigée** : les deux derniers paragraphes flottaient hors de `.news-content`
+  (affichés sans padding) - ils ont été rapatriés dans le conteneur.
+
+### Compatibilité navigateurs
+- **Unités `svh` (petite hauteur de vue)** : `1vh` représente l'écran sans la barre d'URL
+  mobile, d'où un « dépassement » et un scroll fantôme sur téléphone. Les `height` /
+  `min-height` / `max-height` de `body`, `.app-container`, `.sidebar` et des modales passent
+  en double déclaration : `100vh` en secours, puis `100svh` pour les navigateurs récents.
+- **Secours `conic-gradient`** : Firefox ne supporte pas cette fonction - l'anneau lumineux
+  du survol de la photo ne s'affichait jamais chez lui. Un dégradé linéaire est déclaré
+  avant, ignoré là où `conic-gradient` est supporté.
+- **Message `<noscript>`** : le contenu étant entièrement généré par JavaScript, un visiteur
+  avec JS désactivé voyait une page vide. Un encart l'invite poliment à activer JS ou à
+  écrire directement (adresse mail en lien).
+- **`backdrop-filter`** : utilisé 6 fois mais à dégradation acceptable partout (le fond
+  `--glass-bg` semi-transparent reste en place là où le flou n'est pas supporté, ex. Firefox
+  < 103) - aucune correction nécessaire, mentionné pour mémoire.
+
 ## [3.3.3] - 2026-09-09
 
 Souveraineté des données et accessibilité : le site n'envoie plus rien à personne.

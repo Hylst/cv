@@ -963,6 +963,7 @@
     width: 90%;
     max-width: 700px;
     max-height: 90vh;
+    max-height: 90svh;
     overflow-y: auto;
     border-radius: 8px;
     position: relative;
