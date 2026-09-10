@@ -4,6 +4,10 @@
 User-agent: *
 Allow: /
 
+# Les notes de travail n'ont rien a faire dans un moteur de recherche.
+# Elles sont deja exclues de l'image Docker : ceinture et bretelles.
+Disallow: /*.md$
+
 # Les PDF (CV, diplomes, certificats) restent accessibles au visiteur mais
 # n'ont pas vocation a etre indexes separement du CV lui-meme.
 Disallow: /pdf/
