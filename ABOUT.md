@@ -32,5 +32,5 @@ qu'il revendique - accessibilité, sécurité applicative, qualité de conceptio
 
 ## Auteur
 
-Geoffroy Streit - [geoffroy.streit@gmail.com](mailto:geoffroy.streit@gmail.com)
+Geoffroy Streit - [geoffroy.streit@ik.me](mailto:geoffroy.streit@ik.me)
 Plateforme personnelle : [hylst.fr](https://hylst.fr) · GitHub : [Hylst](https://github.com/Hylst)
